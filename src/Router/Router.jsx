@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import Home from "../Components/Home";
 import Dashboard from "../Dashboard/Dashboard";
 import Pay from "../Components/Pay";
+import NotificationPage from "../Pages/NotificationPage";
 export const router = createBrowserRouter([
   {
     path: "/home",
@@ -16,7 +17,12 @@ export const router = createBrowserRouter([
          path:"pay",
          Component:Pay
    
-        }
+        },
+        {
+         path:"notificationpage",
+         Component:NotificationPage
+   
+        },
     ]
   }
 ]);

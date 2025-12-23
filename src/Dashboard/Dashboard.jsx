@@ -1,5 +1,5 @@
 import { Bell, Search, RefreshCcw, ShieldCheck } from 'lucide-react';
-import { NavLink, Outlet, useLocation } from 'react-router';
+import { Link, NavLink, Outlet, useLocation } from 'react-router';
 import logo from '../assets/Logo.png'
 import {
     AreaChart,
@@ -207,9 +207,11 @@ export default function Dashboard() {
                         </div>
 
 
+                        <Link to="/dashboard/notificationpage">
+                         <Bell size={20} />
 
-                        <Bell size={20} />
-
+                        </Link>
+                       
                         <div className="flex items-center gap-2">
                             <img
                                 className="w-10 h-10 rounded-full"
@@ -230,7 +232,7 @@ export default function Dashboard() {
                             <span className='text-[#333333]'>Aug 1, 2025 - Oct 31, 2025</span>
                         </div>
 
-                        <button className="flex items-center gap-1 ml-6 px-3  bg-[#FFFFFF] hover:bg-[#FFFFFF] rounded-lg text-sm transition p-3">
+                        <button className="flex items-center gap-1 ml-6 px-3  bg-[#FFFFFF] hover:bg-[#FFFFFF] rounded-lg text-sm transition p-3 cursor-pointer">
                             <RefreshCcw size={20} color='#333333' />
                             <span>Refresh</span>
                         </button>
@@ -406,7 +408,7 @@ export default function Dashboard() {
                                             </div>
                                         </div>
 
-                                        <button className="mt-2 bg-[#035F75] text-white px-4 rounded-full text-nd">
+                                        <button className="mt-2 bg-[#035F75] text-white px-4 rounded-full text-nd cursor-pointer">
                                             Review
                                         </button>
                                     </div>
@@ -428,7 +430,7 @@ export default function Dashboard() {
                                                 </p>
                                             </div>
                                         </div>
-                                        <button className="mt-2 bg-[#F34F4F] text-white px-4 rounded-full text-md">
+                                        <button className="mt-2 bg-[#F34F4F] text-white px-4 rounded-full text-md cursor-pointer">
                                             Investigate
                                         </button>
                                     </div>
@@ -441,7 +443,7 @@ export default function Dashboard() {
                                         Recent Payment History
                                     </h3>
 
-                                    <button className="text-sm font-medium text-teal-600 hover:underline">
+                                    <button className="text-sm font-medium text-teal-600 hover:underline cursor-pointer">
                                         See all
                                     </button>
                                 </div>
@@ -479,7 +481,7 @@ export default function Dashboard() {
                     )}
 
                     {!isDashboardHome && (
-                        <div className="bg-white p-6 rounded-xl shadow-sm">
+                        <div className="">
                             <Outlet />
                         </div>
                     )}
