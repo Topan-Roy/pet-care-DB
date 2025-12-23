@@ -2,13 +2,14 @@ import { Bell, Search, RefreshCcw, ShieldCheck } from 'lucide-react';
 import { NavLink, Outlet, useLocation } from 'react-router';
 import logo from '../assets/Logo.png'
 import {
-    LineChart,
-    Line,
+    AreaChart,
+    Area,
     XAxis,
     YAxis,
     Tooltip,
     ResponsiveContainer,
-} from 'recharts';
+} from "recharts";
+
 import {
     LayoutDashboard,
     CreditCard,
@@ -26,13 +27,14 @@ import {
     TrendingUp,
     CalendarDays,
 } from 'lucide-react';
-const chartData = [
-    { month: 'May', value: 220 },
-    { month: 'Jun', value: 160 },
-    { month: 'Jul', value: 180 },
-    { month: 'Aug', value: 240 },
-    { month: 'Sep', value: 210 },
-    { month: 'Oct', value: 260 },
+import { MdOutlineReportGmailerrorred } from 'react-icons/md';
+const data = [
+    { month: "May", value: 300000 },
+    { month: "Jun", value: 140000 },
+    { month: "Jul", value: 170000 },
+    { month: "Aug", value: 230000 },
+    { month: "Sep", value: 210000 },
+    { month: "Oct", value: 240000 },
 ];
 
 export default function Dashboard() {
@@ -71,39 +73,52 @@ export default function Dashboard() {
             icon: Grid3X3,
         },
     ];
-    const dashboardCards = [
+
+    const paymentHistory = [
         {
             id: 1,
-            title: 'Pet Owners',
-            value: '12,54,286',
-            icon: Users,
-            bg: 'bg-teal-50',
-            color: 'text-teal-600',
+            date: "21/03/2025",
+            transactionId: "93451",
+            petOwner: "Guy Hawkins",
+            petSitter: "Kristin Watson",
+            amount: "$900",
+            received: "$855",
         },
         {
             id: 2,
-            title: 'Total Bookings',
-            value: '1526',
-            icon: CalendarCheck,
-            bg: 'bg-blue-50',
-            color: 'text-blue-600',
+            date: "20/03/2025",
+            transactionId: "93452",
+            petOwner: "Savannah Nguyen",
+            petSitter: "Cody Fisher",
+            amount: "$700",
+            received: "$665",
         },
         {
             id: 3,
-            title: 'Active Sitters',
-            value: '1526',
-            icon: UserCheck,
-            bg: 'bg-purple-50',
-            color: 'text-purple-600',
+            date: "19/03/2025",
+            transactionId: "93453",
+            petOwner: "Eleanor Pena",
+            petSitter: "Jane Cooper",
+            amount: "$500",
+            received: "$475",
         },
         {
             id: 4,
-            title: 'Total Revenue',
-            value: '$12,526',
-            icon: DollarSign,
-            bg: 'bg-green-50',
-            color: 'text-green-600',
+            date: "18/03/2025",
+            transactionId: "93454",
+            petOwner: "Robert Fox",
+            petSitter: "Wade Warren",
+            amount: "$1200",
+            received: "$1140",
         },
+    ];
+    const tableHeaders = [
+        { key: "date", label: "Date" },
+        { key: "transactionId", label: "Transaction ID" },
+        { key: "petOwner", label: "Pet Owner" },
+        { key: "petSitter", label: "Pet Sitter" },
+        { key: "amount", label: "Amount" },
+        { key: "received", label: "Received" },
     ];
 
     return (
@@ -111,10 +126,10 @@ export default function Dashboard() {
             {/* ================= SIDEBAR ================= */}
             <aside className="w-64 bg-[#FFFFFF] border-r border-[#E3E6F0]  py-6">
 
-                <div className="flex justify-center  mt-5 p-1 border-b border-[#E3E6F0]">
+                <div className="flex justify-center  mt-3 p-1 border-b border-[#E3E6F0]">
                     <img src={logo} alt="Logo" className="w-30 h-auto" />
                 </div>
-                <p className='font-semibold text-sm text-[#666666] mt-5 mb-3 px-5'>menu</p>
+                <p className='font-semibold text-sm text-[#666666] mt-5 mb-3 px-5'>Menu</p>
                 <ul className="space-y-2 px-5">
                     {menus.map((item) => {
                         const Icon = item.icon;
@@ -140,7 +155,7 @@ export default function Dashboard() {
 
 
                 <div className="mt-10 px-5">
-                    <p className='font-semibold text-sm text-[#666666]  mb-3'>other</p>
+                    <p className='font-semibold text-sm text-[#666666]  mb-3'>Other</p>
                     <NavLink
                         to="/dashboard/report"
                         className={({ isActive }) =>
@@ -167,7 +182,7 @@ export default function Dashboard() {
                         <span>Setting</span>
                     </NavLink>
 
-                    <button className="flex items-center gap-3 w-full px-4 py-2 text-red-500 hover:bg-red-50 rounded-lg transition">
+                    <button className="flex items-center gap-3 w-full px-4 py-2 text-[#F34F4F] hover:bg-red-50  transition mt-15 border-t border-[#EBEBEB]">
                         <LogOut size={18} />
                         <span>Log Out</span>
                     </button>
@@ -175,11 +190,11 @@ export default function Dashboard() {
 
             </aside>
 
-            {/* ================= MAIN ================= */}
+
             <main className="flex-1 ">
 
                 {/* -------- TOP BAR (always) -------- */}
-                <div className="flex justify-between items-center border-b border-[#E3E6F0]  p-6 bg-[#FFFFFF]">
+                <div className="flex justify-between items-center border-b border-[#E3E6F0]  p-5 bg-[#FFFFFF]">
                     <h2 className="text-xl text-[#333333] font-semibold">Dashboard</h2>
 
                     <div className="flex items-center gap-4">
@@ -209,122 +224,260 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="p-5">
-                    <div className="flex items-center justify-between px-2 py-3  ">
-                        {/* Date Range */}
+                    <div className="flex items-center justify-between px-1 py-3  ">
                         <div className="flex items-center gap-2 px-15 p-3 bg-[#FFFFFF]  text-gray-600 text-sm rounded-2xl">
                             <CalendarDays size={18} className="text-teal-600" />
                             <span className='text-[#333333]'>Aug 1, 2025 - Oct 31, 2025</span>
                         </div>
 
-                        {/* Refresh Button */}
                         <button className="flex items-center gap-1 ml-6 px-3  bg-[#FFFFFF] hover:bg-[#FFFFFF] rounded-lg text-sm transition p-3">
-                            <RefreshCcw size={16} />
+                            <RefreshCcw size={20} color='#333333' />
                             <span>Refresh</span>
                         </button>
                     </div>
 
                     {/* -------- DASHBOARD CARDS (always) -------- */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                        {dashboardCards.map((card) => {
-                            const Icon = card.icon;
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-6">
 
-                            return (
-                                <div
-                                    key={card.id}
-                                    className="bg-[#FFFFFF]  p-10 rounded-xl shadow-sm"
-                                >
-                                    {/* Title + Icon */}
-                                    <div className="flex items-center gap-2 text-gray-500 text-sm">
-                                        <Icon size={16} className={card.color} />
-                                        <span className='text-[#333333] text-md'>{card.title}</span>
-                                    </div>
+                        {/* Card 1 */}
+                        <div className="bg-white p-10 rounded-xl shadow-sm">
+                            <div className="flex items-center gap-2 text-sm">
+                                <Users size={20} className=" " />
+                                <span className="text-[#333333] text-xl">Pet Owners</span>
+                            </div>
 
-                                    <div className="flex flex-col">
-                                        {/* Value + Growth in one flex row */}
-                                        <div className="flex items-center justify-between mt-2">
-                                            <h3 className="text-2xl text-[#333333] font-bold">{card.value}</h3>
-                                            <div className="flex items-center gap-1 text-green-500 text-sm -mb-15">
-                                                <TrendingUp size={16} />
-                                                <span className=''>+11.01%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                            <div className="flex items-center justify-between mt-2">
+                                <h3 className="text-2xl font-bold text-[#333333]">12,54,286</h3>
+                                <div className="flex items-center gap-1 text-green-500 text-sm -mb-10">
+                                    <TrendingUp size={20} />
+                                    <span>+11.01%</span>
                                 </div>
-                            );
-                        })}
+                            </div>
+                        </div>
+
+                        {/* Card 2 */}
+                        <div className="bg-white p-10 rounded-xl shadow-sm">
+                            <div className="flex items-center gap-2 text-sm">
+                                <CalendarCheck size={20} className="" />
+                                <span className="text-[#333333] text-xl">Total Bookings</span>
+                            </div>
+
+                            <div className="flex items-center justify-between mt-2">
+                                <h3 className="text-2xl font-bold text-[#333333]">1526</h3>
+                                <div className="flex items-center gap-1 text-green-500 text-sm -mb-10">
+                                    <TrendingUp size={20} />
+                                    <span>+11.01%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 3 */}
+                        <div className="bg-white p-10 rounded-xl shadow-sm">
+                            <div className="flex items-center gap-2 text-sm">
+                                <UserCheck size={20} className="" />
+                                <span className="text-[#333333] text-xl">Active Sitters</span>
+                            </div>
+
+                            <div className="flex items-center justify-between mt-2">
+                                <h3 className="text-2xl font-bold text-[#333333]">1526</h3>
+                                <div className="flex items-center gap-1 text-green-500 text-sm -mb-10">
+                                    <TrendingUp size={20} />
+                                    <span>+11.01%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 4 */}
+                        <div className="bg-white p-10 rounded-xl shadow-sm">
+                            <div className="flex items-center gap-2 text-sm">
+                                <svg
+                                    width="25"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M7 17.5c.5 0 1 0 1.5-.5.5-.5.5-1.5.5-2.5V4c0-1.1.9-2 2-2h4a5 5 0 0 1 0 10h-4" />
+                                    <path d="M10 21c.5 0 1 0 1.5-.5.5-.5.5-1.5.5-2.5V10c0-1.1.9-2 2-2h4a5 5 0 0 1 0 10h-4" />
+                                </svg>
+                                <span className="text-[#333333] text-xl">Total Revenue</span>
+                            </div>
+
+                            <div className="flex items-center justify-between mt-2">
+                                <h3 className="text-2xl font-bold text-[#333333]">$12,526</h3>
+                                <div className="flex items-center gap-1 text-green-500 text-sm -mb-10">
+                                    <TrendingUp size={20} />
+                                    <span>+11.01%</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
 
 
                     {/* -------- ONLY DASHBOARD HOME -------- */}
                     {isDashboardHome && (
                         <>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div className="md:col-span-2 bg-white p-5 rounded-xl shadow-sm">
-                                    <h3 className="font-semibold mb-3">Earning Summary</h3>
-                                    <div className="h-48">
+                                <div className="md:col-span-2 bg-[#FFFFFF] p-5 rounded-xl shadow-sm ">
+                                    <div className="flex justify-between items-center mb-6">
+                                        <div className="flex items-center gap-3">
+                                            <h2 className="text-lg font-semibold text-gray-800">
+                                                Earning Summary
+                                            </h2>
+
+                                            <div className="flex items-center gap-2">
+                                                <p className="text-sm text-gray-400">
+                                                    May 2022 - Oct 2022
+                                                </p>
+
+                                                <select className="text-sm text-gray-500 bg-transparent outline-none cursor-pointer">
+                                                    <option></option>
+                                                    <option></option>
+                                                    <option></option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div className="flex items-center gap-2 text-sm text-gray-500">
+                                            <span className="w-2 h-2 rounded-full bg-teal-700"></span>
+                                            Last 6 months
+                                        </div>
+                                    </div>
+
+                                    {/* Chart */}
+                                    <div className="w-full h-64">
                                         <ResponsiveContainer width="100%" height="100%">
-                                            <LineChart data={chartData}>
-                                                <XAxis dataKey="month" />
-                                                <YAxis />
-                                                <Tooltip />
-                                                <Line dataKey="value" strokeWidth={3} />
-                                            </LineChart>
+                                            <AreaChart data={data}>
+                                                <defs>
+                                                    <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                                                        <stop offset="0%" stopColor="#0f766e" stopOpacity={0.3} />
+                                                        <stop offset="100%" stopColor="#0f766e" stopOpacity={0} />
+                                                    </linearGradient>
+                                                </defs>
+
+                                                <XAxis
+                                                    dataKey="month"
+                                                    axisLine={false}
+                                                    tickLine={false}
+                                                    tick={{ fill: "#9ca3af", fontSize: 12 }}
+                                                />
+                                                <YAxis
+                                                    axisLine={false}
+                                                    tickLine={false}
+                                                    tick={{ fill: "#9ca3af", fontSize: 12 }}
+                                                    tickFormatter={(v) => `$${v / 1000}k`}
+                                                />
+                                                <Tooltip
+                                                    formatter={(value) => `$${value.toLocaleString()}`}
+                                                />
+
+                                                <Area
+                                                    type="monotone"
+                                                    dataKey="value"
+                                                    stroke="#0f766e"
+                                                    strokeWidth={2}
+                                                    fill="url(#colorValue)"
+                                                />
+                                            </AreaChart>
                                         </ResponsiveContainer>
                                     </div>
                                 </div>
 
                                 <div className="space-y-4  bg-[#FFFFFF] rounded-xl shadow-sm p-8">
-                                    <p className='font-medium text-xl text-[#1F2937]'>Pending Actions</p>
-                                    <div className="flex justify-between bg-blue-50 p-4 rounded-xl">
-                                        <div className="flex">
-                                              <ShieldCheck/>
-                                              <div className="">
-                                                 <p className="font-semibold">Verification</p> 
-                                        <p className="text-sm text-gray-500">
-                                            12 Pet Sitter awaiting verification
-                                        </p>
-                                              </div>
-                                           
+                                    <p className='font-semibold text-xl text-[#1F2937]'>Pending Actions</p>
+                                    <div className="flex justify-between bg-[#1BB6DB42] p-8 rounded-xl">
+                                        <div className="flex items-start gap-3">
+
+                                            <div className="bg-white p-2 rounded-full shadow-sm">
+                                                <ShieldCheck size={18} className="text-teal-600" />
+                                            </div>
+                                            <div>
+                                                <p className="font-medium text-[#1F2937] mb-2 text-md">Verification</p>
+                                                <p className="text-sm text-gray-500">
+                                                    12 Pet Sitter awaiting verification
+                                                </p>
+                                            </div>
                                         </div>
-                                        <button className="mt-2 bg-teal-600 text-white px-4 py-1 rounded-full text-sm">
+
+                                        <button className="mt-2 bg-[#035F75] text-white px-4 rounded-full text-nd">
                                             Review
                                         </button>
                                     </div>
 
-                                    <div className="flex justify-between bg-red-50 p-4 rounded-xl">
-                                       <div className="">
-                                         <p className="font-semibold">Reports</p>
-                                        <p className="text-sm text-gray-500">5 new report</p>
-                                       </div>
-                                        <button className="mt-2 bg-red-500 text-white px-4 py-1 rounded-full text-sm">
+                                    <div className="flex justify-between bg-[#FCD9D9] p-8 rounded-xl">
+                                        <div className="flex items-start gap-3">
+
+                                            <div className="bg-white p-2 rounded-full shadow-sm">
+                                                <MdOutlineReportGmailerrorred size={24} className="text-red-500" />
+                                            </div>
+
+
+                                            <div>
+                                                <p className="font-medium text-[#1F2937] mb-2 text-md">
+                                                    Reports
+                                                </p>
+                                                <p className="text-sm text-gray-500">
+                                                    5 new report
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <button className="mt-2 bg-[#F34F4F] text-white px-4 rounded-full text-md">
                                             Investigate
                                         </button>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="bg-white mt-6 p-5 rounded-xl shadow-sm">
-                                <h3 className="font-semibold mb-4">Recent Payment History</h3>
+                            <div className="bg-[#FFFFFF] mt-6 p-5 rounded-xl shadow-sm">
+                                <div className="flex items-center justify-between mb-4">
+                                    <h3 className="font-semibold text-xl text-[#11293A]">
+                                        Recent Payment History
+                                    </h3>
+
+                                    <button className="text-sm font-medium text-teal-600 hover:underline">
+                                        See all
+                                    </button>
+                                </div>
+
                                 <table className="w-full text-sm">
+                                    <thead>
+                                        <tr className=" shadow rounded bg-[#9999990D] text-[#333333]">
+                                            {tableHeaders.map((header) => (
+                                                <th
+                                                    key={header.key}
+                                                    className="text-left px-5 py-3 font-medium"
+                                                >
+                                                    {header.label}
+                                                </th>
+                                            ))}
+                                        </tr>
+                                    </thead>
+
+                                    {/* TABLE BODY */}
                                     <tbody>
-                                        {[1, 2, 3, 4].map((i) => (
-                                            <tr key={i} className="border-b">
-                                                <td className="py-2">21/03/2025</td>
-                                                <td>93451</td>
-                                                <td>Guy Hawkins</td>
-                                                <td>Kristin Watson</td>
-                                                <td>$900</td>
-                                                <td>$855</td>
+                                        {paymentHistory.map((row) => (
+                                            <tr key={row.id} className="border-b border-[#EBEBEB] last:border-none text-[#333333]">
+                                                {tableHeaders.map((header) => (
+                                                    <td key={header.key} className="py-3">
+                                                        {row[header.key]}
+                                                    </td>
+                                                ))}
                                             </tr>
                                         ))}
                                     </tbody>
                                 </table>
                             </div>
+
                         </>
                     )}
 
-                    {/* -------- OTHER PAGES -------- */}
                     {!isDashboardHome && (
                         <div className="bg-white p-6 rounded-xl shadow-sm">
                             <Outlet />
