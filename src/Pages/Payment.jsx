@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { CreditCard, Download, Mail, MapPin, PrinterCheck, Search, User } from "lucide-react";
-
 const paymentHistoryData = [
   {
     id: 1,
@@ -39,9 +38,7 @@ const paymentHistoryData = [
     received: "$1140",
   },
 ];
-
 const ROWS_OPTIONS = [5, 10, 15];
-
 export default function Payment() {
   const [search, setSearch] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -80,40 +77,48 @@ export default function Payment() {
             />
           </div>
         </div>
-        <div className="overflow-hidden rounded  border-gray-200">
+        <div className="overflow-hidden rounded ">
           <table className="w-full text-md text-left border-collapse">
+            {/* Table Header */}
             <thead>
               <tr className="bg-gray-100 text-[#333333]">
-                <th className="px-4 py-3 font-medium">Date</th>
-                <th className="px-4 py-3 font-medium">Transaction ID</th>
-                <th className="px-4 py-3 font-medium">Pet Sitter</th>
-                <th className="px-4 py-3 font-medium">Pet Owners</th>
-                <th className="px-4 py-3 font-medium">Amount</th>
-                <th className="px-4 py-3 font-medium">Received</th>
+                <th className="px-2 py-1 font-medium w-1/6">Date</th>
+                <th className="px-2 py-1 font-medium w-1/6">Transaction ID</th>
+                <th className="px-2 py-1 font-medium w-1/6">Pet Sitter</th>
+                <th className="px-2 py-1 font-medium w-1/6">Pet Owners</th>
+                <th className="px-2 py-1 font-medium w-1/6">Amount</th>
+                <th className="px-2 py-1 font-medium w-1/6">Received</th>
               </tr>
             </thead>
             <tbody>
+              <tr className="h-2"></tr> 
               {currentRows.map((row) => (
-                <tr
-                  key={row.id}
-                  onClick={() => {
-                    setSelectedRow(row);
-                    setIsModalOpen(true);
-                  }}
-                  className="bg-white border-b rounded-xl  border-[#EBEBEB] text-[#333333] hover:bg-[#035F750F] cursor-pointer"
-                >
-                  <td className="px-4 py-2">{row.date}</td>
-                  <td className="px-4 py-2">{row.transactionId}</td>
-                  <td className="px-4 py-2">{row.petSitter}</td>
-                  <td className="px-4 py-2">{row.petOwner}</td>
-                  <td className="px-4 py-2">{row.amount}</td>
-                  <td className="px-4 py-2">{row.received}</td>
+                <tr key={row.id} className="bg-transparent">
+                  <td colSpan={6}>
+                    <div
+                      onClick={() => {
+                        setSelectedRow(row);
+                        setIsModalOpen(true);
+                      }}
+                      className={`
+          flex justify-between items-center rounded cursor-pointer border-b border-[#EBEBEB] p-1 transition
+          ${selectedRow?.id === row.id ? 'bg-[#EAF2F4]' : 'bg-white hover:bg-[#035F750F]'}
+        `}
+                    >
+                      <span className="w-1/6 px-1 py-0.5">{row.date}</span>
+                      <span className="w-1/6 px-1 py-0.5">{row.transactionId}</span>
+                      <span className="w-1/6 px-1 py-0.5">{row.petSitter}</span>
+                      <span className="w-1/6 px-1 py-0.5">{row.petOwner}</span>
+                      <span className="w-1/6 px-1 py-0.5">{row.amount}</span>
+                      <span className="w-1/6 px-1 py-0.5">{row.received}</span>
+                    </div>
+                  </td>
                 </tr>
               ))}
+
             </tbody>
           </table>
         </div>
-
         {/* Pagination */}
         <div className="flex justify-end gap-10 items-center mt-4">
           <div className="flex items-center gap-2">
@@ -274,7 +279,7 @@ export default function Payment() {
                 <Download /> Download PDF
               </button>
               <button className="flex-1 bg-[#024B5E] text-white rounded-lg py-2 text-[16px] flex items-center justify-center gap-2">
-                  <PrinterCheck /> Print Receipt
+                <PrinterCheck /> Print Receipt
               </button>
             </div>
           </div>
