@@ -2,9 +2,10 @@ import { createBrowserRouter } from "react-router";
 
 import Home from "../Components/Home";
 import Dashboard from "../Dashboard/Dashboard";
-import Pay from "../Components/Pay";
+
 import NotificationPage from "../Pages/NotificationPage";
 import Petowner from "../Pages/Petowner";
+import Payment from "../Pages/Payment";
 export const router = createBrowserRouter([
   {
     path: "/home",
@@ -15,8 +16,8 @@ export const router = createBrowserRouter([
     Component:Dashboard,
     children:[
         {
-         path:"pay",
-         Component:Pay
+         path:"payment",
+         Component:Payment
    
         },
         {

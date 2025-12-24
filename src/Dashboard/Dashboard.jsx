@@ -8,9 +8,10 @@ const data = [
     { month: "May", value: 300000 },
     { month: "Jun", value: 140000 },
     { month: "Jul", value: 170000 },
-    { month: "Aug", value: 230000 },
+    { month: "Aug", value: 220000 },
     { month: "Sep", value: 210000 },
     { month: "Oct", value: 240000 },
+    { month: "Nov", value: 260000 },
 ];
 export default function Dashboard() {
     const { pathname } = useLocation();
@@ -29,7 +30,7 @@ export default function Dashboard() {
         },
         {
             name: 'Payment',
-            path: '/dashboard/pay',
+            path: '/dashboard/payment',
             icon: CreditCard,
         },
         {
@@ -373,7 +374,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div className="bg-[#FFFFFF] mt-6 p-5 rounded-xl shadow-sm">
                                 <div className="flex items-center justify-between mb-4">
                                     <h3 className="font-semibold text-xl text-[#11293A]">

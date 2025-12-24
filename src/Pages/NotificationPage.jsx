@@ -33,13 +33,23 @@ export default function NotificationPage() {
             <div className="flex gap-4 mb-6">
                 <button
                     onClick={() => setActiveTab("system")}
-                    className={`px-5 py-3 rounded-xl text-sm font-medium border cursor-pointer border-gray-300 ${activeTab === "system" ? "font-bold bg-[#F8F4EF]" : "bg-transparent"}`}
+                    className={`px-5 py-3 rounded-xl text-md font-medium border cursor-pointer
+                      ${activeTab === "system"
+                            ? "font-bold bg-[#F8F4EF] text-[#000] border-[#024B5E]"
+                            : "bg-transparent text-[#585858] border-gray-300"
+                        }`}
+
                     style={activeTab === "system" ? { borderColor: "#024B5E" } : {}}>
                     System Notification
                 </button>
                 <button
                     onClick={() => setActiveTab("create")}
-                    className={`px-5 py-2 rounded-xl text-sm font-medium border cursor-pointer border-gray-300 ${activeTab === "create" ? "font-bold bg-[#F8F4EF]" : "bg-transparent"}`}
+                    className={`px-5 py-3 rounded-xl text-md font-medium border cursor-pointer
+                    ${activeTab === "create"
+                            ? "font-bold bg-[#F8F4EF] text-[#000] border-[#024B5E]"
+                            : "bg-transparent text-[#585858] border-gray-300"
+                        }`}
+
                     style={activeTab === "create" ? { borderColor: "#024B5E" } : {}}>
                     Create Notification
                 </button>
@@ -63,12 +73,14 @@ function CreateNotificationForm() {
                 <input
                     type="text"
                     placeholder="Enter title"
-                    className="w-full mb-4 px-3 py-2 border rounded " />
+                    className="w-full mb-4 px-3 py-2 border rounded border-[#E3E6F0] focus:border-[#b1b4bd] focus:outline-none"
+                />
+
                 <label className="block mb-2 text-[#000000] font-medium">Message</label>
                 <textarea
                     placeholder="Write your notification message here..."
-                    className="w-full mb-4 px-3 py-2 border rounded "
-                    rows={4}/>
+                    className="w-full mb-4 px-3 py-2 border rounded border-[#E3E6F0] focus:border-[#b1b4bd] focus:outline-none "
+                    rows={4} />
                 <label className="block mb-2 text-gray-700 font-medium">Target Audience</label>
                 <div className="flex gap-6 mb-6 text-md text-[#024B5E]">
                     {["All Users", "Pet Owners Only", "Sitters Only"].map((audience) => (
@@ -79,7 +91,7 @@ function CreateNotificationForm() {
                                 value={audience}
                                 checked={targetAudience === audience}
                                 onChange={() => setTargetAudience(audience)}
-                                className="cursor-pointer"/>
+                                className="cursor-pointer" />
                             {audience}
                         </label>
                     ))}
