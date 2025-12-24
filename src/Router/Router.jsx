@@ -6,6 +6,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import NotificationPage from "../Pages/NotificationPage";
 import Petowner from "../Pages/Petowner";
 import Payment from "../Pages/Payment";
+import PetownerDelails from "../Pages/PetownerDelails";
 export const router = createBrowserRouter([
   {
     path: "/home",
@@ -18,17 +19,18 @@ export const router = createBrowserRouter([
         {
          path:"payment",
          Component:Payment
-   
         },
         {
          path:"notificationpage",
          Component:NotificationPage
-   
         },
         {
          path:"petowner",
          Component:Petowner
-   
+        },
+        {
+         path:"petownerdelails",
+         Component:PetownerDelails
         },
     ]
   }

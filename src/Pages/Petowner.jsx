@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Search, Eye, ChevronLeft, ChevronRight, ListFilter } from "lucide-react";
+import { Link } from "react-router";
 export default function Petowner() {
     const [search, setSearch] = useState("");
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -61,9 +62,12 @@ export default function Petowner() {
                                         <span className="w-3/12 text-[#333333]">{item.email}</span>
                                         <span className="w-2/12 text-[#333333]">{item.contact}</span>
                                         <span className="w-3/12 text-right">
-                                            <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333]">
+                                        <Link to='/dashboard/petownerdelails'>
+                                          <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
                                                 <Eye size={18} />
                                             </button>
+                                        </Link>
+                                          
                                         </span>
                                     </div>
                                 </td>

@@ -22,7 +22,7 @@ export default function Dashboard() {
     const NO_SUMMARY_PAGES = [
         "/dashboard/notificationpage",
         "/dashboard/petowner",
-        "/dashboard/another-page",
+        "/dashboard/petownerdelails",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
