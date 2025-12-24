@@ -4,6 +4,7 @@ import logo from '../assets/Logo.png'
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, } from "recharts";
 import { LayoutDashboard, CreditCard, User, Users, Tag, Grid3X3, FileText, Settings, LogOut, CalendarCheck, UserCheck, TrendingUp, CalendarDays, } from 'lucide-react';
 import { MdOutlineReportGmailerrorred } from 'react-icons/md';
+import { useState } from 'react';
 const data = [
     { month: "May", value: 300000 },
     { month: "Jun", value: 140000 },
@@ -14,6 +15,8 @@ const data = [
     { month: "Nov", value: 260000 },
 ];
 export default function Dashboard() {
+    const [isLogoutOpen, setIsLogoutOpen] = useState(false);
+
     const { pathname } = useLocation();
     const isDashboardHome = pathname === "/dashboard";
     const NO_SUMMARY_PAGES = [
@@ -152,10 +155,42 @@ export default function Dashboard() {
                         <Settings size={18} />
                         <span>Setting</span>
                     </NavLink>
-                    <button className="flex items-center gap-3 w-full px-4 py-2 text-[#F34F4F] hover:bg-red-50  transition mt-15 border-t border-[#EBEBEB]">
+                    <button
+                        onClick={() => setIsLogoutOpen(true)}
+                        className="flex items-center gap-3 w-full px-4 py-2 text-[#F34F4F] hover:bg-red-50 transition mt-15 border-t border-[#EBEBEB]"
+                    >
                         <LogOut size={18} />
                         <span>Log Out</span>
                     </button>
+                    {isLogoutOpen && (
+                        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+                            <div className="bg-white w-[360px] rounded-xl p-6 shadow-lg text-center">
+                                <h2 className="text-lg font-semibold text-[#024B5E] mb-3">
+                                    Log Out
+                                </h2>
+                                <p className="text-md text-[#666666] mb-6 leading-relaxed">
+                                    Are you sure <br /> you want to log out?
+                                </p>
+                                <div className="flex justify-center gap-4">
+                                    <button
+                                        onClick={() => setIsLogoutOpen(false)}
+                                        className="px-6 py-1.5 text-sm border border-[#024B5E] rounded-full text-gray-700 hover:bg-gray-100 transition"
+                                    >
+                                        No
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            console.log("Logged out");
+                                            setIsLogoutOpen(false);
+                                        }}
+                                        className="px-6 py-1.5 text-sm bg-[#024B5E] text-white rounded-full hover:bg-[#024B5E] transition"
+                                    >
+                                        Yes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </aside>
             <main className="flex-1 ">
