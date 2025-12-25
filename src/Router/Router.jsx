@@ -9,6 +9,8 @@ import Payment from "../Pages/Payment";
 import PetownerDelails from "../Pages/PetownerDelails";
 import PetSitter from "../Pages/PetSitter";
 import PetSitterDeleils from "../Pages/PetSitterDeleils";
+import PromoCode from "../Pages/PromoCode";
+import BasicSettings from "../Pages/PromoEdit/BasicSettings";
 export const router = createBrowserRouter([
   {
     path: "/home",
@@ -41,6 +43,14 @@ export const router = createBrowserRouter([
         {
          path:"petsitterdeleils",
          Component:PetSitterDeleils
+        },
+        {
+         path:"promocode",
+         Component:PromoCode
+        },
+        {
+         path:"basicsettings",
+         Component:BasicSettings
         },
     ]
   }

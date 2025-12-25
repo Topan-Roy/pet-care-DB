@@ -25,6 +25,8 @@ export default function Dashboard() {
         "/dashboard/petownerdelails",
         "/dashboard/petsitter",
         "/dashboard/petsitterdeleils",
+        "/dashboard/promocode",
+        "/dashboard/basicsettings",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
@@ -50,7 +52,7 @@ export default function Dashboard() {
         },
         {
             name: 'Promo Code',
-            path: '/dashboard/promo',
+            path: '/dashboard/promocode',
             icon: Tag,
         },
         {
