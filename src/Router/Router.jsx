@@ -11,6 +11,8 @@ import PetSitter from "../Pages/PetSitter";
 import PetSitterDeleils from "../Pages/PetSitterDeleils";
 import PromoCode from "../Pages/PromoCode";
 import BasicSettings from "../Pages/PromoEdit/BasicSettings";
+import AudienceTargeting from "../Pages/PromoEdit/AudienceTargeting";
+import ReviewDeploy from "../Pages/PromoEdit/ReviewDeploy";
 export const router = createBrowserRouter([
   {
     path: "/home",
@@ -51,6 +53,14 @@ export const router = createBrowserRouter([
         {
          path:"basicsettings",
          Component:BasicSettings
+        },
+        {
+         path:"audiencetargeting",
+         Component:AudienceTargeting
+        },
+        {
+         path:"reviewdeploy",
+         Component:ReviewDeploy
         },
     ]
   }

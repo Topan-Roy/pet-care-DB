@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router";
 
 export default function BasicSettings() {
     const [campaignName, setCampaignName] = useState("");
@@ -12,7 +13,7 @@ export default function BasicSettings() {
     const [usageLimit, setUsageLimit] = useState("max");
     const [maxUses, setMaxUses] = useState(1000);
     return (
-        <div className="bg-white p-6 rounded-xl shadow-md ">
+        <div className="bg-white p-6 rounded-xl shadow-md w-full max-w-md mx-auto">
             <h2 className="text-2xl text-[#11293A] font-semibold mb-4">Basic Settings</h2>
             <div className="mb-4">
                 <label className="block mb-1 text-md text-[#11293A]">Campaign Name</label>
@@ -167,9 +168,11 @@ export default function BasicSettings() {
                 <button className="px-6 py-2 rounded bg-[#ECF7FE] text-[#11293A] hover:bg-[#ECF7FE] cursor-pointer">
                     Cancel
                 </button>
+                <Link to="/dashboard/audiencetargeting">
                 <button className="px-6 py-2 rounded bg-[#024B5E] text-[#F9FAFB] cursor-pointer">
                     Next
                 </button>
+                </Link>
             </div>
         </div>
     );

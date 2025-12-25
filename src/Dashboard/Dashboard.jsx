@@ -27,6 +27,8 @@ export default function Dashboard() {
         "/dashboard/petsitterdeleils",
         "/dashboard/promocode",
         "/dashboard/basicsettings",
+        "/dashboard/audiencetargeting",
+        "/dashboard/reviewdeploy",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
