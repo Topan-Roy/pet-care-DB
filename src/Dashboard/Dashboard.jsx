@@ -18,48 +18,49 @@ export default function Dashboard() {
     const [isLogoutOpen, setIsLogoutOpen] = useState(false);
 
     const { pathname } = useLocation();
-    const isDashboardHome = pathname === "/dashboard";
+    const isDashboardHome = pathname === "/";
     const NO_SUMMARY_PAGES = [
-        "/dashboard/notificationpage",
-        "/dashboard/petowner",
-        "/dashboard/petownerdelails",
-        "/dashboard/petsitter",
-        "/dashboard/petsitterdeleils",
-        "/dashboard/promocode",
-        "/dashboard/basicsettings",
-        "/dashboard/audiencetargeting",
-        "/dashboard/reviewdeploy",
+        "/notificationpage",
+        "/petowner",
+        "/petownerdelails",
+        "/petsitter",
+        "/petsitterdeleils",
+        "/promocode",
+        "/basicsettings",
+        "/audiencetargeting",
+        "/reviewdeploy",
+        "/categories",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
         {
             name: 'Dashboard',
-            path: '/dashboard',
+            path: '/',
             icon: LayoutDashboard,
         },
         {
             name: 'Payment',
-            path: '/dashboard/payment',
+            path: '/payment',
             icon: CreditCard,
         },
         {
             name: 'Pet Owner',
-            path: '/dashboard/petowner',
+            path: '/petowner',
             icon: User,
         },
         {
             name: 'Pet Sitter',
-            path: '/dashboard/petsitter',
+            path: '/petsitter',
             icon: Users,
         },
         {
             name: 'Promo Code',
-            path: '/dashboard/promocode',
+            path: '/promocode',
             icon: Tag,
         },
         {
             name: 'Categories',
-            path: '/dashboard/categories',
+            path: '/categories',
             icon: Grid3X3,
         },
     ];
@@ -210,7 +211,7 @@ export default function Dashboard() {
                                 placeholder="Search"
                                 className="ml-2 outline-none text-sm" />
                         </div>
-                        <Link to="/dashboard/notificationpage">
+                        <Link to="/notificationpage">
                             <Bell size={20} />
                         </Link>
                         <div className="flex items-center gap-2">

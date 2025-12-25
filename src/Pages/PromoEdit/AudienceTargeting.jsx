@@ -106,7 +106,7 @@ const AudienceTargeting = () => {
                 >
                     Previous
                 </button>
-                <Link to="/dashboard/reviewdeploy">
+                <Link to="/reviewdeploy">
                 <button className="px-6 py-2 bg-[#024B5E] text-[#F9FAFB] rounded">
                     Next
                 </button>

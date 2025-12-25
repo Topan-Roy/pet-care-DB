@@ -168,7 +168,7 @@ export default function BasicSettings() {
                 <button className="px-6 py-2 rounded bg-[#ECF7FE] text-[#11293A] hover:bg-[#ECF7FE] cursor-pointer">
                     Cancel
                 </button>
-                <Link to="/dashboard/audiencetargeting">
+                <Link to="/audiencetargeting">
                 <button className="px-6 py-2 rounded bg-[#024B5E] text-[#F9FAFB] cursor-pointer">
                     Next
                 </button>

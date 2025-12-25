@@ -37,8 +37,152 @@ const paymentHistoryData = [
     amount: "$1200",
     received: "$1140",
   },
+  {
+    id: 1,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93451",
+    petSitter: "Guy Hawkins",
+    petOwner: "Kristin Watson",
+    amount: "$900",
+    received: "$855",
+  },
+  {
+    id: 2,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93452",
+    petSitter: "Savannah Nguyen",
+    petOwner: "Cody Fisher",
+    amount: "$700",
+    received: "$665",
+  },
+  {
+    id: 3,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93453",
+    petSitter: "Eleanor Pena",
+    petOwner: "Jane Cooper",
+    amount: "$500",
+    received: "$475",
+  },
+  {
+    id: 4,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93454",
+    petSitter: "Robert Fox",
+    petOwner: "Wade Warren",
+    amount: "$1200",
+    received: "$1140",
+  },
+  {
+    id: 1,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93451",
+    petSitter: "Guy Hawkins",
+    petOwner: "Kristin Watson",
+    amount: "$900",
+    received: "$855",
+  },
+  {
+    id: 2,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93452",
+    petSitter: "Savannah Nguyen",
+    petOwner: "Cody Fisher",
+    amount: "$700",
+    received: "$665",
+  },
+  {
+    id: 3,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93453",
+    petSitter: "Eleanor Pena",
+    petOwner: "Jane Cooper",
+    amount: "$500",
+    received: "$475",
+  },
+  {
+    id: 4,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93454",
+    petSitter: "Robert Fox",
+    petOwner: "Wade Warren",
+    amount: "$1200",
+    received: "$1140",
+  },
+  {
+    id: 1,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93451",
+    petSitter: "Guy Hawkins",
+    petOwner: "Kristin Watson",
+    amount: "$900",
+    received: "$855",
+  },
+  {
+    id: 2,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93452",
+    petSitter: "Savannah Nguyen",
+    petOwner: "Cody Fisher",
+    amount: "$700",
+    received: "$665",
+  },
+  {
+    id: 3,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93453",
+    petSitter: "Eleanor Pena",
+    petOwner: "Jane Cooper",
+    amount: "$500",
+    received: "$475",
+  },
+  {
+    id: 4,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93454",
+    petSitter: "Robert Fox",
+    petOwner: "Wade Warren",
+    amount: "$1200",
+    received: "$1140",
+  },
+  {
+    id: 1,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93451",
+    petSitter: "Guy Hawkins",
+    petOwner: "Kristin Watson",
+    amount: "$900",
+    received: "$855",
+  },
+  {
+    id: 2,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93452",
+    petSitter: "Savannah Nguyen",
+    petOwner: "Cody Fisher",
+    amount: "$700",
+    received: "$665",
+  },
+  {
+    id: 3,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93453",
+    petSitter: "Eleanor Pena",
+    petOwner: "Jane Cooper",
+    amount: "$500",
+    received: "$475",
+  },
+  {
+    id: 4,
+    date: "14:15:20 21/03/2025",
+    transactionId: "93454",
+    petSitter: "Robert Fox",
+    petOwner: "Wade Warren",
+    amount: "$1200",
+    received: "$1140",
+  },
 ];
-const ROWS_OPTIONS = [5, 10, 15];
+const ROWS_OPTIONS = [10, 15, 20];
 export default function Payment() {
   const [search, setSearch] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -77,10 +221,10 @@ export default function Payment() {
             />
           </div>
         </div>
-        <div className="overflow-hidden rounded ">
+        <div className="overflow-hidden rounded overflow-y-auto max-h-[400px]">
           <table className="w-full text-md text-left border-collapse">
             {/* Table Header */}
-            <thead>
+            <thead className="sticky top-0 z-20">
               <tr className="bg-gray-100 text-[#333333]">
                 <th className="px-2 py-1 font-medium w-1/6">Date</th>
                 <th className="px-2 py-1 font-medium w-1/6">Transaction ID</th>
@@ -120,48 +264,49 @@ export default function Payment() {
           </table>
         </div>
         {/* Pagination */}
-        <div className="flex justify-end gap-10 items-center mt-4">
-          <div className="flex items-center gap-2">
-            <span className="text-[#333333]">Rows Per Page:</span>
-            <select
-              value={rowsPerPage}
-              onChange={(e) => {
-                setRowsPerPage(Number(e.target.value));
-                setCurrentPage(1);
-              }}
-              className="border border-gray-300 rounded px-2 py-1 text-sm"
-            >
-              {ROWS_OPTIONS.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </select>
-          </div>
+         <div className="flex justify-end gap-10 items-center mt-4">
+    <div className="flex items-center gap-2">
+      <span className="text-[#333333]">Rows Per Page:</span>
+      <select
+        value={rowsPerPage}
+        onChange={(e) => {
+          setRowsPerPage(Number(e.target.value));
+          setCurrentPage(1);
+        }}
+        className="border border-gray-300 rounded px-2 py-1 text-sm"
+      >
+        {ROWS_OPTIONS.map((opt) => (
+          <option key={opt} value={opt}>
+            {opt}
+          </option>
+        ))}
+      </select>
+    </div>
 
-          <div className="flex items-center gap-2 text-sm">
-            <span className="text-[#333333]">
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-              disabled={currentPage === 1}
-              className="px-2 py-1  border rounded disabled:opacity-50 text-[#333333]"
-            >
-              &lt;
-            </button>
-            <button
-              onClick={() =>
-                setCurrentPage((p) => Math.min(p + 1, totalPages))
-              }
-              disabled={currentPage === totalPages}
-              className="px-2 py-1 text-[#333333] border rounded disabled:opacity-50"
-            >
-              &gt;
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="flex items-center gap-2 text-sm">
+      <span className="text-[#333333]">
+        Page {currentPage} of {totalPages}
+      </span>
+      <button
+        onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+        disabled={currentPage === 1}
+        className="px-2 py-1 border rounded disabled:opacity-50 text-[#333333]"
+      >
+        &lt;
+      </button>
+      <button
+        onClick={() =>
+          setCurrentPage((p) => Math.min(p + 1, totalPages))
+        }
+        disabled={currentPage === totalPages}
+        className="px-2 py-1 text-[#333333] border rounded disabled:opacity-50"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+</div>
+      
 
       {/* Modal */}
       {isModalOpen && selectedRow && (

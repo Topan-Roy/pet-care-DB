@@ -13,15 +13,17 @@ import PromoCode from "../Pages/PromoCode";
 import BasicSettings from "../Pages/PromoEdit/BasicSettings";
 import AudienceTargeting from "../Pages/PromoEdit/AudienceTargeting";
 import ReviewDeploy from "../Pages/PromoEdit/ReviewDeploy";
+import Categories from "../Pages/Categories";
 export const router = createBrowserRouter([
+ 
   {
-    path: "/home",
-   Component:Home
-  },
-  {
-    path:"/dashboard",
+    path:"/",
     Component:Dashboard,
     children:[
+      {
+           index: true,        
+        Component: Home,
+      },
         {
          path:"payment",
          Component:Payment
@@ -61,6 +63,10 @@ export const router = createBrowserRouter([
         {
          path:"reviewdeploy",
          Component:ReviewDeploy
+        },
+        {
+         path:"categories",
+         Component:Categories
         },
     ]
   }

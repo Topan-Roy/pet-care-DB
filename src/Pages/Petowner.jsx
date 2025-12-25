@@ -12,8 +12,48 @@ export default function Petowner() {
         { "id": 29508, "name": "Kristin Watson", "email": "kristin@email.com", "contact": "(239) 555-0111" },
         { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
         { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29506, "name": "Jerome Bell", "email": "jerome@email.com", "contact": "(239) 555-0109" },
+        { "id": 29507, "name": "Cameron Williamson", "email": "cameron@email.com", "contact": "(239) 555-0110" },
+        { "id": 29508, "name": "Kristin Watson", "email": "kristin@email.com", "contact": "(239) 555-0111" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29506, "name": "Jerome Bell", "email": "jerome@email.com", "contact": "(239) 555-0109" },
+        { "id": 29507, "name": "Cameron Williamson", "email": "cameron@email.com", "contact": "(239) 555-0110" },
+        { "id": 29508, "name": "Kristin Watson", "email": "kristin@email.com", "contact": "(239) 555-0111" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29506, "name": "Jerome Bell", "email": "jerome@email.com", "contact": "(239) 555-0109" },
+        { "id": 29507, "name": "Cameron Williamson", "email": "cameron@email.com", "contact": "(239) 555-0110" },
+        { "id": 29508, "name": "Kristin Watson", "email": "kristin@email.com", "contact": "(239) 555-0111" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29506, "name": "Jerome Bell", "email": "jerome@email.com", "contact": "(239) 555-0109" },
+        { "id": 29507, "name": "Cameron Williamson", "email": "cameron@email.com", "contact": "(239) 555-0110" },
+        { "id": 29508, "name": "Kristin Watson", "email": "kristin@email.com", "contact": "(239) 555-0111" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29506, "name": "Jerome Bell", "email": "jerome@email.com", "contact": "(239) 555-0109" },
+        { "id": 29507, "name": "Cameron Williamson", "email": "cameron@email.com", "contact": "(239) 555-0110" },
+        { "id": 29508, "name": "Kristin Watson", "email": "kristin@email.com", "contact": "(239) 555-0111" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29506, "name": "Jerome Bell", "email": "jerome@email.com", "contact": "(239) 555-0109" },
+        { "id": 29507, "name": "Cameron Williamson", "email": "cameron@email.com", "contact": "(239) 555-0110" },
+        { "id": 29508, "name": "Kristin Watson", "email": "kristin@email.com", "contact": "(239) 555-0111" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29506, "name": "Jerome Bell", "email": "jerome@email.com", "contact": "(239) 555-0109" },
+        { "id": 29507, "name": "Cameron Williamson", "email": "cameron@email.com", "contact": "(239) 555-0110" },
+        { "id": 29508, "name": "Kristin Watson", "email": "kristin@email.com", "contact": "(239) 555-0111" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
+        { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
     ];
-    const ROW_OPTIONS = [5, 10, 15];
+    const ROW_OPTIONS = [10, 15, 20];
     const filtered = DATA.filter(
         (item) =>
             item.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -35,14 +75,12 @@ export default function Petowner() {
                         className="outline-none text-sm w-full"
                     />
                 </div>
-                <div>
-                    <ListFilter size={16} />
-                </div>
             </div>
 
-            <div className="overflow-hidden rounded ">
+            {/* Scrollable Table */}
+            <div className="overflow-y-auto max-h-[650px] rounded border-[#EBEBEB]">
                 <table className="w-full text-md text-left border-collapse">
-                    <thead>
+                    <thead className="sticky top-0 z-20">
                         <tr className="bg-gray-100 text-[#333333]">
                             <th className="px-3 py-2 font-medium">ID</th>
                             <th className="px-10 py-2 font-medium">Pet Owners Name</th>
@@ -62,11 +100,11 @@ export default function Petowner() {
                                         <span className="w-3/12 text-[#333333]">{item.email}</span>
                                         <span className="w-2/12 text-[#333333]">{item.contact}</span>
                                         <span className="w-3/12 text-right">
-                                        <Link to='/dashboard/petownerdelails'>
-                                          <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
-                                                <Eye size={18} />
-                                            </button>
-                                        </Link>
+                                            <Link to='/petownerdelails'>
+                                                <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
+                                                    <Eye size={18} />
+                                                </button>
+                                            </Link>
                                         </span>
                                     </div>
                                 </td>
@@ -75,8 +113,9 @@ export default function Petowner() {
                     </tbody>
                 </table>
             </div>
-            {/* Pagination */}
-            <div className="flex justify-end gap-10 items-center mt-6 text-sm">
+
+            {/* Pagination (always below table) */}
+            <div className="flex justify-end gap-10 items-center mt-4 text-sm">
                 <div className="flex items-center gap-2">
                     <span>Rows Per Page</span>
                     <select
@@ -85,7 +124,7 @@ export default function Petowner() {
                             setRowsPerPage(Number(e.target.value));
                             setPage(1);
                         }}
-                        className="border border-[#EBEBEB] rounded-full px-3 py-1"
+                        className="border border-[#EBEBEB] rounded-full px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#EEEEEE]"
                     >
                         {ROW_OPTIONS.map((n) => (
                             <option key={n}>{n}</option>
@@ -114,5 +153,6 @@ export default function Petowner() {
                 </div>
             </div>
         </div>
+
     );
 }
