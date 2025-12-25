@@ -7,6 +7,8 @@ import NotificationPage from "../Pages/NotificationPage";
 import Petowner from "../Pages/Petowner";
 import Payment from "../Pages/Payment";
 import PetownerDelails from "../Pages/PetownerDelails";
+import PetSitter from "../Pages/PetSitter";
+import PetSitterDeleils from "../Pages/PetSitterDeleils";
 export const router = createBrowserRouter([
   {
     path: "/home",
@@ -31,6 +33,14 @@ export const router = createBrowserRouter([
         {
          path:"petownerdelails",
          Component:PetownerDelails
+        },
+        {
+         path:"petsitter",
+         Component:PetSitter
+        },
+        {
+         path:"petsitterdeleils",
+         Component:PetSitterDeleils
         },
     ]
   }

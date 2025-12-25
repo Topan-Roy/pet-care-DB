@@ -23,6 +23,8 @@ export default function Dashboard() {
         "/dashboard/notificationpage",
         "/dashboard/petowner",
         "/dashboard/petownerdelails",
+        "/dashboard/petsitter",
+        "/dashboard/petsitterdeleils",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
@@ -43,7 +45,7 @@ export default function Dashboard() {
         },
         {
             name: 'Pet Sitter',
-            path: '/dashboard/pet-sitter',
+            path: '/dashboard/petsitter',
             icon: Users,
         },
         {
