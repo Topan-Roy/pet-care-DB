@@ -160,7 +160,7 @@ const DATA = [
 export default function PromoCode() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalStep, setModalStep] = useState(1);
-
+    const [selectedCampaign, setSelectedCampaign] = useState(null);
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => {
         setIsModalOpen(false);
@@ -278,7 +278,10 @@ export default function PromoCode() {
                                         </span>
                                         <span className="w-[10%] text-right">
                                             {/* <Link to={`/campaign/${item.id}`}>   </Link> */}
-                                            <button className="p-2 rounded-full hover:bg-gray-200">
+                                            <button
+                                                className="p-2 rounded-full hover:bg-gray-200"
+                                                onClick={() => setSelectedCampaign(item)} // ✅ Eye button
+                                            >
                                                 <Eye size={18} />
                                             </button>
 
@@ -290,7 +293,56 @@ export default function PromoCode() {
                     </tbody>
                 </table>
             </div>
-
+            {selectedCampaign && (
+                <div
+                    className="fixed inset-0 bg-black/40 flex justify-center items-center z-50"
+                    onClick={() => setSelectedCampaign(null)}
+                >
+                    <div
+                        className="bg-white rounded-xl shadow-md p-6 max-w-3xl w-full relative"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            className="absolute top-4 right-4 text-gray-500"
+                            onClick={() => setSelectedCampaign(null)}
+                        >
+                            ✕
+                        </button>
+                        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                            Coupon
+                        </h2>
+                        <h3 className="text-lg font-medium text-gray-700 mb-6">
+                            Campaign Summary
+                        </h3>
+                        <div className="space-y-4">
+                            {[
+                                ["Campaign Name", selectedCampaign.campaignName],
+                                ["Coupon Code", selectedCampaign.id],
+                                ["Discount", "20% OFF"],
+                                ["Usage", `${selectedCampaign.uses}/${selectedCampaign.limit}`],
+                                ["Target Audience", selectedCampaign.targetAudience],
+                                ["Expiry", selectedCampaign.expiry || "No expiry"],
+                            ].map(([label, value], index) => (
+                                <div
+                                    key={index}
+                                    className="flex justify-between items-center border-b pb-2 text-gray-700"
+                                >
+                                    <span className="text-sm">{label}:</span>
+                                    <span className="text-sm font-medium">{value}</span>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="mt-6">
+                            <button
+                                className="px-5 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition"
+                                onClick={() => setSelectedCampaign(null)}
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
             {/* Pagination */}
             <div className="flex justify-end gap-10 items-center mt-4 text-sm">
                 <div className="flex items-center gap-2">
