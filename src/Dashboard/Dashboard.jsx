@@ -147,7 +147,7 @@ export default function Dashboard() {
                         to="/report"
                         className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
-                                ? 'bg-teal-600 text-white'
+                                ? 'bg-[#024B5E] text-white'
                                 : 'text-gray-600 hover:bg-gray-100'
                             }`}>
                         <FileText size={18} />
@@ -157,7 +157,7 @@ export default function Dashboard() {
                         to="/dashboard/setting"
                         className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
-                                ? 'bg-teal-600 text-white'
+                                ? 'bg-[#024B5E] text-white'
                                 : 'text-gray-600 hover:bg-gray-100'
                             }`}>
                         <Settings size={18} />
