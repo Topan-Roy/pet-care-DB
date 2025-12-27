@@ -14,6 +14,7 @@ import BasicSettings from "../Pages/PromoEdit/BasicSettings";
 import AudienceTargeting from "../Pages/PromoEdit/AudienceTargeting";
 import ReviewDeploy from "../Pages/PromoEdit/ReviewDeploy";
 import Categories from "../Pages/Categories";
+import Report from "../Pages/Report";
 export const router = createBrowserRouter([
  
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
         {
          path:"categories",
          Component:Categories
+        },
+        {
+         path:"report",
+         Component:Report
         },
     ]
   }

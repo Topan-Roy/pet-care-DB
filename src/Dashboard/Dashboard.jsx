@@ -30,6 +30,7 @@ export default function Dashboard() {
         "/audiencetargeting",
         "/reviewdeploy",
         "/categories",
+        "/report",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
@@ -143,7 +144,7 @@ export default function Dashboard() {
                 <div className="mt-10 px-5">
                     <p className='font-semibold text-sm text-[#666666]  mb-3'>Other</p>
                     <NavLink
-                        to="/dashboard/report"
+                        to="/report"
                         className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
                                 ? 'bg-teal-600 text-white'
