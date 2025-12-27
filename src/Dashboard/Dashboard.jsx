@@ -31,6 +31,8 @@ export default function Dashboard() {
         "/reviewdeploy",
         "/categories",
         "/report",
+        "/settingsmenu",
+        "/personalinformation",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
@@ -154,7 +156,7 @@ export default function Dashboard() {
                         <span>Report</span>
                     </NavLink>
                     <NavLink
-                        to="/dashboard/setting"
+                        to="/settingsmenu"
                         className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
                                 ? 'bg-[#024B5E] text-white'
