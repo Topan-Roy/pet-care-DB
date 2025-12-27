@@ -1,13 +1,8 @@
 import React, { useState, useMemo } from "react";
-import {
-    Search,
-    Eye,
-    ChevronLeft,
-    ChevronRight,
-    ListFilter,
-    Plus,
-} from "lucide-react";
-import { Link } from "react-router";
+import { Search, Eye, ChevronLeft, ChevronRight, Plus, } from "lucide-react";
+import AudienceTargeting from "./PromoEdit/AudienceTargeting";
+import BasicSettings from "./PromoEdit/BasicSettings";
+import ReviewDeploy from "./PromoEdit/ReviewDeploy";
 
 const DATA = [
     {
@@ -163,6 +158,14 @@ const DATA = [
 ];
 
 export default function PromoCode() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalStep, setModalStep] = useState(1);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setModalStep(1);
+    };
     const [search, setSearch] = useState("");
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [page, setPage] = useState(1);
@@ -181,7 +184,6 @@ export default function PromoCode() {
 
     return (
         <div className="bg-white rounded-xl p-6 shadow-sm">
-            {/* Header */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
                 <div className="flex items-center gap-2 border rounded-full border-[#7A7A7A] bg-[#F5F6FA] px-4 py-2 w-full sm:w-[240px]">
                     <Search size={16} className="text-gray-400" />
@@ -200,12 +202,39 @@ export default function PromoCode() {
                     {/* <button className="">
                         <ListFilter size={16} />
                     </button> */}
-                        <Link to="/basicsettings">
-                    <button className="flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-[#024B5E] text-white hover:opacity-90">
+                    <button
+                        onClick={openModal}
+                        className="flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-[#024B5E] text-white hover:opacity-90"
+                    >
                         <Plus size={16} />
                         Add New Offer
                     </button>
-                    </Link>
+                    {isModalOpen && (
+                        <div
+                            className="fixed inset-0 bg-black/40 flex justify-center items-start pt-20 z-50"
+                            onClick={closeModal}
+                        >
+                            <div
+                                className=" rounded-xl shadow-lg w-full max-w-3xl p-6 relative"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <button
+                                    onClick={closeModal}
+                                    className="absolute top-4 right-4 text-gray-500"
+                                >
+                                    ✕
+                                </button>
+                                {modalStep === 1 && <BasicSettings next={() => setModalStep(2)} />}
+                                {modalStep === 2 && (
+                                    <AudienceTargeting
+                                        next={() => setModalStep(3)}
+                                        prev={() => setModalStep(1)}
+                                    />
+                                )}
+                                {modalStep === 3 && <ReviewDeploy prev={() => setModalStep(2)} />}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
             {/* Table */}
@@ -238,10 +267,10 @@ export default function PromoCode() {
                                         <span className="w-[10%]">
                                             <span
                                                 className={`px-3 py-1 text-xs rounded-full font-normal ${item.status === "Active"
-                                                        ? "bg-green-100 text-green-700"
-                                                        : item.status === "Expired"
-                                                            ? "bg-red-100 text-red-700"
-                                                            : "bg-gray-200 text-gray-700"
+                                                    ? "bg-green-100 text-green-700"
+                                                    : item.status === "Expired"
+                                                        ? "bg-red-100 text-red-700"
+                                                        : "bg-gray-200 text-gray-700"
                                                     }`}
                                             >
                                                 {item.status}
@@ -249,10 +278,10 @@ export default function PromoCode() {
                                         </span>
                                         <span className="w-[10%] text-right">
                                             {/* <Link to={`/campaign/${item.id}`}>   </Link> */}
-                                                <button className="p-2 rounded-full hover:bg-gray-200">
-                                                    <Eye size={18} />
-                                                </button>
-                                          
+                                            <button className="p-2 rounded-full hover:bg-gray-200">
+                                                <Eye size={18} />
+                                            </button>
+
                                         </span>
                                     </div>
                                 </td>
@@ -263,41 +292,41 @@ export default function PromoCode() {
             </div>
 
             {/* Pagination */}
-             <div className="flex justify-end gap-10 items-center mt-4 text-sm">
-    <div className="flex items-center gap-2">
-      <span>Rows Per Page</span>
-      <select
-        value={rowsPerPage}
-        onChange={(e) => {
-          setRowsPerPage(Number(e.target.value));
-          setPage(1);
-        }}
-        className="border border-[#EBEBEB] rounded-full px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#EEEEEE]"
-      >
-        {ROW_OPTIONS.map((n) => (
-          <option key={n}>{n}</option>
-        ))}
-      </select>
-    </div>
-    <div className="flex items-center gap-4">
-      <span>Page {page} Of {totalPages}</span>
-      <button
-        disabled={page === 1}
-        onClick={() => setPage((p) => Math.max(p - 1, 1))}
-        className="p-2 border rounded-full disabled:opacity-40"
-      >
-        <ChevronLeft size={16} />
-      </button>
-      <button
-        disabled={page === totalPages}
-        onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
-        className="p-2 border rounded-full disabled:opacity-40"
-      >
-        <ChevronRight size={16} />
-      </button>
-    </div>
-  </div>
-</div>
-      
+            <div className="flex justify-end gap-10 items-center mt-4 text-sm">
+                <div className="flex items-center gap-2">
+                    <span>Rows Per Page</span>
+                    <select
+                        value={rowsPerPage}
+                        onChange={(e) => {
+                            setRowsPerPage(Number(e.target.value));
+                            setPage(1);
+                        }}
+                        className="border border-[#EBEBEB] rounded-full px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#EEEEEE]"
+                    >
+                        {ROW_OPTIONS.map((n) => (
+                            <option key={n}>{n}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className="flex items-center gap-4">
+                    <span>Page {page} Of {totalPages}</span>
+                    <button
+                        disabled={page === 1}
+                        onClick={() => setPage((p) => Math.max(p - 1, 1))}
+                        className="p-2 border rounded-full disabled:opacity-40"
+                    >
+                        <ChevronLeft size={16} />
+                    </button>
+                    <button
+                        disabled={page === totalPages}
+                        onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
+                        className="p-2 border rounded-full disabled:opacity-40"
+                    >
+                        <ChevronRight size={16} />
+                    </button>
+                </div>
+            </div>
+        </div>
+
     );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
 
-export default function BasicSettings() {
+export default function BasicSettings({ next }) {
     const [campaignName, setCampaignName] = useState("");
     const [couponCode, setCouponCode] = useState("");
     const [couponType, setCouponType] = useState("auto");
@@ -43,8 +43,8 @@ export default function BasicSettings() {
                             type="radio"
                             checked={couponType === "custom"}
                             onChange={() => setCouponType("custom")}
-                           style={{ accentColor: "#11293A" }}
-                           className="w-4 h-4"
+                            style={{ accentColor: "#11293A" }}
+                            className="w-4 h-4"
                         />
                         Custom
                     </label>
@@ -68,8 +68,8 @@ export default function BasicSettings() {
                                 type="radio"
                                 checked={discountType === "percentage"}
                                 onChange={() => setDiscountType("percentage")}
-                               style={{ accentColor: "#11293A" }}
-                               className="w-4 h-4"
+                                style={{ accentColor: "#11293A" }}
+                                className="w-4 h-4"
                             />
                             Percentage
                         </label>
@@ -149,8 +149,8 @@ export default function BasicSettings() {
                             type="radio"
                             checked={usageLimit === "unlimited"}
                             onChange={() => setUsageLimit("unlimited")}
-                             style={{ accentColor: "#11293A" }}
-                               className="w-4 h-4"
+                            style={{ accentColor: "#11293A" }}
+                            className="w-4 h-4"
                         />
                         Unlimited
                     </label>
@@ -165,14 +165,13 @@ export default function BasicSettings() {
                 )}
             </div>
             <div className="flex  gap-4 mt-6">
-                <button className="px-6 py-2 rounded bg-[#ECF7FE] text-[#11293A] hover:bg-[#ECF7FE] cursor-pointer">
-                    Cancel
-                </button>
-                <Link to="/audiencetargeting">
-                <button className="px-6 py-2 rounded bg-[#024B5E] text-[#F9FAFB] cursor-pointer">
+                <button
+                    className="px-6 py-2 rounded bg-[#024B5E] text-[#F9FAFB] cursor-pointer"
+                    onClick={next}
+                >
                     Next
                 </button>
-                </Link>
+
             </div>
         </div>
     );

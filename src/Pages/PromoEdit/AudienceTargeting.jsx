@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { ChevronDown, Search } from "lucide-react";
-import { useNavigate } from "react-router";
-import { Link } from "react-router";
+import { Search } from "lucide-react";
 
-const AudienceTargeting = () => {
+
+
+const AudienceTargeting = ({ next, prev }) => {
     const [selectedAudience, setSelectedAudience] = useState("users");
     const [userIds, setUserIds] = useState([19205, 19206, 19266]);
     const [businessIds, setBusinessIds] = useState([19205, 19206, 19266]);
     const [filterUsers, setFilterUsers] = useState("All");
     const [filterBusinesses, setFilterBusinesses] = useState("All");
-    const navigate = useNavigate();
+
     return (
         //   w-full max-w-md mx-auto
         <div className="bg-white p-6 rounded-lg shadow w-full max-w-md mx-auto">
@@ -102,15 +102,17 @@ const AudienceTargeting = () => {
             <div className="flex gap-4">
                 <button
                     className="px-6 py-2 bg-[#ECF7FE] text-[#11293A] rounded"
-                    onClick={() => navigate(-1)}
+                    onClick={prev}
                 >
                     Previous
                 </button>
-                <Link to="/reviewdeploy">
-                <button className="px-6 py-2 bg-[#024B5E] text-[#F9FAFB] rounded">
+                <button
+                    className="px-6 py-2 rounded bg-[#024B5E] text-[#F9FAFB] cursor-pointer"
+                    onClick={next}
+                >
                     Next
                 </button>
-                </Link>
+
             </div>
         </div>
 

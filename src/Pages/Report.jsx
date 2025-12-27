@@ -365,8 +365,8 @@ export default function Report() {
                                     ex ea commodo consequat.
                                 </p>
                             </div>
-                            <div className="space-y-4">
-                                <div className="border border-gray-100 rounded-xl p-5 shadow bg-white">
+                            <div className="space-y-4 ">
+                                <div className="border border-gray-100 rounded-xl p-5  bg-white">
                                     <h4 className="font-bold text-[#1F2937] border-b border-[#E3E6F0] pb-2 mb-4">
                                         Ticket Information
                                     </h4>
@@ -397,7 +397,7 @@ export default function Report() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="border border-gray-100 rounded-xl p-5 shadow-sm bg-white">
+                                <div className="border border-gray-100 rounded-xl p-5  bg-white">
                                     <div className="space-y-3 text-sm">
                                         <div className="flex">
                                             <span className="w-24 text-[#4B5563]">Pet setter:</span>

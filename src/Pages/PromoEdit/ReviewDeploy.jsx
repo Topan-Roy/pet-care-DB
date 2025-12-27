@@ -1,7 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router";
-const ReviewDeploy = () => {
-      const navigate = useNavigate();
+
+const ReviewDeploy = ({ prev }) => {
+  
   return (
     <div className="flex justify-center p-6">
       <div className="w-full max-w-3xl bg-white rounded-xl shadow-md border border-gray-200">
@@ -44,11 +44,11 @@ const ReviewDeploy = () => {
         </div>
         <div className="px-6 py-4 border-t flex gap-3  text-[#11293A] border-[#EEEEEE]">
           <button
-                    className="px-6 py-2 bg-[#ECF7FE] text-[#11293A] rounded"
-                    onClick={() => navigate(-1)}
-                >
-                    Previous
-                </button>
+            className="px-6 py-2 bg-[#ECF7FE] text-[#11293A] rounded"
+            onClick={prev}
+          >
+            Previous
+          </button>
           <button className="px-5 py-2 rounded-lg  bg-[#024B5E] text-[#F9FAFB] ">
             Publish
           </button>
