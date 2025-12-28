@@ -33,6 +33,7 @@ export default function Dashboard() {
         "/report",
         "/settingsmenu",
         "/personalinformation",
+        "/personalinfon",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
@@ -218,11 +219,14 @@ export default function Dashboard() {
                             <Bell size={20} />
                         </Link>
                         <div className="flex items-center gap-2">
+                            <Link to="/personalinformation">
                             <img
                                 className="w-10 h-10 rounded-full"
                                 src="https://i.pravatar.cc/40"
                                 alt=""
                             />
+                            </Link>
+                            
                             <div className="text-sm">
                                 <p className="font-medium text-[#333333]">Jane Cooper</p>
                                 <p className="text-gray-400">Admin</p>

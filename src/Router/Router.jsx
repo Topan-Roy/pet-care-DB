@@ -17,6 +17,7 @@ import Categories from "../Pages/Categories";
 import Report from "../Pages/Report";
 import SettingsMenu from "../Pages/Setting/SettingsMenu";
 import PersonalInformation from "../Pages/Setting/PersonalInformation";
+import PersonalInfo from "../Pages/Setting/PersonalInfo";
 export const router = createBrowserRouter([
  
   {
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
         {
          path:"personalinformation",
          Component:PersonalInformation
+        },
+        {
+         path:"personalinfon",
+         Component:PersonalInfo
         },
     ]
   }

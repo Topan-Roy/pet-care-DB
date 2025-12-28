@@ -1,8 +1,8 @@
 import React from "react";
-import { ArrowLeft, Pencil, SquarePen } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router";
 
-export default function PersonalInformation() {
+export default function PersonalInfo() {
     const navigate = useNavigate();
     return (
         <div className="">
@@ -15,12 +15,11 @@ export default function PersonalInformation() {
                     <span className="text-[#111111]">Personal Information</span>
                 </div>
                 <Link to="/personalinfon">
-                  <button className="flex items-center gap-2 bg-[#024B5E] text-white px-4 py-2 rounded-lg text-sm">
-                    <SquarePen />
-                    Edit Profile
-                </button>
+                    <button className="flex items-center gap-2 bg-[#024B5E] text-white px-4 py-2 rounded-lg text-sm">
+                        Save Change
+                    </button>
                 </Link>
-              
+
             </div>
             <div className="flex flex-col md:flex-row gap-6">
                 <div className="bg-[#FEFEFE] rounded-xl p-5 shadow-sm flex flex-col items-center w-full md:w-[240px] h-72">
@@ -39,23 +38,21 @@ export default function PersonalInformation() {
                 <div className="flex-1  rounded-xl p-6 shadow-sm">
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-sm text-[#575757]  mb-1">
-                                Name
-                            </label>
+                            <label className="block text-sm text-[#575757] mb-1">Name</label>
                             <input
-                                value="Tamim"
-                                readOnly
-                                className="w-full  border border-[#E3E6F0] rounded-lg px-4 py-2  text-[#575757] outline-none focus:border-[#b1b4bd] focus:outline-none bg-[#FEFEFE] "
+                                type="text"
+                                defaultValue="Tamim"
+                                className="w-full border border-[#E3E6F0] rounded-lg px-4 py-2 text-[#575757] outline-none focus:border-[#b1b4bd] bg-[#FEFEFE]"
                             />
-
                         </div>
+
                         <div>
                             <label className="block text-sm text-[#575757] mb-1">
                                 Email
                             </label>
                             <input
-                                value="gddvc@gmail.com"
-                                readOnly
+                               defaultValue="gddvc@gmail.com"
+                               type="text"
                                 className="w-full  border border-[#E3E6F0] rounded-lg px-4 py-2  text-[#575757] outline-none focus:border-[#b1b4bd] focus:outline-none bg-[#FEFEFE] "
                             />
                         </div>
@@ -73,8 +70,8 @@ export default function PersonalInformation() {
                                     <span className="text-sm text-[#ffffff]">+1</span>
                                 </div>
                                 <input
-                                    value="5735353"
-                                    readOnly
+                                   defaultValue="5735353"
+                                  type="number"
                                     className="w-full  border border-[#E3E6F0] rounded-lg px-4 py-2  text-[#575757] outline-none focus:border-[#b1b4bd] focus:outline-none bg-[#FEFEFE] "
                                 />
                             </div>
@@ -84,8 +81,8 @@ export default function PersonalInformation() {
                                 Facebook
                             </label>
                             <input
-                                value="gddvc@gmail.com"
-                                readOnly
+                              defaultValue="gddvc@gmail.com"
+                               type="text"
                                 className="w-full border border-[#E3E6F0] rounded-lg px-4 py-2 text-[#575757] outline-none focus:border-[#b1b4bd] 
                                   focus:outline-none bg-[#FEFEFE]"
                             />
@@ -95,8 +92,8 @@ export default function PersonalInformation() {
                                 Instagram
                             </label>
                             <input
-                                value="gddvc@gmail.com"
-                                readOnly
+                               defaultValue="gddvc@gmail.com"
+                              type="text"
                                 className="w-full border border-[#E3E6F0] rounded-lg px-4 py-2 text-[#575757] outline-none focus:border-[#b1b4bd] 
                                  focus:outline-none bg-[#FEFEFE]"
                             />
@@ -106,8 +103,8 @@ export default function PersonalInformation() {
                                 LinkedIn
                             </label>
                             <input
-                                value="gddvc@gmail.com"
-                                readOnly
+                               defaultValue="gddvc@gmail.com"
+                          type="text"
                                 className="w-full border border-[#E3E6F0] rounded-lg px-4 py-2 text-[#575757] outline-none focus:border-[#b1b4bd] 
                                   focus:outline-none bg-[#FEFEFE]"
                             />
@@ -117,8 +114,8 @@ export default function PersonalInformation() {
                                 Twitter
                             </label>
                             <input
-                                value="gddvc@gmail.com"
-                                readOnly
+                             defaultValue="gddvc@gmail.com"
+                                 type="text"
                                 className="w-full border border-[#E3E6F0] rounded-lg px-4 py-2 text-[#575757] outline-none focus:border-[#b1b4bd] 
                                  focus:outline-none bg-[#FEFEFE]"
                             />
