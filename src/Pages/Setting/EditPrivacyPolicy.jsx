@@ -52,8 +52,8 @@ const EditPrivacyPolicy = () => {
                         onClick={() => navigate(-1)}
                         className="flex items-center text-slate-600 hover:text-slate-900"
                     >
-                        <LuChevronLeft className="w-5 h-5 mr-1" />
-                        <span className="text-[16px] text-[#111111] ">Privacy Policy</span>
+                        <LuChevronLeft className="w-5 h-5 mr-1 text-[#111111]" />
+                        <span className="text-[18px]  text-[#111111] ">Privacy Policy</span>
                     </button>
                     <button className="bg-[#004D61] text-white px-6 py-2 rounded-lg text-sm">
                         Update

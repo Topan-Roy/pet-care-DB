@@ -13,8 +13,8 @@ const PrivacyPolicy = () => {
             className="flex items-center text-slate-600 hover:text-slate-900 transition-colors"
             aria-label="Go back"
           >
-            <LuChevronLeft className="w-5 h-5 mr-1" />
-            <span className="text-[16px] text-[#111111] ">Privacy Policy</span>
+            <LuChevronLeft className="w-5 h-5 mr-1 text-[#111111]" />
+            <span className="text-[18px]  text-[#111111] ">Privacy Policy</span>
           </button>
             <Link to="/dashoard/editprivacypolicy">
              <button

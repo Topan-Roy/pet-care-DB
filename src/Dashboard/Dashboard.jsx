@@ -1,19 +1,13 @@
 import { Bell, Search, RefreshCcw, ShieldCheck } from 'lucide-react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router';
 import logo from '../assets/Logo.png'
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, } from "recharts";
+
 import { LayoutDashboard, CreditCard, User, Users, Tag, Grid3X3, FileText, Settings, LogOut, CalendarCheck, UserCheck, TrendingUp, CalendarDays, } from 'lucide-react';
-import { MdOutlineReportGmailerrorred } from 'react-icons/md';
+
 import { useState } from 'react';
-const data = [
-    { month: "May", value: 300000 },
-    { month: "Jun", value: 140000 },
-    { month: "Jul", value: 170000 },
-    { month: "Aug", value: 220000 },
-    { month: "Sep", value: 210000 },
-    { month: "Oct", value: 240000 },
-    { month: "Nov", value: 260000 },
-];
+import RecentPayment from '../Components/RecentPayment';
+import EarningSummary from '../Components/EarningSummary';
+
 export default function Dashboard() {
     const [isLogoutOpen, setIsLogoutOpen] = useState(false);
 
@@ -73,52 +67,8 @@ export default function Dashboard() {
             icon: Grid3X3,
         },
     ];
-    const paymentHistory = [
-        {
-            id: 1,
-            date: "21/03/2025",
-            transactionId: "93451",
-            petOwner: "Guy Hawkins",
-            petSitter: "Kristin Watson",
-            amount: "$900",
-            received: "$855",
-        },
-        {
-            id: 2,
-            date: "20/03/2025",
-            transactionId: "93452",
-            petOwner: "Savannah Nguyen",
-            petSitter: "Cody Fisher",
-            amount: "$700",
-            received: "$665",
-        },
-        {
-            id: 3,
-            date: "19/03/2025",
-            transactionId: "93453",
-            petOwner: "Eleanor Pena",
-            petSitter: "Jane Cooper",
-            amount: "$500",
-            received: "$475",
-        },
-        {
-            id: 4,
-            date: "18/03/2025",
-            transactionId: "93454",
-            petOwner: "Robert Fox",
-            petSitter: "Wade Warren",
-            amount: "$1200",
-            received: "$1140",
-        },
-    ];
-    const tableHeaders = [
-        { key: "date", label: "Date" },
-        { key: "transactionId", label: "Transaction ID" },
-        { key: "petOwner", label: "Pet Owner" },
-        { key: "petSitter", label: "Pet Sitter" },
-        { key: "amount", label: "Amount" },
-        { key: "received", label: "Received" },
-    ];
+   
+   
     return (
         <div className="flex min-h-screen ">
             {/* ================= SIDEBAR ================= */}
@@ -329,145 +279,8 @@ export default function Dashboard() {
                     {/* -------- ONLY DASHBOARD HOME -------- */}
                     {isDashboardHome && (
                         <>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div className="md:col-span-2 bg-[#FFFFFF] p-5 rounded-xl shadow-sm ">
-                                    <div className="flex justify-between items-center mb-6">
-                                        <div className="flex items-center gap-3">
-                                            <h2 className="text-lg font-semibold text-gray-800">
-                                                Earning Summary
-                                            </h2>
-                                            <div className="flex items-center gap-2">
-                                                <p className="text-sm text-gray-400">
-                                                    May 2022 - Oct 2022
-                                                </p>
-                                                <select className="text-sm text-gray-500 bg-transparent outline-none cursor-pointer">
-                                                    <option></option>
-                                                    <option></option>
-                                                    <option></option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-2 text-sm text-gray-500">
-                                            <span className="w-2 h-2 rounded-full bg-teal-700"></span>
-                                            Last 6 months
-                                        </div>
-                                    </div>
-                                    {/* Chart */}
-                                    <div className="w-full h-64">
-                                        <ResponsiveContainer width="100%" height="100%">
-                                            <AreaChart data={data}>
-                                                <defs>
-                                                    <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                                                        <stop offset="0%" stopColor="#0f766e" stopOpacity={0.3} />
-                                                        <stop offset="100%" stopColor="#0f766e" stopOpacity={0} />
-                                                    </linearGradient>
-                                                </defs>
-                                                <XAxis
-                                                    dataKey="month"
-                                                    axisLine={false}
-                                                    tickLine={false}
-                                                    tick={{ fill: "#9ca3af", fontSize: 12 }}
-                                                />
-                                                <YAxis
-                                                    axisLine={false}
-                                                    tickLine={false}
-                                                    tick={{ fill: "#9ca3af", fontSize: 12 }}
-                                                    tickFormatter={(v) => `$${v / 1000}k`}
-                                                />
-                                                <Tooltip
-                                                    formatter={(value) => `$${value.toLocaleString()}`}
-                                                />
-
-                                                <Area
-                                                    type="monotone"
-                                                    dataKey="value"
-                                                    stroke="#0f766e"
-                                                    strokeWidth={2}
-                                                    fill="url(#colorValue)"
-                                                />
-                                            </AreaChart>
-                                        </ResponsiveContainer>
-                                    </div>
-                                </div>
-                                <div className="space-y-4  bg-[#FFFFFF] rounded-xl shadow-sm p-8">
-                                    <p className='font-semibold text-xl text-[#1F2937]'>Pending Actions</p>
-                                    <div className="flex justify-between bg-[#1BB6DB42] p-8 rounded-xl">
-                                        <div className="flex items-start gap-3">
-                                            <div className="bg-white p-2 rounded-full shadow-sm">
-                                                <ShieldCheck size={18} className="text-teal-600" />
-                                            </div>
-                                            <div>
-                                                <p className="font-medium text-[#1F2937] mb-2 text-md">Verification</p>
-                                                <p className="text-sm text-gray-500">
-                                                    12 Pet Sitter awaiting verification
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <button className="mt-2 bg-[#035F75] text-white px-4 rounded-full text-nd cursor-pointer">
-                                            Review
-                                        </button>
-                                    </div>
-                                    <div className="flex justify-between bg-[#FCD9D9] p-8 rounded-xl">
-                                        <div className="flex items-start gap-3">
-
-                                            <div className="bg-white p-2 rounded-full shadow-sm">
-                                                <MdOutlineReportGmailerrorred size={24} className="text-red-500" />
-                                            </div>
-                                            <div>
-                                                <p className="font-medium text-[#1F2937] mb-2 text-md">
-                                                    Reports
-                                                </p>
-                                                <p className="text-sm text-gray-500">
-                                                    5 new report
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <button className="mt-2 bg-[#F34F4F] text-white px-4 rounded-full text-md cursor-pointer">
-                                            Investigate
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-[#FFFFFF] mt-6 p-5 rounded-xl shadow-sm">
-                                <div className="flex items-center justify-between mb-4">
-                                    <h3 className="font-semibold text-xl text-[#11293A]">
-                                        Recent Payment History
-                                    </h3>
-
-                                    <button className="text-sm font-medium text-teal-600 hover:underline cursor-pointer">
-                                        See all
-                                    </button>
-                                </div>
-
-                                <table className="w-full text-sm">
-                                    <thead>
-                                        <tr className=" shadow rounded bg-[#9999990D] text-[#333333]">
-                                            {tableHeaders.map((header) => (
-                                                <th
-                                                    key={header.key}
-                                                    className="text-center px-5 py-3 font-medium"
-                                                >
-                                                    {header.label}
-                                                </th>
-                                            ))}
-                                        </tr>
-                                    </thead>
-
-                                    {/* TABLE BODY */}
-                                    <tbody>
-                                        {paymentHistory.map((row) => (
-                                            <tr key={row.id} className="border-b border-[#EBEBEB] last:border-none text-[#333333]">
-                                                {tableHeaders.map((header) => (
-                                                    <td key={header.key} className="py-3 text-center">
-                                                        {row[header.key]}
-                                                    </td>
-                                                ))}
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
+                            <EarningSummary></EarningSummary>
+                           <RecentPayment></RecentPayment>
                         </>
                     )}
                     {!isDashboardHome && (
