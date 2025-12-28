@@ -20,6 +20,7 @@ import TermsCondition from "../Pages/Setting/TermsCondition";
 import EditTermsAndConditions from "../Pages/Setting/EditTermsAndConditions";
 import PrivacyPolicy from "../Pages/Setting/PrivacyPolicy";
 import EditPrivacyPolicy from "../Pages/Setting/EditPrivacyPolicy";
+import FAQTable from "../Pages/Setting/FAQTable";
 
 
 
@@ -112,6 +113,10 @@ export const router = createBrowserRouter([
       {
         path: "editprivacypolicy",
         Component:EditPrivacyPolicy
+      },
+      {
+        path: "faqtable",
+        Component:FAQTable
       },
      
     ]

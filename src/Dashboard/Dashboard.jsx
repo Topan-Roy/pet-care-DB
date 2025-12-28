@@ -38,6 +38,7 @@ export default function Dashboard() {
         "/dashoard/editTermsandconditions",
         "/dashoard/privacypolicy",
         "/dashoard/editprivacypolicy",
+        "/dashoard/faqtable",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
@@ -445,7 +446,7 @@ export default function Dashboard() {
                                             {tableHeaders.map((header) => (
                                                 <th
                                                     key={header.key}
-                                                    className="text-left px-5 py-3 font-medium"
+                                                    className="text-center px-5 py-3 font-medium"
                                                 >
                                                     {header.label}
                                                 </th>
@@ -458,7 +459,7 @@ export default function Dashboard() {
                                         {paymentHistory.map((row) => (
                                             <tr key={row.id} className="border-b border-[#EBEBEB] last:border-none text-[#333333]">
                                                 {tableHeaders.map((header) => (
-                                                    <td key={header.key} className="py-3">
+                                                    <td key={header.key} className="py-3 text-center">
                                                         {row[header.key]}
                                                     </td>
                                                 ))}

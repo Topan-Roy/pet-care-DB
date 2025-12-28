@@ -280,7 +280,7 @@ export default function Report() {
                 <h1 className="text-[#202020] text-lg font-semibold">Reports</h1>
             </div>
             <div className="overflow-x-auto max-h-[650px] rounded ">
-                <table className="w-full text-sm table-fixed border-collapse">
+                <table className="w-full text-sm table-fixed border-collapse text-center">
                     <thead className="sticky top-0 bg-gray-100 z-10">
                         <tr className="text-[#333333] text-[16px] font-semibold">
                             <th className="px-3 py-2 w-[12%]">ID</th>

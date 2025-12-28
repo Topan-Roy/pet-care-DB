@@ -237,17 +237,17 @@ export default function PromoCode() {
             </div>
             {/* Table */}
             <div className="overflow-hidden rounded overflow-y-auto max-h-[650px]">
-                <table className="w-full text-md text-left border-collapse">
-                    <thead className="sticky top-0 z-20">
-                        <tr className="bg-gray-100 text-[#024B5E] text-md font-semiboldl">
-                            <th className="px-2 py-2 w-[10%] font-semibold">Campaign Name</th>
-                            <th className="px-5 py-2 w-[10%] font-semibold ">Coupon Code</th>
-                            <th className="px-6 py-2 w-[14%] font-semibold">Pet Sitter</th>
-                            <th className="px-6 py-2 w-[8%] font-semibold">Uses Limit</th>
-                            <th className="px-6 py-2 w-[14%] font-semibold">Target Audience</th>
-                            <th className="px-3 py-2 w-[12%] font-semibold">Expiry</th>
-                            <th className="px-3 py-2 w-[10%] font-semibold">Status</th>
-                            <th className="px-10 py-2 w-[10%] text-right font-semibold">Action</th>
+                <table className="w-full text-md  border-collapse text-center">
+                    <thead className="sticky top-0 z-20 ">
+                        <tr className="bg-gray-100 text-center text-[#024B5E] text-md font-semiboldl">
+                            <th className="px-2 py-2  font-semibold">Campaign Name</th>
+                            <th className="px-5 py-2  font-semibold ">Coupon Code</th>
+                            <th className="px-10 py-2  font-semibold">Pet Sitter</th>
+                            <th className="px-4 py-2 font-semibold">Uses Limit</th>
+                            <th className="px-6 py-2  font-semibold">Target Audience</th>
+                            <th className="px-8 py-2  font-semibold">Expiry</th>
+                            <th className="px-8 py-2  font-semibold">Status</th>
+                            <th className="px-12 py-2  text-right font-semibold">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -255,12 +255,12 @@ export default function PromoCode() {
                         {rows.map((item) => (
                             <tr key={item.id}>
                                 <td colSpan={8}>
-                                    <div className="flex items-center bg-white rounded-xl hover:bg-[#EAF2F4] transition border-b border-[#EBEBEB] px-2 py-1 font-normal text-[#333333]">
+                                    <div className="flex items-center bg-white rounded-xl hover:bg-[#EAF2F4] transition border-b border-[#EBEBEB] px-2 py-1 font-normal text-[#333333] text-center ">
                                         <span className="w-[13%]">{item.campaignName}</span>
                                         <span className="w-[10%]">{item.id}</span>
                                         <span className="w-[20%]">{item.petSitter}</span>
-                                        <span className="w-[8%]">{item.limit}</span>
-                                        <span className="w-[14%]">{item.targetAudience}</span>
+                                        <span className="w-[5%]">{item.limit}</span>
+                                        <span className="w-[17%]">{item.targetAudience}</span>
                                         <span className="w-[12%]">{new Date(item.expiry).toLocaleDateString()}</span>
                                         <span className="w-[10%]">
                                             <span
