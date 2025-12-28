@@ -36,6 +36,8 @@ export default function Dashboard() {
         "/dashoard/personalinfon",
         "/dashoard/termscondition",
         "/dashoard/editTermsandconditions",
+        "/dashoard/privacypolicy",
+        "/dashoard/editprivacypolicy",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [

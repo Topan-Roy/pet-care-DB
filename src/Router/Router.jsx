@@ -18,6 +18,8 @@ import PersonalInformation from "../Pages/Setting/PersonalInformation";
 import PersonalInfo from "../Pages/Setting/PersonalInfo";
 import TermsCondition from "../Pages/Setting/TermsCondition";
 import EditTermsAndConditions from "../Pages/Setting/EditTermsAndConditions";
+import PrivacyPolicy from "../Pages/Setting/PrivacyPolicy";
+import EditPrivacyPolicy from "../Pages/Setting/EditPrivacyPolicy";
 
 
 
@@ -102,6 +104,14 @@ export const router = createBrowserRouter([
       {
         path: "editTermsandconditions",
         Component: EditTermsAndConditions
+      },
+      {
+        path: "privacypolicy",
+        Component:PrivacyPolicy
+      },
+      {
+        path: "editprivacypolicy",
+        Component:EditPrivacyPolicy
       },
      
     ]
