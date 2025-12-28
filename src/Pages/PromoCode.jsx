@@ -3,7 +3,6 @@ import { Search, Eye, ChevronLeft, ChevronRight, Plus, } from "lucide-react";
 import AudienceTargeting from "./PromoEdit/AudienceTargeting";
 import BasicSettings from "./PromoEdit/BasicSettings";
 import ReviewDeploy from "./PromoEdit/ReviewDeploy";
-
 const DATA = [
     {
         id: 29505,
@@ -156,7 +155,6 @@ const DATA = [
         status: "Completed",
     },
 ];
-
 export default function PromoCode() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalStep, setModalStep] = useState(1);
@@ -284,7 +282,6 @@ export default function PromoCode() {
                                             >
                                                 <Eye size={18} />
                                             </button>
-
                                         </span>
                                     </div>
                                 </td>

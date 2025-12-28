@@ -1,7 +1,6 @@
 import React from "react";
 import { ArrowLeft, Pencil, SquarePen } from "lucide-react";
 import { Link, useNavigate } from "react-router";
-
 export default function PersonalInformation() {
     const navigate = useNavigate();
     return (
@@ -14,13 +13,12 @@ export default function PersonalInformation() {
                     <ArrowLeft size={18} />
                     <span className="text-[#111111]">Personal Information</span>
                 </div>
-                <Link to="/personalinfon">
-                  <button className="flex items-center gap-2 bg-[#024B5E] text-white px-4 py-2 rounded-lg text-sm">
-                    <SquarePen />
-                    Edit Profile
-                </button>
+                <Link to="/dashoard/personalinfon">
+                    <button className="flex items-center gap-2 bg-[#024B5E] text-white px-4 py-2 rounded-lg text-sm">
+                        <SquarePen />
+                        Edit Profile
+                    </button>
                 </Link>
-              
             </div>
             <div className="flex flex-col md:flex-row gap-6">
                 <div className="bg-[#FEFEFE] rounded-xl p-5 shadow-sm flex flex-col items-center w-full md:w-[240px] h-72">
@@ -47,7 +45,6 @@ export default function PersonalInformation() {
                                 readOnly
                                 className="w-full  border border-[#E3E6F0] rounded-lg px-4 py-2  text-[#575757] outline-none focus:border-[#b1b4bd] focus:outline-none bg-[#FEFEFE] "
                             />
-
                         </div>
                         <div>
                             <label className="block text-sm text-[#575757] mb-1">

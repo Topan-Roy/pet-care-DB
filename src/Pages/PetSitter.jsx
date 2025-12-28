@@ -93,7 +93,6 @@ export default function PetSitter() {
                     <ListFilter size={16} />
                 </div> */}
       </div>
-
       <div className="overflow-hidden rounded overflow-y-auto max-h-[650px]">
         <table className="w-full text-md text-left border-collapse">
           <thead className="sticky top-0 z-20">
@@ -131,7 +130,7 @@ export default function PetSitter() {
 
                     {/* Action */}
                     <span className="w-2/12 text-right">
-                      <Link to="/petsitterdeleils">
+                      <Link to="/dashoard/petsitterdeleils">
                         <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
                           <Eye size={18} />
                         </button>

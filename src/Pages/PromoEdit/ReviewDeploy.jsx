@@ -1,7 +1,5 @@
 import React from "react";
-
 const ReviewDeploy = ({ prev }) => {
-  
   return (
     <div className="flex justify-center p-6">
       <div className="w-full max-w-3xl bg-white rounded-xl shadow-md border border-gray-200">

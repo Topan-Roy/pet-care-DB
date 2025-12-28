@@ -18,53 +18,55 @@ export default function Dashboard() {
     const [isLogoutOpen, setIsLogoutOpen] = useState(false);
 
     const { pathname } = useLocation();
-    const isDashboardHome = pathname === "/";
+    const isDashboardHome = pathname === "/dashoard";
     const NO_SUMMARY_PAGES = [
-        "/notificationpage",
-        "/petowner",
-        "/petownerdelails",
-        "/petsitter",
-        "/petsitterdeleils",
-        "/promocode",
-        "/basicsettings",
-        "/audiencetargeting",
-        "/reviewdeploy",
-        "/categories",
-        "/report",
-        "/settingsmenu",
-        "/personalinformation",
-        "/personalinfon",
+        "/dashoard/notificationpage",
+        "/dashoard/petowner",
+        "/dashoard/petownerdelails",
+        "/dashoard/petsitter",
+        "/dashoard/petsitterdeleils",
+        "/dashoard/promocode",
+        "/dashoard/basicsettings",
+        "/dashoard/audiencetargeting",
+        "/dashoard/reviewdeploy",
+        "/dashoard/categories",
+        "/dashoard/report",
+        "/dashoard/settingsmenu",
+        "/dashoard/personalinformation",
+        "/dashoard/personalinfon",
+        "/dashoard/termscondition",
+        "/dashoard/editTermsandconditions",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
         {
             name: 'Dashboard',
-            path: '/',
+            path: '/dashoard',
             icon: LayoutDashboard,
         },
         {
             name: 'Payment',
-            path: '/payment',
+            path: '/dashoard/payment',
             icon: CreditCard,
         },
         {
             name: 'Pet Owner',
-            path: '/petowner',
+            path: '/dashoard/petowner',
             icon: User,
         },
         {
             name: 'Pet Sitter',
-            path: '/petsitter',
+            path: '/dashoard/petsitter',
             icon: Users,
         },
         {
             name: 'Promo Code',
-            path: '/promocode',
+            path: '/dashoard/promocode',
             icon: Tag,
         },
         {
             name: 'Categories',
-            path: '/categories',
+            path: '/dashoard/categories',
             icon: Grid3X3,
         },
     ];
@@ -147,7 +149,7 @@ export default function Dashboard() {
                 <div className="mt-10 px-5">
                     <p className='font-semibold text-sm text-[#666666]  mb-3'>Other</p>
                     <NavLink
-                        to="/report"
+                        to="/dashoard/report"
                         className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
                                 ? 'bg-[#024B5E] text-white'
@@ -157,7 +159,7 @@ export default function Dashboard() {
                         <span>Report</span>
                     </NavLink>
                     <NavLink
-                        to="/settingsmenu"
+                        to="/dashoard/settingsmenu"
                         className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
                                 ? 'bg-[#024B5E] text-white'
@@ -215,11 +217,11 @@ export default function Dashboard() {
                                 placeholder="Search"
                                 className="ml-2 outline-none text-sm" />
                         </div>
-                        <Link to="/notificationpage">
+                        <Link to="/dashoard/notificationpage">
                             <Bell size={20} />
                         </Link>
                         <div className="flex items-center gap-2">
-                            <Link to="/personalinformation">
+                            <Link to="/dashoard/personalinformation">
                             <img
                                 className="w-10 h-10 rounded-full"
                                 src="https://i.pravatar.cc/40"

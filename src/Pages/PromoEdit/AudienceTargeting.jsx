@@ -112,12 +112,8 @@ const AudienceTargeting = ({ next, prev }) => {
                 >
                     Next
                 </button>
-
             </div>
         </div>
-
-
-
     );
 };
 

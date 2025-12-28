@@ -1,13 +1,5 @@
 import React, { useState, useMemo } from "react";
-import {
-    Search,
-    Eye,
-    ChevronLeft,
-    ChevronRight,
-    Trash2,
-    UserCircle
-} from "lucide-react";
-
+import {Eye,ChevronLeft,ChevronRight,Trash2,UserCircle} from "lucide-react";
 const DATA = [
     {
         id: "ADG39",
@@ -265,7 +257,6 @@ const DATA = [
     },
 
 ];
-
 export default function Report() {
     const [search, setSearch] = useState("");
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -342,18 +333,18 @@ export default function Report() {
             {selectedItem && (
                 <div className="fixed inset-0 z-50 flex justify-center items-start bg-black/40 bg-opacity-40 pt-20">
                     <div className="bg-[#F9FEFF] w-full max-w-5xl rounded-lg  overflow-hidden">
-                        <div className="bg-[#E7F4F6] p-4 flex justify-between items-center border-b border-gray-100">
+                        <div className="bg-cyan-50 p-4 flex justify-between items-center border-b border-gray-100">
                             <h2 className="text-xl font-bold text-gray-800">
                                 Ticket #{selectedItem.id}
                             </h2>
-                            <button className="bg-[#024B5E] text-white px-6 py-2 rounded-md font-medium hover:bg-opacity-90 transition-all">
+                            <button className="bg-[#084c61] text-white px-6 py-2 rounded-md font-medium hover:bg-opacity-90 transition-all">
                                 Mark as Solved
                             </button>
                         </div>
                         <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="md:col-span-2">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <UserCircle className="w-12 h-12 text-[#024B5E]" />
+                                    <UserCircle className="w-12 h-12 text-[#084c61]" />
                                     <h3 className="text-xl font-semibold text-[#333333]">
                                         {selectedItem.userName}
                                     </h3>
@@ -365,8 +356,8 @@ export default function Report() {
                                     ex ea commodo consequat.
                                 </p>
                             </div>
-                            <div className="space-y-4 ">
-                                <div className="border border-gray-100 rounded-xl p-5  bg-white">
+                            <div className="space-y-4">
+                                <div className="border border-gray-100 rounded-xl p-5 shadow bg-white">
                                     <h4 className="font-bold text-[#1F2937] border-b border-[#E3E6F0] pb-2 mb-4">
                                         Ticket Information
                                     </h4>
@@ -397,7 +388,7 @@ export default function Report() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="border border-gray-100 rounded-xl p-5  bg-white">
+                                <div className="border border-gray-100 rounded-xl p-5 shadow-sm bg-white">
                                     <div className="space-y-3 text-sm">
                                         <div className="flex">
                                             <span className="w-24 text-[#4B5563]">Pet setter:</span>

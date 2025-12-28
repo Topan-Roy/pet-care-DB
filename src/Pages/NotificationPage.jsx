@@ -38,7 +38,6 @@ export default function NotificationPage() {
                             ? "font-bold bg-[#F8F4EF] text-[#000] border-[#024B5E]"
                             : "bg-transparent text-[#585858] border-gray-300"
                         }`}
-
                     style={activeTab === "system" ? { borderColor: "#024B5E" } : {}}>
                     System Notification
                 </button>
@@ -75,7 +74,6 @@ function CreateNotificationForm() {
                     placeholder="Enter title"
                     className="w-full mb-4 px-3 py-2 border rounded border-[#E3E6F0] focus:border-[#b1b4bd] focus:outline-none"
                 />
-
                 <label className="block mb-2 text-[#000000] font-medium">Message</label>
                 <textarea
                     placeholder="Write your notification message here..."

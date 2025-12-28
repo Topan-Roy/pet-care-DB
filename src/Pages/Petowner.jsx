@@ -100,7 +100,7 @@ export default function Petowner() {
                                         <span className="w-3/12 text-[#333333]">{item.email}</span>
                                         <span className="w-2/12 text-[#333333]">{item.contact}</span>
                                         <span className="w-3/12 text-right">
-                                            <Link to='/petownerdelails'>
+                                            <Link to='/dashoard/petownerdelails'>
                                                 <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
                                                     <Eye size={18} />
                                                 </button>
@@ -113,7 +113,6 @@ export default function Petowner() {
                     </tbody>
                 </table>
             </div>
-
             {/* Pagination (always below table) */}
             <div className="flex justify-end gap-10 items-center mt-4 text-sm">
                 <div className="flex items-center gap-2">
@@ -153,6 +152,5 @@ export default function Petowner() {
                 </div>
             </div>
         </div>
-
     );
 }
