@@ -25,6 +25,9 @@ import SignUp from "../Authentication/SignUp";
 import ForgetPassword from "../Authentication/ForgetPassword";
 import VerifyOTP from "../Authentication/VerifyOTP";
 import ResetPassword from "../Authentication/ResetPassword";
+import ChangePassword from "../Authentication/ChangePassword";
+import NotificationPagee from "../Pages/NotificationPagee";
+import NotificationTabs from "../Pages/NotificationTabs";
 
 
 
@@ -62,6 +65,14 @@ export const router = createBrowserRouter([
       {
         path: "notificationpage",
         Component: NotificationPage
+      },
+      {
+        path: "notificationpagee",
+        Component: NotificationPagee
+      },
+      {
+        path: "notificationtabs",
+        Component: NotificationTabs
       },
       {
         path: "petowner",
@@ -134,6 +145,10 @@ export const router = createBrowserRouter([
       {
         path: "faqtable",
         Component:FAQTable
+      },
+      {
+        path: "changepassword",
+        Component:ChangePassword
       },
      
     ]

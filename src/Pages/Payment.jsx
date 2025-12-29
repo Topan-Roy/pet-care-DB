@@ -200,6 +200,7 @@ export default function Payment() {
   const currentRows = filteredData.slice(startIndex, startIndex + rowsPerPage);
   return (
     <>
+    <div className="p-4">
       <div className="bg-white p-6 rounded-xl shadow-sm">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-[#11293A] font-semibold text-lg">
@@ -297,6 +298,7 @@ export default function Payment() {
               &gt;
             </button>
           </div>
+        </div>
         </div>
       </div>
       {/* Modal */}

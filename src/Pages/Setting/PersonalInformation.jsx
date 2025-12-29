@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router";
 export default function PersonalInformation() {
     const navigate = useNavigate();
     return (
-        <div className="">
+        <div className="p-4">
             <div className="flex justify-between items-center mb-6">
                 <div
                     onClick={() => navigate(-1)}

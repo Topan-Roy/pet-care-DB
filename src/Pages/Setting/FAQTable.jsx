@@ -29,7 +29,7 @@ const FAQTable = () => {
         setNewAnswer("");
     };
     return (
-        <div>
+        <div className="p-4">
             <div className="rounded-xl">
                 <div className="flex items-center justify-between mb-3">
                     <button

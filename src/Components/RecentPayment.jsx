@@ -41,41 +41,43 @@ const RecentPayment = () => {
     ];
 
     return (
-        <div className="bg-[#FFFFFF] mt-6 p-5 rounded-xl shadow-sm">
-            <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-xl text-[#11293A]">
-                    Recent Payment History
-                </h3>
-                <button className="text-sm font-medium text-teal-600 hover:underline cursor-pointer">
-                    See all
-                </button>
-            </div>
+        <div className="p-4">
+            <div className="bg-[#FFFFFF] mt-6 p-5 rounded-xl shadow-sm ">
+                <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold text-xl text-[#11293A]">
+                        Recent Payment History
+                    </h3>
+                    <button className="text-sm font-medium text-teal-600 hover:underline cursor-pointer">
+                        See all
+                    </button>
+                </div>
 
-            <table className="w-full text-sm">
-                <thead>
-                    <tr className="shadow rounded bg-[#9999990D] text-[#333333]">
-                        <th className="text-center px-5 py-3 font-medium">Date</th>
-                        <th className="text-center px-5 py-3 font-medium">Transaction ID</th>
-                        <th className="text-center px-5 py-3 font-medium">Pet Owner</th>
-                        <th className="text-center px-5 py-3 font-medium">Pet Sitter</th>
-                        <th className="text-center px-5 py-3 font-medium">Amount</th>
-                        <th className="text-center px-5 py-3 font-medium">Received</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {paymentHistory.map((row) => (
-                        <tr key={row.id} className="border-b border-[#EBEBEB] last:border-none text-[#333333]">
-                            <td className="py-3 text-center">{row.date}</td>
-                            <td className="py-3 text-center">{row.transactionId}</td>
-                            <td className="py-3 text-center">{row.petOwner}</td>
-                            <td className="py-3 text-center">{row.petSitter}</td>
-                            <td className="py-3 text-center">{row.amount}</td>
-                            <td className="py-3 text-center">{row.received}</td>
+                <table className="w-full text-sm">
+                    <thead>
+                        <tr className="shadow rounded bg-[#9999990D] text-[#333333]">
+                            <th className="text-center px-5 py-3 font-medium">Date</th>
+                            <th className="text-center px-5 py-3 font-medium">Transaction ID</th>
+                            <th className="text-center px-5 py-3 font-medium">Pet Owner</th>
+                            <th className="text-center px-5 py-3 font-medium">Pet Sitter</th>
+                            <th className="text-center px-5 py-3 font-medium">Amount</th>
+                            <th className="text-center px-5 py-3 font-medium">Received</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody>
+                        {paymentHistory.map((row) => (
+                            <tr key={row.id} className="border-b border-[#EBEBEB] last:border-none text-[#333333]">
+                                <td className="py-3 text-center">{row.date}</td>
+                                <td className="py-3 text-center">{row.transactionId}</td>
+                                <td className="py-3 text-center">{row.petOwner}</td>
+                                <td className="py-3 text-center">{row.petSitter}</td>
+                                <td className="py-3 text-center">{row.amount}</td>
+                                <td className="py-3 text-center">{row.received}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

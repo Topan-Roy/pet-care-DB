@@ -12,6 +12,8 @@ export default function Dashboard() {
     const isDashboardHome = pathname === "/dashboard";
     const NO_SUMMARY_PAGES = [
         "/dashboard/notificationpage",
+        "/dashboard/notificationpagee",
+        "/dashboard/notificationtabs",
         "/dashboard/petowner",
         "/dashboard/petownerdelails",
         "/dashboard/petsitter",
@@ -30,6 +32,7 @@ export default function Dashboard() {
         "/dashboard/privacypolicy",
         "/dashboard/editprivacypolicy",
         "/dashboard/faqtable",
+        "/dashboard/changepassword",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
@@ -159,7 +162,7 @@ export default function Dashboard() {
             <main className="flex-1 ">
                 {/* -------- TOP BAR (always) -------- */}
                <DashBoardTopBar></DashBoardTopBar>
-                <div className="p-5">
+                <div className="">
                     {showSummary && (
                         <>
                            

@@ -275,6 +275,7 @@ export default function Report() {
     const start = (page - 1) * rowsPerPage;
     const rows = filtered.slice(start, start + rowsPerPage);
     return (
+        <div className="p-4">
         <div className="bg-white rounded-xl p-6 shadow-sm">
             <div className="mb-4">
                 <h1 className="text-[#202020] text-lg font-semibold">Reports</h1>
@@ -454,6 +455,7 @@ export default function Report() {
                     <ChevronRight size={16} />
                 </button>
             </div>
+        </div>
         </div>
     );
 }

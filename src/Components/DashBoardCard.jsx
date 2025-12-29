@@ -3,7 +3,7 @@ import { RefreshCcw, } from 'lucide-react';
 import { Users, CalendarCheck, UserCheck, TrendingUp, CalendarDays, } from 'lucide-react';
 const DashBoardCard = () => {
     return (
-        <div>
+        <div className='p-4'>
             <div className="flex items-center justify-between px-1 py-3  ">
                 <div className="flex items-center gap-2 px-15 p-3 bg-[#FFFFFF]  text-gray-600 text-sm rounded-2xl">
                     <CalendarDays size={18} className="text-teal-600" />

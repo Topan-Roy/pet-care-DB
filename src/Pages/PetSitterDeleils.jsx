@@ -1,7 +1,7 @@
 import { BadgeCheck, BadgeCheckIcon } from "lucide-react";
 export default function PetSitterDeleils() {
     return (
-        <div className="">
+        <div className="p-4">
             <div className=" grid grid-cols-1 md:grid-cols-3 gap-6 ">
                 <div className="bg-white rounded-xl p-6 shadow border border-[#EBEBEB]">
                     <div className="flex items-center gap-4 bg-[#1C59410D] p-8 rounded-2xl">

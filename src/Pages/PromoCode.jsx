@@ -181,6 +181,7 @@ export default function PromoCode() {
     const rows = filtered.slice(start, start + rowsPerPage);
 
     return (
+        <div className="p-4">
         <div className="bg-white rounded-xl p-6 shadow-sm">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
                 <div className="flex items-center gap-2 border rounded-full border-[#7A7A7A] bg-[#F5F6FA] px-4 py-2 w-full sm:w-[240px]">
@@ -289,6 +290,7 @@ export default function PromoCode() {
                         ))}
                     </tbody>
                 </table>
+            </div>
             </div>
             {selectedCampaign && (
                 <div

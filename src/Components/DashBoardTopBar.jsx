@@ -3,7 +3,8 @@ import { Bell, Search } from 'lucide-react';
 import { Link, } from 'react-router';
 const DashBoardTopBar = () => {
     return (
-        <div className="flex justify-between items-center border-b border-[#E3E6F0]  p-5 bg-[#FFFFFF]">
+       
+        <div className="flex  justify-between items-center border-b border-[#E3E6F0]  p-5 bg-[#FFFFFF]">
             <h2 className="text-xl text-[#333333] font-semibold">Dashboard</h2>
             <div className="flex items-center gap-4">
                 <div className="flex items-center bg-[#FC94400D] px-10 py-2 rounded-full shadow-sm">
@@ -12,7 +13,7 @@ const DashBoardTopBar = () => {
                         placeholder="Search"
                         className="ml-2 outline-none text-sm" />
                 </div>
-                <Link to="/dashboard/notificationpage">
+                <Link to="/dashboard/notificationpagee">
                     <Bell size={20} />
                 </Link>
                 <div className="flex items-center gap-2">
@@ -31,6 +32,7 @@ const DashBoardTopBar = () => {
                 </div>
             </div>
         </div>
+       
     );
 };
 

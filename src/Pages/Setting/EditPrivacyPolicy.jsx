@@ -45,7 +45,7 @@ const EditPrivacyPolicy = () => {
         range.insertNode(codeBlock);
     };
     return (
-        <div className="">
+        <div className="p-4">
             <div className=" ">
                 <div className="flex items-center justify-between p-2 ">
                     <button

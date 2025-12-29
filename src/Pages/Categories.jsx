@@ -45,6 +45,7 @@ const Categories = () => {
     };
     return (
         <>
+        <div className="p-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {services.map((item, index) => (
                     <div
@@ -84,6 +85,7 @@ const Categories = () => {
                         </div>
                     </div>
                 ))}
+            </div>
             </div>
             {/* Modal */}
             {open && current && (

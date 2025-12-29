@@ -1,146 +1,89 @@
 import React, { useState } from "react";
+import NotificationTabs from "./NotificationTabs";
 const systemNotifications = [
-    {
-        id: 1,
-        title: "Welcome Offer",
-        target: "All Users",
-        sentDate: "Oct 11, 2025",
-        status: "Sent",
-        sentBy: "Guy Hawkins"
-    },
-    {
-        id: 2,
-        title: "Pet Care Alert",
-        target: "Pet Owners Only",
-        sentDate: "Oct 12, 2025",
-        status: "Sent",
-        sentBy: "Kristin Watson"
-    },
-    {
-        id: 3,
-        title: "Maintenance Notice",
-        target: "Sitters Only",
-        sentDate: "Oct 13, 2025",
-        status: "Sent",
-        sentBy: "Guy Hawkins"
-    }
+    { id: 1, title: "Welcome Offer", target: "All Users", sentDate: "Oct 11, 2025", status: "Sent", sentBy: "Guy Hawkins" },
+    { id: 2, title: "Pet Care Alert", target: "Pet Owners Only", sentDate: "Oct 12, 2025", status: "Sent", sentBy: "Kristin Watson" },
+    { id: 3, title: "Maintenance Notice", target: "Sitters Only", sentDate: "Oct 13, 2025", status: "Sent", sentBy: "Guy Hawkins" },
 ];
 export default function NotificationPage() {
-    const [activeTab, setActiveTab] = useState("create");
-    return (
-        <div className="bg-[#F9FEFF]  min-h-screen">
-
-            <div className="flex gap-4 mb-6">
-                <button
-                    onClick={() => setActiveTab("system")}
-                    className={`px-5 py-3 rounded-xl text-md font-medium border cursor-pointer
-                      ${activeTab === "system"
-                            ? "font-bold bg-[#F8F4EF] text-[#000] border-[#024B5E]"
-                            : "bg-transparent text-[#585858] border-gray-300"
-                        }`}
-                    style={activeTab === "system" ? { borderColor: "#024B5E" } : {}}>
-                    System Notification
-                </button>
-                <button
-                    onClick={() => setActiveTab("create")}
-                    className={`px-5 py-3 rounded-xl text-md font-medium border cursor-pointer
-                    ${activeTab === "create"
-                            ? "font-bold bg-[#F8F4EF] text-[#000] border-[#024B5E]"
-                            : "bg-transparent text-[#585858] border-gray-300"
-                        }`}
-
-                    style={activeTab === "create" ? { borderColor: "#024B5E" } : {}}>
-                    Create Notification
-                </button>
-            </div>
-            <div>
-                {activeTab === "create" && <CreateNotificationForm />}
-                {activeTab === "system" && <SystemNotificationList notifications={systemNotifications} />}
-            </div>
-        </div>
-    );
-}
-function CreateNotificationForm() {
     const [targetAudience, setTargetAudience] = useState("All Users");
+    const [showAll, setShowAll] = useState(false);
     return (
-        <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-semibold mb-4 text-[#333333] text-xl ">
-                    Create New Notification
-                </h3>
-                <label className="block mb-2 text-[#000000] font-medium">Title</label>
+        <div className="bg-[#F9FEFF] min-h-screen p-4">
+            <NotificationTabs></NotificationTabs>
+            <div className="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 className="text-lg font-semibold mb-4">CREATE NEW NOTIFICATIONS</h2>
+
+                <label className="block mb-2 font-medium text-gray-700">Title</label>
                 <input
                     type="text"
                     placeholder="Enter title"
-                    className="w-full mb-4 px-3 py-2 border rounded border-[#E3E6F0] focus:border-[#b1b4bd] focus:outline-none"
+                    className="w-full mb-4 px-3 py-2 border rounded-lg border-gray-200 focus:outline-none focus:ring-1 focus:ring-[#024B5E]"
                 />
-                <label className="block mb-2 text-[#000000] font-medium">Message</label>
+                <label className="block mb-2 font-medium text-gray-700">Message</label>
                 <textarea
                     placeholder="Write your notification message here..."
-                    className="w-full mb-4 px-3 py-2 border rounded border-[#E3E6F0] focus:border-[#b1b4bd] focus:outline-none "
-                    rows={4} />
-                <label className="block mb-2 text-gray-700 font-medium">Target Audience</label>
-                <div className="flex gap-6 mb-6 text-md text-[#024B5E]">
+                    rows={4}
+                    className="w-full mb-4 px-3 py-2 border rounded-lg border-gray-200 focus:outline-none focus:ring-1 focus:ring-[#024B5E]"
+                />
+                <label className="block mb-2 font-medium text-gray-700">Target Audience</label>
+                <div className="flex gap-6 mb-6">
                     {["All Users", "Pet Owners Only", "Sitters Only"].map((audience) => (
-                        <label key={audience} className="flex items-center gap-2 cursor-pointer">
+                        <label key={audience} className="flex items-center gap-2 cursor-pointer text-md text-[#024B5E]">
                             <input
                                 type="radio"
                                 name="targetAudience"
                                 value={audience}
                                 checked={targetAudience === audience}
                                 onChange={() => setTargetAudience(audience)}
-                                className="cursor-pointer" />
+                                className="accent-[#024B5E]"
+                            />
                             {audience}
                         </label>
                     ))}
                 </div>
-                <button className="bg-[#024B5E] cursor-pointer text-white font-semibold px-40 py-2 rounded">
-                    Confirm
-                </button>
+                <button className="w-2/6 bg-[#024B5E] text-white font-semibold py-2 rounded-xl">Confirm</button>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white rounded-lg shadow p-6">
                 <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-semibold text-gray-700 text-base">Previous Notifications</h3>
-                    <a href="#!" className="text-teal-600 text-sm hover:underline">
-                        See all
-                    </a>
+                    <h3 className="font-semibold text-[18px] text-[#11293A]">Previous Notification</h3>
+                  <p
+          onClick={() => setShowAll(!showAll)}
+          className="text-[#024B5E] cursor-pointer font-medium"
+        >
+          {showAll ? "See less" : "See all"}
+        </p>
                 </div>
-                <table className="w-full text-left p-5 border-collapse">
-                    <thead className="mb-5">
-                        <tr className="text-md rounded bg-[#FFFFFF] text-[#333333] shadow ">
-                            <th className="py-2 px-5">Title</th>
-                            <th className="py-2">Target</th>
-                            <th className="py-2">Sent Date</th>
-                            <th className="py-2">Status</th>
-                            <th className="py-2">Sent By</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {systemNotifications.map(({ id, title, target, sentDate, status, sentBy }) => (
-                            <tr key={id} className="border-b border-gray-200 px-5 rounded">
-                                <td className="py-3">{title}</td>
-                                <td className="py-3">{target}</td>
-                                <td className="py-3">{sentDate}</td>
-                                <td className="py-3">
-                                    <span className="inline-flex items-center gap-2 px-3 py-1 text-white text-xs rounded-full bg-teal-700">
-                                        <span className="w-2 h-2 rounded-full bg-teal-300 animate-pulse"></span>
-                                        {status}
-                                    </span>
-                                </td>
-                                <td className="py-3">{sentBy}</td>
+                <div className="overflow-x-auto">
+                    <table className="w-full text-left border-collapse">
+                        <thead>
+                            <tr className="bg-gray-50 text-gray-600">
+                                <th className="py-2 px-4">Title</th>
+                                <th className="py-2 px-4">Target</th>
+                                <th className="py-2 px-4">Sent Date</th>
+                                <th className="py-2 px-4">Status</th>
+                                
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {systemNotifications.map(({ id, title, target, sentDate, status }) => (
+                                <tr key={id} className="border-b border-gray-200">
+                                    <td className="py-2 px-4">{title}</td>
+                                    <td className="py-2 px-4">{target}</td>
+                                    <td className="py-2 px-4">{sentDate}</td>
+                                    <td className="py-2 px-4">
+                                        <span className="inline-flex items-center gap-2 px-3 py-1 text-white text-xs rounded-full bg-[#024B5E]">
+                                            <span className="w-2 h-2 rounded-full bg-teal-300 animate-pulse"></span>
+                                            {status}
+                                        </span>
+                                    </td>
+                                   
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-        </div>
-    );
-}
-function SystemNotificationList({ notifications }) {
-    return (
-        <div className="space-y-2">
-            {/* System notifications display */}
         </div>
     );
 }

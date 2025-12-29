@@ -77,70 +77,70 @@ export default function PetSitter() {
   const start = (page - 1) * rowsPerPage;
   const rows = filtered.slice(start, start + rowsPerPage);
   return (
-    <div className="bg-white rounded-xl p-6 shadow-sm">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-2 border rounded-full border-[#7A7A7A] bg-[#F5F6FA] px-4 py-2 w-[220px]">
-          <Search size={16} className="text-gray-400" />
-          <input
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="outline-none text-sm w-full"
-          />
-        </div>
-        {/* <div>
+    <div className="p-4">
+      <div className="bg-white rounded-xl p-6 shadow-sm">
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center gap-2 border rounded-full border-[#7A7A7A] bg-[#F5F6FA] px-4 py-2 w-[220px]">
+            <Search size={16} className="text-gray-400" />
+            <input
+              placeholder="Search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="outline-none text-sm w-full"
+            />
+          </div>
+          {/* <div>
                     <ListFilter size={16} />
                 </div> */}
-      </div>
-      <div className="overflow-hidden rounded overflow-y-auto max-h-[650px]">
-        <table className="w-full text-md  border-collapse text-center">
-          <thead className="sticky top-0 z-20 bg-gray-100">
-            <tr className="text-[#333333]">
-              <th className="px-4 py-2 font-medium text-center w-[100px]">ID</th>
-              <th className="px-4 py-2 font-medium text-center w-[280px]">Pet Sitter Name</th>
-              <th className="px-4 py-2 font-medium text-center w-[300px]">Email</th>
-              <th className="px-4 py-2 font-medium text-center w-[140px]">Contact</th>
-              <th className="px-4 py-2 font-medium text-center w-[250px]">Status</th>
-              <th className="px-4 py-2 font-medium text-right w-[40px]">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((item, index) => (
-              <tr key={index} className="bg-transparent">
-                <td colSpan={6}>
-                  <div className="flex justify-between items-center bg-white rounded-xl hover:rounded-xl hover:bg-[#EAF2F4] transition border-b border-[#EBEBEB] p-1 text-center">
-                    <span className="w-1/12 text-[#333333]">{item.id}</span>
-                    <span className="w-3/12 text-[#333333]">{item.name}</span>
-                    <span className="w-3/12 text-[#333333]">{item.email}</span>
-                    <span className="w-2/12 text-[#333333]">{item.contact}</span>
-
-                    {/* Status Column (without JSON) */}
-                    <span className="w-2/12 text-center">
-                      {index % 2 === 0 ? (
-                        <span className="bg-[#E4F6E8] text-[#3EBF5A] px-2 py-1 rounded-full text-xs font-medium">
-                          Verified
-                        </span>
-                      ) : (
-                        <span className="bg-[#FDDEDE] text-[#F34F4F] px-2 py-1 rounded-full text-xs font-medium">
-                          Unverified
-                        </span>
-                      )}
-                    </span>
-
-                    {/* Action */}
-                    <span className="w-1/12 text-right">
-                      <Link to="/dashboard/petsitterdeleils">
-                        <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
-                          <Eye size={18} />
-                        </button>
-                      </Link>
-                    </span>
-                  </div>
-                </td>
+        </div>
+        <div className="overflow-hidden rounded overflow-y-auto max-h-[650px]">
+          <table className="w-full text-md  border-collapse text-center">
+            <thead className="sticky top-0 z-20 bg-gray-100">
+              <tr className="text-[#333333]">
+                <th className="px-4 py-2 font-medium text-center w-[100px]">ID</th>
+                <th className="px-4 py-2 font-medium text-center w-[280px]">Pet Sitter Name</th>
+                <th className="px-4 py-2 font-medium text-center w-[300px]">Email</th>
+                <th className="px-4 py-2 font-medium text-center w-[140px]">Contact</th>
+                <th className="px-4 py-2 font-medium text-center w-[250px]">Status</th>
+                <th className="px-4 py-2 font-medium text-right w-[40px]">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {rows.map((item, index) => (
+                <tr key={index} className="bg-transparent">
+                  <td colSpan={6}>
+                    <div className="flex justify-between items-center bg-white rounded-xl hover:rounded-xl hover:bg-[#EAF2F4] transition border-b border-[#EBEBEB] p-1 text-center">
+                      <span className="w-1/12 text-[#333333]">{item.id}</span>
+                      <span className="w-3/12 text-[#333333]">{item.name}</span>
+                      <span className="w-3/12 text-[#333333]">{item.email}</span>
+                      <span className="w-2/12 text-[#333333]">{item.contact}</span>
+
+                    
+                      <span className="w-2/12 text-center">
+                        {index % 2 === 0 ? (
+                          <span className="bg-[#E4F6E8] text-[#3EBF5A] px-2 py-1 rounded-full text-xs font-medium">
+                            Verified
+                          </span>
+                        ) : (
+                          <span className="bg-[#FDDEDE] text-[#F34F4F] px-2 py-1 rounded-full text-xs font-medium">
+                            Unverified
+                          </span>
+                        )}
+                      </span>
+                      <span className="w-1/12 text-right">
+                        <Link to="/dashboard/petsitterdeleils">
+                          <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
+                            <Eye size={18} />
+                          </button>
+                        </Link>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       {/* Pagination */}
       <div className="flex justify-end gap-10 items-center mt-4 text-sm">

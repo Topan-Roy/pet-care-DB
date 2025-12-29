@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router";
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
   return (
-    <div className="   text-slate-700">
+    <div className="p-4   text-slate-700">
       <div className="  overflow-hidden">
         <div className="flex items-center justify-between p-2">
           <button
