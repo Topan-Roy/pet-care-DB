@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import logo from '../assets/Group 12.png'
-import { useNavigate } from "react-router";
-import { LuChevronLeft } from "react-icons/lu";
+import { Link, useNavigate } from "react-router";
 import { ArrowLeft } from "lucide-react";
 export default function ForgetPassword() {
     const [email, setEmail] = useState("");
@@ -43,12 +42,11 @@ export default function ForgetPassword() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full mb-5 px-4 py-2 border border-gray-200 rounded-md bg-[#FFF8F2] focus:outline-none focus:ring-1 focus:ring-[#004C5A]"
                 />
-
-                <button className="w-full bg-[#004C5A] text-white py-2 rounded-md hover:bg-[#003A45] transition mb-4">
+                <Link to='/verifyotp'>
+                <button className="w-full bg-[#004C5A] text-white py-2 rounded-md hover:bg-[#024B5E] transition mb-4">
                    Send OTP
                 </button>
-
-               
+                </Link>
             </div>
         </div>
     );

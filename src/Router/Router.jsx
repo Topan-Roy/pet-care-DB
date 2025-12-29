@@ -23,6 +23,7 @@ import EditPrivacyPolicy from "../Pages/Setting/EditPrivacyPolicy";
 import FAQTable from "../Pages/Setting/FAQTable";
 import SignUp from "../Authentication/SignUp";
 import ForgetPassword from "../Authentication/ForgetPassword";
+import VerifyOTP from "../Authentication/VerifyOTP";
 
 
 
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
   {
     path: "forgetpassword",
     Component:ForgetPassword
+  },
+  {
+    path: "verifyotp",
+    Component:VerifyOTP
   },
   {
     path: "/dashboard",
