@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import logo from '../assets/Group 12.png'
+import { Link } from "react-router";
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
     return (
@@ -41,9 +42,12 @@ export default function SignUp() {
                         <input type="checkbox" className="accent-[#004C5A] text-[#333333]" />
                         Remember me
                     </label>
-                    <button className="text-[#FE6C5D] hover:underline">
+                    <Link to='/forgetpassword'>
+                     <button className="text-[#FE6C5D] hover:underline">
                         Forgot password?
                     </button>
+                    </Link>
+                   
                 </div>
                 <button className="w-full bg-[#024B5E] text-[#FFFFFF] py-2 rounded-md hover:bg-[#024B5E] transition">
                     Sign In

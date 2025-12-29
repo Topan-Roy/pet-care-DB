@@ -22,6 +22,8 @@ import PrivacyPolicy from "../Pages/Setting/PrivacyPolicy";
 import EditPrivacyPolicy from "../Pages/Setting/EditPrivacyPolicy";
 import FAQTable from "../Pages/Setting/FAQTable";
 import SignUp from "../Authentication/SignUp";
+import ForgetPassword from "../Authentication/ForgetPassword";
+
 
 
 
@@ -30,6 +32,10 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component:SignUp
+  },
+  {
+    path: "forgetpassword",
+    Component:ForgetPassword
   },
   {
     path: "/dashboard",
