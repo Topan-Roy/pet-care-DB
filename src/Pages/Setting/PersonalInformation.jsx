@@ -13,7 +13,7 @@ export default function PersonalInformation() {
                     <ArrowLeft size={18} />
                     <span className="text-[#111111]">Personal Information</span>
                 </div>
-                <Link to="/dashoard/personalinfon">
+                <Link to="/dashboard/personalinfon">
                     <button className="flex items-center gap-2 bg-[#024B5E] text-white px-4 py-2 rounded-lg text-sm">
                         <SquarePen />
                         Edit Profile

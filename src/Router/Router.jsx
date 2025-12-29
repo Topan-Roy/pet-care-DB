@@ -21,6 +21,7 @@ import EditTermsAndConditions from "../Pages/Setting/EditTermsAndConditions";
 import PrivacyPolicy from "../Pages/Setting/PrivacyPolicy";
 import EditPrivacyPolicy from "../Pages/Setting/EditPrivacyPolicy";
 import FAQTable from "../Pages/Setting/FAQTable";
+import SignUp from "../Authentication/SignUp";
 
 
 
@@ -28,10 +29,10 @@ export const router = createBrowserRouter([
 
   {
     path: "/",
-    Component: Home
+    Component:SignUp
   },
   {
-    path: "/dashoard",
+    path: "/dashboard",
     Component: Dashboard,
     children: [
       {

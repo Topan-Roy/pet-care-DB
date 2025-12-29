@@ -9,58 +9,58 @@ import DashBoardTopBar from '../Components/DashBoardTopBar';
 export default function Dashboard() {
     const [isLogoutOpen, setIsLogoutOpen] = useState(false);
     const { pathname } = useLocation();
-    const isDashboardHome = pathname === "/dashoard";
+    const isDashboardHome = pathname === "/dashboard";
     const NO_SUMMARY_PAGES = [
-        "/dashoard/notificationpage",
-        "/dashoard/petowner",
-        "/dashoard/petownerdelails",
-        "/dashoard/petsitter",
-        "/dashoard/petsitterdeleils",
-        "/dashoard/promocode",
-        "/dashoard/basicsettings",
-        "/dashoard/audiencetargeting",
-        "/dashoard/reviewdeploy",
-        "/dashoard/categories",
-        "/dashoard/report",
-        "/dashoard/settingsmenu",
-        "/dashoard/personalinformation",
-        "/dashoard/personalinfon",
-        "/dashoard/termscondition",
-        "/dashoard/editTermsandconditions",
-        "/dashoard/privacypolicy",
-        "/dashoard/editprivacypolicy",
-        "/dashoard/faqtable",
+        "/dashboard/notificationpage",
+        "/dashboard/petowner",
+        "/dashboard/petownerdelails",
+        "/dashboard/petsitter",
+        "/dashboard/petsitterdeleils",
+        "/dashboard/promocode",
+        "/dashboard/basicsettings",
+        "/dashboard/audiencetargeting",
+        "/dashboard/reviewdeploy",
+        "/dashboard/categories",
+        "/dashboard/report",
+        "/dashboard/settingsmenu",
+        "/dashboard/personalinformation",
+        "/dashboard/personalinfon",
+        "/dashboard/termscondition",
+        "/dashboard/editTermsandconditions",
+        "/dashboard/privacypolicy",
+        "/dashboard/editprivacypolicy",
+        "/dashboard/faqtable",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
         {
             name: 'Dashboard',
-            path: '/dashoard',
+            path: '/dashboard',
             icon: LayoutDashboard,
         },
         {
             name: 'Payment',
-            path: '/dashoard/payment',
+            path: '/dashboard/payment',
             icon: CreditCard,
         },
         {
             name: 'Pet Owner',
-            path: '/dashoard/petowner',
+            path: '/dashboard/petowner',
             icon: User,
         },
         {
             name: 'Pet Sitter',
-            path: '/dashoard/petsitter',
+            path: '/dashboard/petsitter',
             icon: Users,
         },
         {
             name: 'Promo Code',
-            path: '/dashoard/promocode',
+            path: '/dashboard/promocode',
             icon: Tag,
         },
         {
             name: 'Categories',
-            path: '/dashoard/categories',
+            path: '/dashboard/categories',
             icon: Grid3X3,
         },
     ];
@@ -99,7 +99,7 @@ export default function Dashboard() {
                 <div className="mt-10 px-5">
                     <p className='font-semibold text-sm text-[#666666]  mb-3'>Other</p>
                     <NavLink
-                        to="/dashoard/report"
+                        to="/dashboard/report"
                         className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
                                 ? 'bg-[#024B5E] text-white'
@@ -109,7 +109,7 @@ export default function Dashboard() {
                         <span>Report</span>
                     </NavLink>
                     <NavLink
-                        to="/dashoard/settingsmenu"
+                        to="/dashboard/settingsmenu"
                         className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
                                 ? 'bg-[#024B5E] text-white'

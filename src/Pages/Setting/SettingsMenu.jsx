@@ -4,7 +4,7 @@ const SettingsMenu = () => {
     return (
         <div className="   ">
             <div className="  bg-white rounded-xl border border-gray-200 ">
-                <Link to='/dashoard/personalinformation'>
+                <Link to='/dashboard/personalinformation'>
                     <div className="flex justify-between items-center px-5 py-3 hover:bg-[#E7F4F6] cursor-pointer">
 
                         <span className="text-md text-[#333333] ">
@@ -19,7 +19,7 @@ const SettingsMenu = () => {
                     </span>
                     <ChevronRight className="w-5 h-5 text-gray-400" />
                 </div>
-                <Link to ='/dashoard/termscondition'>  
+                <Link to ='/dashboard/termscondition'>  
                  <div className="flex justify-between items-center px-5 py-3 hover:bg-[#E7F4F6] cursor-pointer">
                     <span className="text-md text-[#333333] ">
                         Terms & Conditions
@@ -27,7 +27,7 @@ const SettingsMenu = () => {
                     <ChevronRight className="w-5 h-5 text-gray-400" />
                 </div>
                 </Link>
-               <Link to="/dashoard/privacypolicy">
+               <Link to="/dashboard/privacypolicy">
                <div className="flex justify-between items-center px-5 py-3 hover:bg-[#E7F4F6] cursor-pointer">
                     <span className="text-md text-[#333333] ">
                         Privacy Policy
@@ -35,7 +35,7 @@ const SettingsMenu = () => {
                     <ChevronRight className="w-5 h-5 text-gray-400" />
                 </div>
                </Link>
-                <Link to="/dashoard/faqtable">
+                <Link to="/dashboard/faqtable">
                  <div className="flex justify-between items-center px-5 py-3 hover:bg-[#E7F4F6] cursor-pointer">
                     <span className="text-md text-[#333333] ">
                         FAQ

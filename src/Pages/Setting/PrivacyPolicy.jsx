@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
             <LuChevronLeft className="w-5 h-5 mr-1 text-[#111111]" />
             <span className="text-[18px]  text-[#111111] ">Privacy Policy</span>
           </button>
-            <Link to="/dashoard/editprivacypolicy">
+            <Link to="/dashboard/editprivacypolicy">
              <button
             className="flex items-center bg-[#004D61] text-white px-4 py-2 rounded-lg hover:bg-[#003a4a] transition-colors shadow-sm"
             aria-label="Edit terms and conditions"

@@ -104,7 +104,7 @@ export default function Petowner() {
                                         <span className=" text-[#333333]">{item.email}</span>
                                         <span className=" text-[#333333]">{item.contact}</span>
                                         <span className=" text-right">
-                                            <Link to='/dashoard/petownerdelails'>
+                                            <Link to='/dashboard/petownerdelails'>
                                                 <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
                                                     <Eye size={18} />
                                                 </button>

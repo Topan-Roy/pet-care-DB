@@ -129,7 +129,7 @@ export default function PetSitter() {
 
                     {/* Action */}
                     <span className="w-1/12 text-right">
-                      <Link to="/dashoard/petsitterdeleils">
+                      <Link to="/dashboard/petsitterdeleils">
                         <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
                           <Eye size={18} />
                         </button>

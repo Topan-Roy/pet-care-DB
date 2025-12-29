@@ -12,11 +12,11 @@ const DashBoardTopBar = () => {
                         placeholder="Search"
                         className="ml-2 outline-none text-sm" />
                 </div>
-                <Link to="/dashoard/notificationpage">
+                <Link to="/dashboard/notificationpage">
                     <Bell size={20} />
                 </Link>
                 <div className="flex items-center gap-2">
-                    <Link to="/dashoard/personalinformation">
+                    <Link to="/dashboard/personalinformation">
                         <img
                             className="w-10 h-10 rounded-full"
                             src="https://i.pravatar.cc/40"
