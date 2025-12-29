@@ -43,15 +43,18 @@ export default function SignUp() {
                         Remember me
                     </label>
                     <Link to='/forgetpassword'>
-                     <button className="text-[#FE6C5D] hover:underline">
+                     <button className="text-[#FE6C5D] hover:underline cursor-pointer">
                         Forgot password?
                     </button>
                     </Link>
                    
                 </div>
-                <button className="w-full bg-[#024B5E] text-[#FFFFFF] py-2 rounded-md hover:bg-[#024B5E] transition">
+                <Link to='/dashboard'>
+                  <button className="w-full bg-[#024B5E] text-[#FFFFFF] py-2 rounded-md hover:bg-[#024B5E] transition cursor-pointer">
                     Sign In
                 </button>
+                </Link>
+              
             </div>
         </div>
     );

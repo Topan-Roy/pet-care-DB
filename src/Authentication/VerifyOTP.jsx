@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from '../assets/Group 12.png';
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { ArrowLeft } from "lucide-react";
 
 export default function VerifyOTP() {
@@ -37,18 +37,20 @@ export default function VerifyOTP() {
                         />
                     </div>
                 </div>
-                <div className="flex justify-center mb-3">
-                    <button
+                <div className="flex justify-center mb-3 items-center gap-2">
+                    <span
                         onClick={() => navigate(-1)}
-                        className="flex items-center text-slate-600 hover:text-slate-900 transition-colors"
+                        className="cursor-pointer text-slate-600 hover:text-slate-900 transition-colors"
                         aria-label="Go back"
                     >
-                        <ArrowLeft size={10} className="w-4 h-4 mr-2 text-[#111111]" />
-                        <span className="text-[20px] font-medium text-[#111111]">Verify OTP</span>
-                    </button>
+                        <ArrowLeft size={10} className="w-4 h-4 text-[#111111]" />
+                    </span>
+                    <span className="text-[20px] font-medium text-[#111111]">
+                        Verify Email
+                    </span>
                 </div>
                 <p className="text-center text-sm text-gray-500 mb-6">
-                   Please enter the otp we have sent you in your email.
+                    Please enter the otp we have sent you in your email.
                 </p>
                 <div className="flex justify-between mb-6">
                     {otp.map((digit, index) => (
@@ -63,12 +65,15 @@ export default function VerifyOTP() {
                         />
                     ))}
                 </div>
-                <button
-                    onClick={handleSubmit}
-                    className="w-full bg-[#024B5E] text-[#FFFFFF] py-2 rounded-md hover:bg-[#024B5E] transition mb-4"
-                >
-                    Verify Email
-                </button>
+                <Link to="/resetpassword">
+                    <button
+                        onClick={handleSubmit}
+                        className="w-full bg-[#024B5E] text-[#FFFFFF] py-2 rounded-md hover:bg-[#024B5E] transition mb-4 cursor-pointer"
+                    >
+                        Verify Email
+                    </button>
+                </Link>
+
             </div>
         </div>
     );

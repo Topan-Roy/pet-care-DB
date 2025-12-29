@@ -20,15 +20,17 @@ export default function ForgetPassword() {
                         />
                     </div>
                 </div>
-                <div className="flex justify-center mb-3">
-                    <button
+                <div className="flex justify-center mb-3 items-center gap-2">
+                    <span
                         onClick={() => navigate(-1)}
-                        className="flex items-center text-slate-600 hover:text-slate-900 transition-colors"
+                        className="cursor-pointer text-slate-600 hover:text-slate-900 transition-colors"
                         aria-label="Go back"
                     >
-                        <ArrowLeft size={10} className="w-4 h-4 mr-2 text-[#111111]" />
-                        <span className="text-[20px] font-medium text-[#111111]">Forgot Password</span>
-                    </button>
+                        <ArrowLeft size={10} className="w-4 h-4 text-[#111111]" />
+                    </span>
+                    <span className="text-[20px] font-medium text-[#111111]">
+                        Forgot Password
+                    </span>
                 </div>
 
                 <p className="text-center text-sm text-gray-500 mb-6">
@@ -43,9 +45,9 @@ export default function ForgetPassword() {
                     className="w-full mb-5 px-4 py-2 border border-gray-200 rounded-md bg-[#FFF8F2] focus:outline-none focus:ring-1 focus:ring-[#004C5A]"
                 />
                 <Link to='/verifyotp'>
-                <button className="w-full bg-[#004C5A] text-white py-2 rounded-md hover:bg-[#024B5E] transition mb-4">
-                   Send OTP
-                </button>
+                    <button className="w-full bg-[#004C5A] text-white py-2 rounded-md hover:bg-[#024B5E] transition mb-4 cursor-pointer">
+                        Send OTP
+                    </button>
                 </Link>
             </div>
         </div>

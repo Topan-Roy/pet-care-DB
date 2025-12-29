@@ -24,6 +24,7 @@ import FAQTable from "../Pages/Setting/FAQTable";
 import SignUp from "../Authentication/SignUp";
 import ForgetPassword from "../Authentication/ForgetPassword";
 import VerifyOTP from "../Authentication/VerifyOTP";
+import ResetPassword from "../Authentication/ResetPassword";
 
 
 
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
   {
     path: "verifyotp",
     Component:VerifyOTP
+  },
+  {
+    path: "resetpassword",
+    Component:ResetPassword
   },
   {
     path: "/dashboard",
