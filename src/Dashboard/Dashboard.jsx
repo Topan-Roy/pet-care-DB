@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet, useLocation } from 'react-router';
+import {  NavLink, Outlet, useLocation } from 'react-router';
 import logo from '../assets/Logo.png'
 import { LayoutDashboard, CreditCard, User, Users, Tag, Grid3X3, FileText, Settings, LogOut } from 'lucide-react';
 import { useState } from 'react';
@@ -70,8 +70,8 @@ export default function Dashboard() {
         <div className="flex min-h-screen ">
             {/* ================= SIDEBAR ================= */}
             <aside className="w-64 bg-[#FFFFFF] border-r border-[#E3E6F0]  py-6">
-                <div className="flex justify-center  mt-3 p-1 border-b border-[#E3E6F0]">
-                    <img src={logo} alt="Logo" className="w-30 h-auto" />
+                <div className="flex justify-center  mt-1 p-1 border-b border-[#E3E6F0]">
+                    <img src={logo} alt="Logo" className="w-24  mb-4" />
                 </div>
                 <p className='font-semibold text-sm text-[#666666] mt-5 mb-3 px-5'>Menu</p>
                 <ul className="space-y-2 px-5">

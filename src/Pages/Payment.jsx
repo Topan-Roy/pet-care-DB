@@ -217,7 +217,7 @@ export default function Payment() {
           </div>
         </div>
         <div className="overflow-hidden rounded overflow-y-auto max-h-[400px]">
-          <table className="w-full text-md text-left border-collapse">
+          <table className="w-full text-md  text-center border-collapse">
             {/* Table Header */}
             <thead className="sticky top-0 z-20">
               <tr className="bg-gray-100 text-[#333333]">

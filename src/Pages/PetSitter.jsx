@@ -79,7 +79,6 @@ export default function PetSitter() {
   return (
     <div className="bg-white rounded-xl p-6 shadow-sm">
       <div className="flex justify-between items-center mb-4">
-        {/* Search Bar */}
         <div className="flex items-center gap-2 border rounded-full border-[#7A7A7A] bg-[#F5F6FA] px-4 py-2 w-[220px]">
           <Search size={16} className="text-gray-400" />
           <input
@@ -94,22 +93,22 @@ export default function PetSitter() {
                 </div> */}
       </div>
       <div className="overflow-hidden rounded overflow-y-auto max-h-[650px]">
-        <table className="w-full text-md text-left border-collapse">
-          <thead className="sticky top-0 z-20">
-            <tr className="bg-gray-100 text-[#333333]">
-              <th className="px-8 py-2 font-medium">ID</th>
-              <th className="px-10 py-2 font-medium">Pet Sitter Name</th>
-              <th className="px-25 py-2 font-medium">Email</th>
-              <th className="px-25 py-2 font-medium">Contact</th>
-              <th className="px-20 py-2 font-medium">Status </th>
-              <th className="px-7 py-2 font-medium text-right">Action</th>
+        <table className="w-full text-md  border-collapse text-center">
+          <thead className="sticky top-0 z-20 bg-gray-100">
+            <tr className="text-[#333333]">
+              <th className="px-4 py-2 font-medium text-center w-[100px]">ID</th>
+              <th className="px-4 py-2 font-medium text-center w-[280px]">Pet Sitter Name</th>
+              <th className="px-4 py-2 font-medium text-center w-[300px]">Email</th>
+              <th className="px-4 py-2 font-medium text-center w-[140px]">Contact</th>
+              <th className="px-4 py-2 font-medium text-center w-[250px]">Status</th>
+              <th className="px-4 py-2 font-medium text-right w-[40px]">Action</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((item, index) => (
               <tr key={index} className="bg-transparent">
                 <td colSpan={6}>
-                  <div className="flex justify-between items-center bg-white rounded-xl hover:rounded-xl hover:bg-[#EAF2F4] transition border-b border-[#EBEBEB] p-1">
+                  <div className="flex justify-between items-center bg-white rounded-xl hover:rounded-xl hover:bg-[#EAF2F4] transition border-b border-[#EBEBEB] p-1 text-center">
                     <span className="w-1/12 text-[#333333]">{item.id}</span>
                     <span className="w-3/12 text-[#333333]">{item.name}</span>
                     <span className="w-3/12 text-[#333333]">{item.email}</span>
@@ -129,7 +128,7 @@ export default function PetSitter() {
                     </span>
 
                     {/* Action */}
-                    <span className="w-2/12 text-right">
+                    <span className="w-1/12 text-right">
                       <Link to="/dashoard/petsitterdeleils">
                         <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
                           <Eye size={18} />
@@ -144,43 +143,43 @@ export default function PetSitter() {
         </table>
       </div>
       {/* Pagination */}
-       <div className="flex justify-end gap-10 items-center mt-4 text-sm">
-                <div className="flex items-center gap-2">
-                    <span>Rows Per Page</span>
-                    <select
-                        value={rowsPerPage}
-                        onChange={(e) => {
-                            setRowsPerPage(Number(e.target.value));
-                            setPage(1);
-                        }}
-                        className="border border-[#EBEBEB] rounded-full px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#EEEEEE]"
-                    >
-                        {ROW_OPTIONS.map((n) => (
-                            <option key={n}>{n}</option>
-                        ))}
-                    </select>
-                </div>
-                <div className="flex items-center gap-4">
-                    <span>
-                        Page {page} Of {totalPages}
-                    </span>
-                    <button
-                        disabled={page === 1}
-                        onClick={() => setPage((p) => Math.max(p - 1, 1))}
-                        className="p-2 border rounded-full disabled:opacity-40"
-                    >
-                        <ChevronLeft size={16} />
-                    </button>
+      <div className="flex justify-end gap-10 items-center mt-4 text-sm">
+        <div className="flex items-center gap-2">
+          <span>Rows Per Page</span>
+          <select
+            value={rowsPerPage}
+            onChange={(e) => {
+              setRowsPerPage(Number(e.target.value));
+              setPage(1);
+            }}
+            className="border border-[#EBEBEB] rounded-full px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#EEEEEE]"
+          >
+            {ROW_OPTIONS.map((n) => (
+              <option key={n}>{n}</option>
+            ))}
+          </select>
+        </div>
+        <div className="flex items-center gap-4">
+          <span>
+            Page {page} Of {totalPages}
+          </span>
+          <button
+            disabled={page === 1}
+            onClick={() => setPage((p) => Math.max(p - 1, 1))}
+            className="p-2 border rounded-full disabled:opacity-40"
+          >
+            <ChevronLeft size={16} />
+          </button>
 
-                    <button
-                        disabled={page === totalPages}
-                        onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
-                        className="p-2 border rounded-full disabled:opacity-40"
-                    >
-                        <ChevronRight size={16} />
-                    </button>
-                </div>
-            </div>
+          <button
+            disabled={page === totalPages}
+            onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
+            className="p-2 border rounded-full disabled:opacity-40"
+          >
+            <ChevronRight size={16} />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

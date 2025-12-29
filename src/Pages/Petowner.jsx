@@ -6,8 +6,6 @@ export default function Petowner() {
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [page, setPage] = useState(1);
     const DATA = [
-        { "id": 29505, "name": "Marvin McKinney", "email": "mountain@email.com", "contact": "(239) 555-0108" },
-        { "id": 29506, "name": "Jerome Bell", "email": "jerome@email.com", "contact": "(239) 555-0109" },
         { "id": 29507, "name": "Cameron Williamson", "email": "cameron@email.com", "contact": "(239) 555-0110" },
         { "id": 29508, "name": "Kristin Watson", "email": "kristin@email.com", "contact": "(239) 555-0111" },
         { "id": 29509, "name": "Cody Fisher", "email": "cody@email.com", "contact": "(239) 555-0112" },
@@ -65,7 +63,6 @@ export default function Petowner() {
     return (
         <div className="bg-white rounded-xl p-6 shadow-sm">
             <div className="flex justify-between items-center mb-4">
-                {/* Search Bar */}
                 <div className="flex items-center gap-2 border rounded-full border-[#7A7A7A] bg-[#F5F6FA] px-4 py-2 w-[220px]">
                     <Search size={16} className="text-gray-400" />
                     <input
@@ -76,30 +73,37 @@ export default function Petowner() {
                     />
                 </div>
             </div>
-
-            {/* Scrollable Table */}
             <div className="overflow-y-auto max-h-[650px] rounded border-[#EBEBEB]">
-                <table className="w-full text-md text-left border-collapse">
-                    <thead className="sticky top-0 z-20">
-                        <tr className="bg-gray-100 text-[#333333]">
-                            <th className="px-3 py-2 font-medium">ID</th>
-                            <th className="px-10 py-2 font-medium">Pet Owners Name</th>
-                            <th className="px-15 py-2 font-medium">Email</th>
-                            <th className="px-25 py-2 font-medium">Contact</th>
-                            <th className="px-3 py-2 font-medium text-right">Action</th>
+                <table className="w-full text-md item  text-center border-collapse">
+                    <thead className="sticky top-0 z-20 bg-gray-100">
+                        <tr className="text-[#333333] text-center">
+                            <th className="px-3 py-3 font-medium w-[80px]">ID</th>
+                            <th className="px-3 py-3 font-medium w-[400px]">
+                                Pet Owners Name
+                            </th>
+                            <th className="px-3 py-3 font-medium w-[250px]">
+                                Email
+                            </th>
+                            <th className="px-3 py-3 font-medium w-[340px]">
+                                Contact
+                            </th>
+                            <th className="px-3 py-3 font-medium text-right w-[120px]">
+                                Action
+                            </th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <tr className="h-2"></tr>
                         {rows.map((item, index) => (
                             <tr key={index} className="bg-transparent">
                                 <td colSpan={5}>
-                                    <div className="flex justify-between items-center bg-white rounded-xl hover:rounded-xl hover:bg-[#EAF2F4] transition border-b border-[#EBEBEB] p-1">
-                                        <span className="w-1/12 text-[#333333]">{item.id}</span>
-                                        <span className="w-3/12 text-[#333333]">{item.name}</span>
-                                        <span className="w-3/12 text-[#333333]">{item.email}</span>
-                                        <span className="w-2/12 text-[#333333]">{item.contact}</span>
-                                        <span className="w-3/12 text-right">
+                                    <div className="flex justify-between text-center bg-white rounded-xl hover:rounded-xl hover:bg-[#EAF2F4] transition border-b border-[#EBEBEB] p-1 px-5">
+                                        <span className=" text-[#333333]">{item.id}</span>
+                                        <span className=" text-[#333333]">{item.name}</span>
+                                        <span className=" text-[#333333]">{item.email}</span>
+                                        <span className=" text-[#333333]">{item.contact}</span>
+                                        <span className=" text-right">
                                             <Link to='/dashoard/petownerdelails'>
                                                 <button className="p-2 rounded-full hover:bg-gray-200 text-[#333333] cursor-pointer">
                                                     <Eye size={18} />

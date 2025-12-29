@@ -427,7 +427,7 @@ export default function Report() {
                         setRowsPerPage(Number(e.target.value));
                         setPage(1);
                     }}
-                    className="border border-[#EBEBEB] rounded-full px-3 py-1"
+                    className="border border-[#EBEBEB] rounded-full px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#EEEEEE]"
                 >
                     {ROW_OPTIONS.map((n) => (
                         <option key={n}>{n}</option>
