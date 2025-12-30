@@ -44,7 +44,6 @@ const DashBoardCard = () => {
                 </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-6">
-                {/* Card 1 */}
                 <div className="bg-white p-10 rounded-xl shadow-sm">
                     <div className="flex items-center gap-2 text-sm">
                         <Users size={20} className=" " />
@@ -58,7 +57,6 @@ const DashBoardCard = () => {
                         </div>
                     </div>
                 </div>
-                {/* Card 2 */}
                 <div className="bg-white p-10 rounded-xl shadow-sm">
                     <div className="flex items-center gap-2 text-sm">
                         <CalendarCheck size={20} className="" />
@@ -72,7 +70,6 @@ const DashBoardCard = () => {
                         </div>
                     </div>
                 </div>
-                {/* Card 3 */}
                 <div className="bg-white p-10 rounded-xl shadow-sm">
                     <div className="flex items-center gap-2 text-sm">
                         <UserCheck size={20} className="" />
@@ -86,7 +83,6 @@ const DashBoardCard = () => {
                         </div>
                     </div>
                 </div>
-                {/* Card 4 */}
                 <div className="bg-white p-10 rounded-xl shadow-sm">
                     <div className="flex items-center gap-2 text-sm">
                         <svg
