@@ -1,22 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RefreshCcw, } from 'lucide-react';
-import { Users, CalendarCheck, UserCheck, TrendingUp, CalendarDays, } from 'lucide-react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { CalendarDays } from "lucide-react";
+import { Users, CalendarCheck, UserCheck, TrendingUp, } from 'lucide-react';
 const DashBoardCard = () => {
     const [isSpinning, setIsSpinning] = React.useState(false);
-
+    const [dateRange, setDateRange] = useState([null, null]);
+    const [startDate, endDate] = dateRange;
+    useEffect(() => {
+        const now = new Date();
+        const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
+        const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        setDateRange([firstDay, lastDay]);
+    }, []);
     return (
         <div className='p-4'>
             <div className="flex items-center justify-between px-1 py-3  ">
-                <div className="flex items-center gap-2 px-15 p-3 bg-[#FFFFFF]  text-gray-600 text-sm rounded-2xl">
-                    <CalendarDays size={18} className="text-teal-600" />
-                    <span className='text-[#333333]'>Aug 1, 2025 - Oct 31, 2025</span>
+                <div className="flex items-center gap-2 p-3 shadow bg-white text-gray-600 text-sm rounded-2xl">
+                    <CalendarDays size={18} className="text-teal-600 cursor-pointer" />
+                    <DatePicker
+                        selectsRange
+                        startDate={startDate}
+                        endDate={endDate}
+                        onChange={(update) => setDateRange(update)}
+                        placeholderText="Select date"
+                        className="outline-none text-[#333333] bg-transparent cursor-pointer"
+                    />
                 </div>
                 <button
                     onClick={() => {
-                        setIsSpinning(true);         
-                        setTimeout(() => window.location.reload(), 300); 
+                        setIsSpinning(true);
+                        setTimeout(() => window.location.reload(), 300);
                     }}
-                    className="flex items-center gap-1 ml-6 px-3 bg-[#FFFFFF] rounded-lg text-sm p-3 cursor-pointer"
+                    className="flex items-center gap-1 ml-6 px-3 bg-[#FFFFFF] rounded-lg text-sm p-3 cursor-pointer shadow"
                 >
                     <RefreshCcw
                         size={20}
@@ -25,8 +42,6 @@ const DashBoardCard = () => {
                     />
                     <span>Refresh</span>
                 </button>
-
-
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-6">
                 {/* Card 1 */}
