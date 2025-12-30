@@ -2,6 +2,8 @@ import React from 'react';
 import { RefreshCcw, } from 'lucide-react';
 import { Users, CalendarCheck, UserCheck, TrendingUp, CalendarDays, } from 'lucide-react';
 const DashBoardCard = () => {
+    const [isSpinning, setIsSpinning] = React.useState(false);
+
     return (
         <div className='p-4'>
             <div className="flex items-center justify-between px-1 py-3  ">
@@ -9,10 +11,22 @@ const DashBoardCard = () => {
                     <CalendarDays size={18} className="text-teal-600" />
                     <span className='text-[#333333]'>Aug 1, 2025 - Oct 31, 2025</span>
                 </div>
-                <button className="flex items-center gap-1 ml-6 px-3  bg-[#FFFFFF] hover:bg-[#FFFFFF] rounded-lg text-sm transition p-3 cursor-pointer">
-                    <RefreshCcw size={20} color='#333333' />
+                <button
+                    onClick={() => {
+                        setIsSpinning(true);         
+                        setTimeout(() => window.location.reload(), 300); 
+                    }}
+                    className="flex items-center gap-1 ml-6 px-3 bg-[#FFFFFF] rounded-lg text-sm p-3 cursor-pointer"
+                >
+                    <RefreshCcw
+                        size={20}
+                        color="#333333"
+                        className={isSpinning ? "animate-spin" : ""}
+                    />
                     <span>Refresh</span>
                 </button>
+
+
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-6">
                 {/* Card 1 */}

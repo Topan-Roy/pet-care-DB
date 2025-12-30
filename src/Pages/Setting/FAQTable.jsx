@@ -32,14 +32,18 @@ const FAQTable = () => {
         <div className="p-4">
             <div className="rounded-xl">
                 <div className="flex items-center justify-between mb-3">
-                    <button
-                        onClick={() => navigate(-1)}
-                        className="flex items-center text-slate-600 hover:text-slate-900 transition-colors"
-                        aria-label="Go back"
-                    >
-                        <LuChevronLeft className="w-5 h-5 mr-1 text-[#111111]" />
-                        <span className="text-[18px] font-medium text-[#111111] ">Update FAQ</span>
-                    </button>
+                    <div className="flex items-center text-slate-600 hover:text-slate-900 transition-colors">
+                        <LuChevronLeft
+                            onClick={() => navigate(-1)}
+                            className="w-5 h-5 mr-1 text-[#111111] cursor-pointer"
+                            aria-label="Go back"
+                        />
+
+                        <span className="text-[18px] text-[#111111]">
+                            Update FAQ
+                        </span>
+                    </div>
+
                     <button
                         onClick={() => setShowModal(true)}
                         className="flex items-center gap-2 bg-[#004D61] text-white px-4 py-2 rounded-lg hover:bg-[#003a4a]"

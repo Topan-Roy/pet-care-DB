@@ -2,6 +2,7 @@ import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, } from "recharts";
 import { MdOutlineReportGmailerrorred } from 'react-icons/md';
 import {  ShieldCheck } from 'lucide-react';
+import { Link } from 'react-router';
 
 
 
@@ -104,7 +105,7 @@ const EarningSummary = () => {
                                                 <MdOutlineReportGmailerrorred size={24} className="text-red-500" />
                                             </div>
                                             <div>
-                                                <p className="font-medium text-[#1F2937] mb-2 text-md">
+                                                <p className="font-medium text-[#1F2937] mb-2  text-md">
                                                     Reports
                                                 </p>
                                                 <p className="text-sm text-gray-500">
@@ -112,9 +113,11 @@ const EarningSummary = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                        <button className="mt-2 bg-[#F34F4F] text-white px-4 rounded-full text-md cursor-pointer">
+                                        <Link to="/dashboard/report">
+                                        <button className="mt-2 bg-[#F34F4F] text-white px-4 p-3 rounded-full text-md cursor-pointer">
                                             Investigate
                                         </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

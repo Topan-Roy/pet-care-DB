@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const RecentPayment = () => {
     const paymentHistory = [
@@ -47,9 +48,11 @@ const RecentPayment = () => {
                     <h3 className="font-semibold text-xl text-[#11293A]">
                         Recent Payment History
                     </h3>
+                    <Link to="/dashboard/payment">
                     <button className="text-sm font-medium text-teal-600 hover:underline cursor-pointer">
                         See all
                     </button>
+                    </Link>
                 </div>
 
                 <table className="w-full text-sm">

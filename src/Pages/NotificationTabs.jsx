@@ -8,7 +8,7 @@ export default function NotificationTabs() {
         <div className="flex gap-2 mb-6 ">
             <Link to="/dashboard/notificationpagee">
                 <button
-                    className={`px-4 py-2 rounded-xl border font-medium focus:outline-none
+                    className={`px-4 py-2 rounded-xl border font-medium focus:outline-none cursor-pointer
             ${isSystem
                             ? "bg-[#024B5E] text-[#FFFFFF] border-[#024B5E]"
                             : "bg-gray-100 text-[#585858] border-gray-300 hover:bg-gray-200"
@@ -19,7 +19,7 @@ export default function NotificationTabs() {
             </Link>
             <Link to="/dashboard/notificationpage">
                 <button
-                    className={`px-4 py-2 rounded-xl border font-medium focus:outline-none
+                    className={`px-4 py-2 rounded-xl border font-medium focus:outline-none cursor-pointer
             ${isCreate
                             ? "bg-[#024B5E] text-[#FFFFFF] border-[#024B5E]"
                             : "bg-gray-100 text-[#585858] border-gray-300 hover:bg-gray-200"

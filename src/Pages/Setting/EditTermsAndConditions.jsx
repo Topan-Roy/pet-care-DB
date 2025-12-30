@@ -47,13 +47,17 @@ const EditTermsAndConditions = () => {
         <div className="p-4">
             <div className=" ">
                 <div className="flex items-center justify-between p-2 ">
-                    <button
-                        onClick={() => navigate(-1)}
-                        className="flex items-center text-slate-600 hover:text-slate-900"
-                    >
-                        <LuChevronLeft className="w-5 h-5 mr-1 text-[#111111]" />
-                        <span className="text-[18px]  text-[#111111]">Terms & Conditions</span>
-                    </button>
+                   <div className="flex items-center text-slate-600 hover:text-slate-900 transition-colors">
+                        <LuChevronLeft
+                            onClick={() => navigate(-1)}
+                            className="w-5 h-5 mr-1 text-[#111111] cursor-pointer"
+                            aria-label="Go back"
+                        />
+
+                        <span className="text-[18px]  text-[#111111]">
+                        Terms & Conditions
+                        </span>
+                    </div>
 
                     <button className="bg-[#004D61] text-white px-6 py-2 rounded-lg text-sm">
                         Update

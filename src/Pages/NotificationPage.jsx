@@ -4,16 +4,22 @@ const systemNotifications = [
     { id: 1, title: "Welcome Offer", target: "All Users", sentDate: "Oct 11, 2025", status: "Sent", sentBy: "Guy Hawkins" },
     { id: 2, title: "Pet Care Alert", target: "Pet Owners Only", sentDate: "Oct 12, 2025", status: "Sent", sentBy: "Kristin Watson" },
     { id: 3, title: "Maintenance Notice", target: "Sitters Only", sentDate: "Oct 13, 2025", status: "Sent", sentBy: "Guy Hawkins" },
+    { id: 2, title: "Pet Care Alert", target: "Pet Owners Only", sentDate: "Oct 12, 2025", status: "Sent", sentBy: "Kristin Watson" },
+    { id: 3, title: "Maintenance Notice", target: "Sitters Only", sentDate: "Oct 13, 2025", status: "Sent", sentBy: "Guy Hawkins" },
+    { id: 2, title: "Pet Care Alert", target: "Pet Owners Only", sentDate: "Oct 12, 2025", status: "Sent", sentBy: "Kristin Watson" },
+    { id: 3, title: "Maintenance Notice", target: "Sitters Only", sentDate: "Oct 13, 2025", status: "Sent", sentBy: "Guy Hawkins" },
 ];
 export default function NotificationPage() {
     const [targetAudience, setTargetAudience] = useState("All Users");
     const [showAll, setShowAll] = useState(false);
+    const visibleNotifications = showAll
+        ? systemNotifications
+        : systemNotifications.slice(0, 3);
     return (
         <div className="bg-[#F9FEFF] min-h-screen p-4">
             <NotificationTabs></NotificationTabs>
             <div className="bg-white rounded-lg shadow p-6 mb-6">
                 <h2 className="text-lg font-semibold mb-4">CREATE NEW NOTIFICATIONS</h2>
-
                 <label className="block mb-2 font-medium text-gray-700">Title</label>
                 <input
                     type="text"
@@ -42,17 +48,17 @@ export default function NotificationPage() {
                         </label>
                     ))}
                 </div>
-                <button className="w-2/6 bg-[#024B5E] text-white font-semibold py-2 rounded-xl">Confirm</button>
+                <button className="w-2/6 bg-[#024B5E] text-white font-semibold py-2 rounded-xl cursor-pointer">Confirm</button>
             </div>
             <div className="bg-white rounded-lg shadow p-6">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-semibold text-[18px] text-[#11293A]">Previous Notification</h3>
-                  <p
-          onClick={() => setShowAll(!showAll)}
-          className="text-[#024B5E] cursor-pointer font-medium"
-        >
-          {showAll ? "See less" : "See all"}
-        </p>
+                    <p
+                        onClick={() => setShowAll(!showAll)}
+                        className="text-[#024B5E] cursor-pointer font-medium"
+                    >
+                        {showAll ? "See less" : "See all"}
+                    </p>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
@@ -62,11 +68,10 @@ export default function NotificationPage() {
                                 <th className="py-2 px-4">Target</th>
                                 <th className="py-2 px-4">Sent Date</th>
                                 <th className="py-2 px-4">Status</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
-                            {systemNotifications.map(({ id, title, target, sentDate, status }) => (
+                            {visibleNotifications.map(({ id, title, target, sentDate, status }) => (
                                 <tr key={id} className="border-b border-gray-200">
                                     <td className="py-2 px-4">{title}</td>
                                     <td className="py-2 px-4">{target}</td>
@@ -77,7 +82,6 @@ export default function NotificationPage() {
                                             {status}
                                         </span>
                                     </td>
-                                   
                                 </tr>
                             ))}
                         </tbody>

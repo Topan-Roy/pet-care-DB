@@ -59,7 +59,7 @@ export default function NotificationPagee() {
               <div
                 key={item.id}
                 onClick={() => handleNotificationClick(item)}
-                className={`flex items-start gap-2 rounded px-4 py-4 shadow-sm cursor-pointer ${
+                className={`flex items-start gap-2 rounded px-4 py-3 shadow-sm cursor-pointer ${
                   item.message.toLowerCase().includes("received")
                     ? "hover:bg-[#E0F2F7]"
                     : ""

@@ -2,7 +2,7 @@ import { ChevronRight } from "lucide-react";
 import { Link } from "react-router";
 const SettingsMenu = () => {
     return (
-        <div className="   ">
+        <div className=" p-4">
             <div className="  bg-white rounded-xl border border-gray-200 ">
                 <Link to='/dashboard/personalinformation'>
                     <div className="flex justify-between items-center px-5 py-3 hover:bg-[#E7F4F6] cursor-pointer">
