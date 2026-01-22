@@ -37,10 +37,10 @@ export default function PetSitter() {
   const DATA = [
     {
       id: 1,
-      name: "Doctor Jamie",
+      name: "Adriana torres",
       img: "https://i.pravatar.cc/150?u=20",
       rating: 4.6,
-      completed: 2,
+      completed: 3,
       recooked: 2,
       cancel: 2,
       upcoming: 2,
@@ -65,7 +65,7 @@ export default function PetSitter() {
     },
     {
       id: 3,
-      name: "Doctor Jamie",
+      name: "Adriana torres",
       img: "https://i.pravatar.cc/150?u=22",
       rating: 4.6,
       completed: 2,
@@ -107,7 +107,7 @@ export default function PetSitter() {
     },
     {
       id: 6,
-      name: "Doctor Jamie",
+      name: "Adriana Jamie",
       img: "https://i.pravatar.cc/150?u=25",
       rating: 4.6,
       completed: 2,
@@ -177,7 +177,7 @@ export default function PetSitter() {
     },
     {
       id: 11,
-      name: "Doctor Jamie",
+      name: "Adriana Jamie",
       img: "https://i.pravatar.cc/150?u=29",
       rating: 4.6,
       completed: 2,
@@ -205,7 +205,7 @@ export default function PetSitter() {
     },
     {
       id: 13,
-      name: "Doctor Jamie",
+      name: "Adriana Jamie",
       img: "https://i.pravatar.cc/150?u=29",
       rating: 4.6,
       completed: 2,
