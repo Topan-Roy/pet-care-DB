@@ -22,16 +22,16 @@ export default function Petowner() {
 
   const monthOptions = [
     "This Month",
-    "Last Month",
-    "Last 3 Months",
-    "This Year",
+    "This Week",
+    "Today",
+   
   ];
   const serviceOptions = [
     "All Services",
-    "Grooming",
-    "Dog Walking",
-    "Vet Visit",
-    "Training",
+    "Boarding",
+    "Daycare",
+    "Walking",
+   
   ];
   const handleMonthSelect = (option) => {
     setSelectedMonth(option);

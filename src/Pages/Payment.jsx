@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { CreditCard, Download, Mail, MapPin, PrinterCheck, Search, User } from "lucide-react";
+import {
+  CreditCard,
+  Download,
+  Mail,
+  MapPin,
+  PrinterCheck,
+  Search,
+  User,
+} from "lucide-react";
 const paymentHistoryData = [
   {
     id: 1,
@@ -193,112 +201,122 @@ export default function Payment() {
     (item) =>
       item.transactionId.includes(search) ||
       item.petSitter.toLowerCase().includes(search.toLowerCase()) ||
-      item.petOwner.toLowerCase().includes(search.toLowerCase())
+      item.petOwner.toLowerCase().includes(search.toLowerCase()),
   );
   const totalPages = Math.ceil(filteredData.length / rowsPerPage);
   const startIndex = (currentPage - 1) * rowsPerPage;
   const currentRows = filteredData.slice(startIndex, startIndex + rowsPerPage);
   return (
     <>
-    <div className="p-4">
-      <div className="bg-white p-6 rounded-xl shadow-sm">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-[#11293A] font-semibold text-lg">
-            All Payment History
-          </h2>
-          <div className="flex items-center bg-[#035F750F] border border-[#024B5E] px-5 py-2 rounded-full">
-            <Search size={18} className="text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="ml-2 outline-none bg-transparent text-sm"
-            />
+      <div className="p-4">
+        <div className="bg-white p-6 rounded-xl shadow-sm">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-[#11293A] font-semibold text-lg">
+              All Payment History
+            </h2>
+            <div className="flex items-center bg-[#035F750F] border border-[#024B5E] px-5 py-2 rounded-full">
+              <Search size={18} className="text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="ml-2 outline-none bg-transparent text-sm"
+              />
+            </div>
           </div>
-        </div>
-        <div className="overflow-hidden rounded overflow-y-auto max-h-[400px]">
-          <table className="w-full text-md  text-center border-collapse">
-            {/* Table Header */}
-            <thead className="sticky top-0 z-20">
-              <tr className="bg-gray-100 text-[#333333]">
-                <th className="px-2 py-1 font-medium w-1/6">Date</th>
-                <th className="px-2 py-1 font-medium w-1/6">Transaction ID</th>
-                <th className="px-2 py-1 font-medium w-1/6">Pet Sitter</th>
-                <th className="px-2 py-1 font-medium w-1/6">Pet Owners</th>
-                <th className="px-2 py-1 font-medium w-1/6">Amount</th>
-                <th className="px-2 py-1 font-medium w-1/6">Received</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="h-2"></tr>
-              {currentRows.map((row) => (
-                <tr key={row.id} className="bg-transparent">
-                  <td colSpan={6}>
-                    <div
-                      onClick={() => {
-                        setSelectedRow(row);
-                        setIsModalOpen(true);
-                      }}
-                      className={`
-          flex justify-between items-center rounded cursor-pointer border-b border-[#EBEBEB] p-1 transition
-          ${selectedRow?.id === row.id ? 'bg-[#EAF2F4]' : 'bg-white hover:bg-[#035F750F]'}
-        `}
-                    >
-                      <span className="w-1/6 px-1 py-0.5">{row.date}</span>
-                      <span className="w-1/6 px-1 py-0.5">{row.transactionId}</span>
-                      <span className="w-1/6 px-1 py-0.5">{row.petSitter}</span>
-                      <span className="w-1/6 px-1 py-0.5">{row.petOwner}</span>
-                      <span className="w-1/6 px-1 py-0.5">{row.amount}</span>
-                      <span className="w-1/6 px-1 py-0.5">{row.received}</span>
-                    </div>
-                  </td>
+          <div className="overflow-hidden rounded overflow-y-auto max-h-[400px]">
+            <table className="w-full text-md  text-center border-collapse">
+              {/* Table Header */}
+              <thead className="sticky top-0 z-20">
+                <tr className="bg-gray-100 text-[#333333]">
+                  <th className="px-2 py-1 font-medium w-1/6">Date</th>
+                  <th className="px-2 py-1 font-medium w-1/6">
+                    Transaction ID
+                  </th>
+                  <th className="px-2 py-1 font-medium w-1/6">Pet Sitter</th>
+                  <th className="px-2 py-1 font-medium w-1/6">Pet Owners</th>
+                  <th className="px-2 py-1 font-medium w-1/6">Amount</th>
+                  <th className="px-2 py-1 font-medium w-1/6">Received</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {/* Pagination */}
-        <div className="flex justify-end gap-10 items-center mt-4">
-          <div className="flex items-center gap-2">
-            <span className="text-[#333333]">Rows Per Page:</span>
-            <select
-              value={rowsPerPage}
-              onChange={(e) => {
-                setRowsPerPage(Number(e.target.value));
-                setCurrentPage(1);
-              }}
-              className="border border-gray-300 rounded px-2 py-1 text-sm"
-            >
-              {ROWS_OPTIONS.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </select>
+              </thead>
+              <tbody>
+                <tr className="h-2"></tr>
+                {currentRows.map((row) => (
+                  <tr key={row.id} className="bg-transparent">
+                    <td colSpan={6}>
+                      <div
+                        onClick={() => {
+                          setSelectedRow(row);
+                          setIsModalOpen(true);
+                        }}
+                        className={`
+          flex justify-between items-center rounded cursor-pointer border-b border-[#EBEBEB] p-1 transition
+          ${selectedRow?.id === row.id ? "bg-[#EAF2F4]" : "bg-white hover:bg-[#035F750F]"}
+        `}
+                      >
+                        <span className="w-1/6 px-1 py-0.5">{row.date}</span>
+                        <span className="w-1/6 px-1 py-0.5">
+                          {row.transactionId}
+                        </span>
+                        <span className="w-1/6 px-1 py-0.5">
+                          {row.petSitter}
+                        </span>
+                        <span className="w-1/6 px-1 py-0.5">
+                          {row.petOwner}
+                        </span>
+                        <span className="w-1/6 px-1 py-0.5">{row.amount}</span>
+                        <span className="w-1/6 px-1 py-0.5">
+                          {row.received}
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <div className="flex items-center gap-2 text-sm">
-            <span className="text-[#333333]">
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-              disabled={currentPage === 1}
-              className="px-2 py-1 border rounded disabled:opacity-50 text-[#333333]"
-            >
-              &lt;
-            </button>
-            <button
-              onClick={() =>
-                setCurrentPage((p) => Math.min(p + 1, totalPages))
-              }
-              disabled={currentPage === totalPages}
-              className="px-2 py-1 text-[#333333] border rounded disabled:opacity-50"
-            >
-              &gt;
-            </button>
+          {/* Pagination */}
+          <div className="flex justify-end gap-10 items-center mt-4">
+            <div className="flex items-center gap-2">
+              <span className="text-[#333333]">Rows Per Page:</span>
+              <select
+                value={rowsPerPage}
+                onChange={(e) => {
+                  setRowsPerPage(Number(e.target.value));
+                  setCurrentPage(1);
+                }}
+                className="border border-gray-300 rounded px-2 py-1 text-sm"
+              >
+                {ROWS_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-[#333333]">
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-2 py-1 border rounded disabled:opacity-50 text-[#333333]"
+              >
+                &lt;
+              </button>
+              <button
+                onClick={() =>
+                  setCurrentPage((p) => Math.min(p + 1, totalPages))
+                }
+                disabled={currentPage === totalPages}
+                className="px-2 py-1 text-[#333333] border rounded disabled:opacity-50"
+              >
+                &gt;
+              </button>
+            </div>
           </div>
-        </div>
         </div>
       </div>
       {/* Modal */}
@@ -313,7 +331,9 @@ export default function Payment() {
             </button>
             <div className="flex justify-between items-center mb-4">
               <div>
-                <h2 className="text-[20px] text-[#000] font-semibold">Receipt</h2>
+                <h2 className="text-[20px] text-[#000] font-semibold">
+                  Receipt
+                </h2>
                 <p className="text-sm text-[#666666]">
                   Transaction ID: #{selectedRow.transactionId}
                 </p>
@@ -322,11 +342,12 @@ export default function Payment() {
                 <span className="w-2 h-2 bg-white rounded-full"></span>
                 Paid
               </span>
-
             </div>
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
-                <h4 className="font-semibold text-[16px] text-black mb-2">Pet Owners Information</h4>
+                <h4 className="font-semibold text-[16px] text-black mb-2">
+                  Pet Owners Information
+                </h4>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-center gap-2">
                     <User size={20} className="" />
@@ -345,7 +366,9 @@ export default function Payment() {
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold text-[16px] mb-2">Pet Sitter Information</h4>
+                <h4 className="font-semibold text-[16px] mb-2">
+                  Pet Sitter Information
+                </h4>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-center gap-2">
                     <User size={20} className="" />
@@ -365,10 +388,14 @@ export default function Payment() {
               </div>
             </div>
             <div className="mb-4">
-              <h4 className="font-semibold text-[16px] text-black mb-2">Pet Owners Information</h4>
+              <h4 className="font-semibold text-[16px] text-black mb-2">
+                Pet Owners Information
+              </h4>
               <div className="text-sm text-gray-600 space-y-1">
                 <div className="flex justify-between border-b border-[#EBEBEB] mb-2">
-                  <span className="text-[#4B5563] text-[16px] mb-1">Service:</span>
+                  <span className="text-[#4B5563] text-[16px] mb-1">
+                    Service:
+                  </span>
                   <span className="text-[#024B5E] text-[16px]">Daycare</span>
                 </div>
                 <div className="flex justify-between border-b border-[#EBEBEB] mb-2">
@@ -380,7 +407,9 @@ export default function Payment() {
                   <span className="text-[14px]">14:15</span>
                 </div>
                 <div className="flex justify-between border-b border-[#EBEBEB] mb-2">
-                  <span className="text-[#4B5563] text-[16px] mb-1">Status:</span>
+                  <span className="text-[#4B5563] text-[16px] mb-1">
+                    Status:
+                  </span>
                   <span className="text-green-600 text-[14px]">Completed</span>
                 </div>
               </div>
@@ -388,12 +417,18 @@ export default function Payment() {
             <div className=" pt-3 text-sm text-gray-700 space-y-1">
               <div className="flex items-center gap-2 text-sm text-gray-700">
                 <CreditCard size={18} />
-                <span className="text-[#666666] text-[16px]">Payment Method:</span>
-                <span className="text-black font-medium text-[16px]">Credit Card</span>
+                <span className="text-[#666666] text-[16px]">
+                  Payment Method:
+                </span>
+                <span className="text-black font-medium text-[16px]">
+                  Credit Card
+                </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[16px]">Base Amount:</span>
-                <span className="text-[14px] font-medium text-black">$1000</span>
+                <span className="text-[14px] font-medium text-black">
+                  $1000
+                </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[16px]">Pet Owners 10%:</span>
@@ -405,7 +440,9 @@ export default function Payment() {
               </div>
               <div className="flex justify-between font-semibold">
                 <span>Sitter Received:</span>
-                <span className="text-[14px] font-medium text-black">{selectedRow.received}</span>
+                <span className="text-[14px] font-medium text-black">
+                  {selectedRow.received}
+                </span>
               </div>
             </div>
             <div className="flex gap-3 mt-5">
@@ -419,7 +456,6 @@ export default function Payment() {
           </div>
         </div>
       )}
-
     </>
   );
 }
