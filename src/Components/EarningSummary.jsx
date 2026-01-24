@@ -14,12 +14,6 @@ const EarningSummary = () => {
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const [startMonth, setStartMonth] = useState(0);
-  const [startYear, setStartYear] = useState(currentYear);
-  const [endMonth, setEndMonth] = useState(currentMonth);
-  const [endYear, setEndYear] = useState(currentYear);
-  const [comparisonEnabled, setComparisonEnabled] = useState(true);
   const [selectedPeriod, setSelectedPeriod] = useState("This Month");
   const [isPeriodDropdownOpen, setIsPeriodDropdownOpen] = useState(false);
 
@@ -38,22 +32,11 @@ const EarningSummary = () => {
     "Dec",
   ];
   const years = Array.from({ length: 10 }, (_, i) => 2020 + i);
-  const periods = ["Today", "This Week", "This Month", "Custom"];
+  const periods = ["This Week", "This Month"];
 
-  const formatDateRange = () => {
-    return `${months[startMonth]} ${startYear} - ${months[endMonth]} ${endYear}`;
-  };
-  const handleApply = () => {
-    setIsCalendarOpen(false);
-  };
   const handlePeriodSelect = (period) => {
     setSelectedPeriod(period);
     setIsPeriodDropdownOpen(false);
-    if (period !== "Custom") {
-      setIsCalendarOpen(false);
-    } else {
-      setIsCalendarOpen(true);
-    }
   };
   const rawData = [
     { category: "Revenue", current: 90000, previous: 40000 },
@@ -72,56 +55,42 @@ const EarningSummary = () => {
       const currentVal = data.current;
       const previousVal = data.previous;
 
-      if (comparisonEnabled) {
-        const percentageChange =
-          previousVal > 0
-            ? (((currentVal - previousVal) / previousVal) * 100).toFixed(0)
-            : 0;
-        const isPositive = percentageChange >= 0;
-        return (
-          <div className="bg-white border border-gray-200 p-4 rounded-lg shadow-lg min-w-[200px]">
-            <h4 className="font-semibold text-gray-800 mb-2">{label}</h4>
-            <div className="space-y-2">
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-blue-600 font-medium">Current:</span>
-                <span className="font-bold text-gray-900">
-                  {currentVal.toLocaleString()}
-                </span>
-              </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-gray-500 font-medium">Previous:</span>
-                <span className="font-semibold text-gray-600">
-                  {previousVal.toLocaleString()}
-                </span>
-              </div>
-            </div>
-            <div className="mt-3 pt-3 border-t border-gray-100">
-              <div
-                className={`text-sm font-semibold inline-flex items-center gap-1 ${isPositive ? "text-green-600" : "text-red-600"}`}
-              >
-                <span>
-                  {isPositive ? "↑" : "↓"} {Math.abs(percentageChange)}%
-                </span>
-                <span className="text-gray-500 font-normal ml-1">
-                  vs previous period
-                </span>
-              </div>
-            </div>
-          </div>
-        );
-      } else {
-        return (
-          <div className="bg-white border border-gray-200 p-4 rounded-lg shadow-lg min-w-[150px]">
-            <h4 className="font-semibold text-gray-800 mb-2">{label}</h4>
+      const percentageChange =
+        previousVal > 0
+          ? (((currentVal - previousVal) / previousVal) * 100).toFixed(0)
+          : 0;
+      const isPositive = percentageChange >= 0;
+      return (
+        <div className="bg-white border border-gray-200 p-4 rounded-lg shadow-lg min-w-[200px]">
+          <h4 className="font-semibold text-gray-800 mb-2">{label}</h4>
+          <div className="space-y-2">
             <div className="flex justify-between items-center text-sm">
               <span className="text-blue-600 font-medium">Current:</span>
               <span className="font-bold text-gray-900">
                 {currentVal.toLocaleString()}
               </span>
             </div>
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-gray-500 font-medium">Previous:</span>
+              <span className="font-semibold text-gray-600">
+                {previousVal.toLocaleString()}
+              </span>
+            </div>
           </div>
-        );
-      }
+          <div className="mt-3 pt-3 border-t border-gray-100">
+            <div
+              className={`text-sm font-semibold inline-flex items-center gap-1 ${isPositive ? "text-green-600" : "text-red-600"}`}
+            >
+              <span>
+                {isPositive ? "↑" : "↓"} {Math.abs(percentageChange)}%
+              </span>
+              <span className="text-gray-500 font-normal ml-1">
+                vs previous period
+              </span>
+            </div>
+          </div>
+        </div>
+      );
     }
     return null;
   };
@@ -174,126 +143,6 @@ const EarningSummary = () => {
                 </>
               )}
             </div>
-            {selectedPeriod === "Custom" && (
-              <div className="relative">
-                <button
-                  onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-                  className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-                >
-                  <CalendarDays className="w-4 h-4 text-teal-600" />
-                  <span className="text-sm font-medium text-gray-700">
-                    {formatDateRange()}
-                  </span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-gray-600 transition-transform ${isCalendarOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-                {isCalendarOpen && (
-                  <>
-                    <div
-                      className="fixed inset-0 z-10"
-                      onClick={() => setIsCalendarOpen(false)}
-                    />
-                    <div className="absolute right-0 mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-20 p-4">
-                      <div className="space-y-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Start Date
-                          </label>
-                          <div className="grid grid-cols-2 gap-3">
-                            <select
-                              value={startMonth}
-                              onChange={(e) =>
-                                setStartMonth(Number(e.target.value))
-                              }
-                              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm"
-                            >
-                              {months.map((month, idx) => (
-                                <option key={idx} value={idx}>
-                                  {month}
-                                </option>
-                              ))}
-                            </select>
-                            <select
-                              value={startYear}
-                              onChange={(e) =>
-                                setStartYear(Number(e.target.value))
-                              }
-                              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm"
-                            >
-                              {years.map((year) => (
-                                <option key={year} value={year}>
-                                  {year}
-                                </option>
-                              ))}
-                            </select>
-                          </div>
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            End Date
-                          </label>
-                          <div className="grid grid-cols-2 gap-3">
-                            <select
-                              value={endMonth}
-                              onChange={(e) =>
-                                setEndMonth(Number(e.target.value))
-                              }
-                              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm"
-                            >
-                              {months.map((month, idx) => (
-                                <option key={idx} value={idx}>
-                                  {month}
-                                </option>
-                              ))}
-                            </select>
-                            <select
-                              value={endYear}
-                              onChange={(e) =>
-                                setEndYear(Number(e.target.value))
-                              }
-                              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm"
-                            >
-                              {years.map((year) => (
-                                <option key={year} value={year}>
-                                  {year}
-                                </option>
-                              ))}
-                            </select>
-                          </div>
-                        </div>
-                        <div className="flex gap-2 pt-2">
-                          <button
-                            onClick={() => setIsCalendarOpen(false)}
-                            className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
-                          >
-                            Cancel
-                          </button>
-                          <button
-                            onClick={handleApply}
-                            className="flex-1 px-4 py-2 text-sm font-medium text-white bg-teal-600 rounded-md hover:bg-teal-700 transition-colors"
-                          >
-                            Apply
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
-            )}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setComparisonEnabled(!comparisonEnabled)}
-                className={`relative w-12 h-6 rounded-full transition-colors ${comparisonEnabled ? "bg-teal-600" : "bg-gray-300"
-                  }`}
-              >
-                <div
-                  className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform ${comparisonEnabled ? "translate-x-6" : "translate-x-0"
-                    }`}
-                />
-              </button>
-            </div>
           </div>
         </div>
         <div className="space-y-4">
@@ -325,16 +174,14 @@ const EarningSummary = () => {
                   animationDuration={800}
                   barSize={70}
                 />
-                {comparisonEnabled && (
-                  <Bar
-                    dataKey="previous"
-                    fill="#fca5a5"
-                    radius={[4, 4, 0, 0]}
-                    name="Previous Period"
-                    animationDuration={800}
-                    barSize={70}
-                  />
-                )}
+                <Bar
+                  dataKey="previous"
+                  fill="#fca5a5"
+                  radius={[4, 4, 0, 0]}
+                  name="Previous Period"
+                  animationDuration={800}
+                  barSize={70}
+                />
               </BarChart>
             </ResponsiveContainer>
           </div>
