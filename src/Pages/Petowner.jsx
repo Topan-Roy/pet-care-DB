@@ -7,6 +7,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Link } from "react-router";
+import PetOwnerDetailsModal from "../Components/PetOwnerDetailsModal";
 export default function Petowner() {
   const [search, setSearch] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -15,6 +16,10 @@ export default function Petowner() {
   const [selectedMonth, setSelectedMonth] = useState("This Month");
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("Service Type");
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedOwner, setSelectedOwner] = useState(null);
+
   const monthOptions = [
     "This Month",
     "Last Month",
@@ -364,11 +369,15 @@ export default function Petowner() {
                     {row.bookedDay}
                   </td>
                   <td className="px-6 py-4 text-center">
-                    <Link to="/dashboard/petownerdelails">
-                      <button className="p-1.5 rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors cursor-pointer">
-                        <Eye size={18} />
-                      </button>
-                    </Link>
+                    <button
+                      onClick={() => {
+                        setSelectedOwner(row);
+                        setIsModalOpen(true);
+                      }}
+                      className="p-1.5 rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors cursor-pointer"
+                    >
+                      <Eye size={18} />
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -418,6 +427,12 @@ export default function Petowner() {
           </div>
         </div>
       </div>
+
+      <PetOwnerDetailsModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        owner={selectedOwner}
+      />
     </div>
   );
 }

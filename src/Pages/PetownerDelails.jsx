@@ -51,7 +51,7 @@ export default function PetownerDelails() {
                             <li>
                                 <span className="font-medium text-[#333333] text-md">Contact:</span> <span className="text-[#7A7A7A] text-sm px-2">(603) 555-0123</span>
                             </li>
-                           
+
                             <li>
                                 <span className="font-medium text-[#333333] text-md">Joined Date:</span> <span className="text-[#7A7A7A] text-sm px-2">Aug 5, 2023</span>
                             </li>
@@ -97,7 +97,7 @@ export default function PetownerDelails() {
                                 Aug,12 2025
                             </span>
                         </div>
-                         <div className="border-l-3 border border-[#024B5E] rounded-xl p-4 flex justify-between items-start">
+                        <div className="border-l-3 border border-[#024B5E] rounded-xl p-4 flex justify-between items-start">
                             <div className="flex gap-3 w-full font-medium">
                                 <img
                                     src="https://i.pravatar.cc/40"
@@ -129,7 +129,7 @@ export default function PetownerDelails() {
                                 Aug,12 2025
                             </span>
                         </div>
-                         <div className="border-l-3 border border-[#024B5E] rounded-xl p-4 flex justify-between items-start">
+                        <div className="border-l-3 border border-[#024B5E] rounded-xl p-4 flex justify-between items-start">
                             <div className="flex gap-3 w-full font-medium">
                                 <img
                                     src="https://i.pravatar.cc/40"
