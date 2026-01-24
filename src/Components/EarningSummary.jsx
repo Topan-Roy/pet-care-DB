@@ -63,17 +63,16 @@ const EarningSummary = () => {
   ];
   const comparisonData = rawData.map((item) => ({
     ...item,
-    fullCurrent: item.current,
-    fullPrevious: item.previous,
-    current: comparisonEnabled ? item.current : item.current * 0.25,
-    previous: !comparisonEnabled ? item.previous : item.previous * 0.25,
+    current: item.current,
+    previous: item.previous,
   }));
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
-      if (payload.length === 2) {
-        const data = payload[0].payload;
-        const currentVal = data.fullCurrent;
-        const previousVal = data.fullPrevious;
+      const data = payload[0].payload;
+      const currentVal = data.current;
+      const previousVal = data.previous;
+
+      if (comparisonEnabled) {
         const percentageChange =
           previousVal > 0
             ? (((currentVal - previousVal) / previousVal) * 100).toFixed(0)
@@ -110,13 +109,25 @@ const EarningSummary = () => {
             </div>
           </div>
         );
+      } else {
+        return (
+          <div className="bg-white border border-gray-200 p-4 rounded-lg shadow-lg min-w-[150px]">
+            <h4 className="font-semibold text-gray-800 mb-2">{label}</h4>
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-blue-600 font-medium">Current:</span>
+              <span className="font-bold text-gray-900">
+                {currentVal.toLocaleString()}
+              </span>
+            </div>
+          </div>
+        );
       }
     }
     return null;
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
-      <div className="md:col-span-2 bg-[#FFFFFF] p-5 rounded-xl shadow-sm">
+    <div className="p-4">
+      <div className="w-full h-1/2 bg-[#FFFFFF] p-5 rounded-xl shadow-sm">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
           <div>
             <h2 className="text-lg font-semibold text-gray-800">
@@ -151,11 +162,10 @@ const EarningSummary = () => {
                       <button
                         key={period}
                         onClick={() => handlePeriodSelect(period)}
-                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
-                          selectedPeriod === period
-                            ? "bg-teal-50 text-teal-700 font-medium"
-                            : "text-gray-700"
-                        }`}
+                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${selectedPeriod === period
+                          ? "bg-teal-50 text-teal-700 font-medium"
+                          : "text-gray-700"
+                          }`}
                       >
                         {period}
                       </button>
@@ -275,23 +285,21 @@ const EarningSummary = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setComparisonEnabled(!comparisonEnabled)}
-                className={`relative w-12 h-6 rounded-full transition-colors ${
-                  comparisonEnabled ? "bg-teal-600" : "bg-gray-300"
-                }`}
+                className={`relative w-12 h-6 rounded-full transition-colors ${comparisonEnabled ? "bg-teal-600" : "bg-gray-300"
+                  }`}
               >
                 <div
-                  className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform ${
-                    comparisonEnabled ? "translate-x-6" : "translate-x-0"
-                  }`}
+                  className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform ${comparisonEnabled ? "translate-x-6" : "translate-x-0"
+                    }`}
                 />
               </button>
             </div>
           </div>
         </div>
         <div className="space-y-4">
-          <div className="w-full h-80">
+          <div className="w-full h-100">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={comparisonData} barGap={8}>
+              <BarChart data={comparisonData} barGap={25}>
                 <XAxis
                   dataKey="category"
                   axisLine={false}
@@ -315,54 +323,24 @@ const EarningSummary = () => {
                   radius={[4, 4, 0, 0]}
                   name="Current Period"
                   animationDuration={800}
+                  barSize={70}
                 />
-                <Bar
-                  dataKey="previous"
-                  fill="#fca5a5"
-                  radius={[4, 4, 0, 0]}
-                  name="Previous Period"
-                  animationDuration={800}
-                />
+                {comparisonEnabled && (
+                  <Bar
+                    dataKey="previous"
+                    fill="#fca5a5"
+                    radius={[4, 4, 0, 0]}
+                    name="Previous Period"
+                    animationDuration={800}
+                    barSize={70}
+                  />
+                )}
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
       </div>
-      <div className="space-y-4 bg-[#FFFFFF] rounded-xl shadow-sm p-8">
-        <p className="font-semibold text-xl text-[#1F2937]">Pending Actions</p>
-        <div className="flex justify-between bg-[#1BB6DB42] p-8 rounded-xl">
-          <div className="flex items-start gap-3">
-            <div className="bg-white p-2 rounded-full shadow-sm">
-              <ShieldCheck size={18} className="text-teal-600" />
-            </div>
-            <div>
-              <p className="font-medium text-[#1F2937] mb-2 text-md">
-                Verification
-              </p>
-              <p className="text-sm text-gray-500">
-                12 Pet Sitter awaiting verification
-              </p>
-            </div>
-          </div>
-          <button className="mt-2 bg-[#035F75] text-white px-4 rounded-full text-nd cursor-pointer">
-            Review
-          </button>
-        </div>
-        <div className="flex justify-between bg-[#FCD9D9] p-8 rounded-xl">
-          <div className="flex items-start gap-3">
-            <div className="bg-white p-2 rounded-full shadow-sm">
-              <AlertCircle size={24} className="text-red-500" />
-            </div>
-            <div>
-              <p className="font-medium text-[#1F2937] mb-2 text-md">Reports</p>
-              <p className="text-sm text-gray-500">5 new report</p>
-            </div>
-          </div>
-          <button className="mt-2 bg-[#F34F4F] text-white px-4 p-3 rounded-full text-md cursor-pointer">
-            Investigate
-          </button>
-        </div>
-      </div>
+
     </div>
   );
 };
