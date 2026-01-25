@@ -1,461 +1,244 @@
-import React, { useState } from "react";
-import {
-  CreditCard,
-  Download,
-  Mail,
-  MapPin,
-  PrinterCheck,
-  Search,
-  User,
-} from "lucide-react";
-const paymentHistoryData = [
-  {
-    id: 1,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93451",
-    petSitter: "Guy Hawkins",
-    petOwner: "Kristin Watson",
-    amount: "$900",
-    received: "$855",
-  },
-  {
-    id: 2,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93452",
-    petSitter: "Savannah Nguyen",
-    petOwner: "Cody Fisher",
-    amount: "$700",
-    received: "$665",
-  },
-  {
-    id: 3,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93453",
-    petSitter: "Eleanor Pena",
-    petOwner: "Jane Cooper",
-    amount: "$500",
-    received: "$475",
-  },
-  {
-    id: 4,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93454",
-    petSitter: "Robert Fox",
-    petOwner: "Wade Warren",
-    amount: "$1200",
-    received: "$1140",
-  },
-  {
-    id: 1,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93451",
-    petSitter: "Guy Hawkins",
-    petOwner: "Kristin Watson",
-    amount: "$900",
-    received: "$855",
-  },
-  {
-    id: 2,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93452",
-    petSitter: "Savannah Nguyen",
-    petOwner: "Cody Fisher",
-    amount: "$700",
-    received: "$665",
-  },
-  {
-    id: 3,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93453",
-    petSitter: "Eleanor Pena",
-    petOwner: "Jane Cooper",
-    amount: "$500",
-    received: "$475",
-  },
-  {
-    id: 4,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93454",
-    petSitter: "Robert Fox",
-    petOwner: "Wade Warren",
-    amount: "$1200",
-    received: "$1140",
-  },
-  {
-    id: 1,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93451",
-    petSitter: "Guy Hawkins",
-    petOwner: "Kristin Watson",
-    amount: "$900",
-    received: "$855",
-  },
-  {
-    id: 2,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93452",
-    petSitter: "Savannah Nguyen",
-    petOwner: "Cody Fisher",
-    amount: "$700",
-    received: "$665",
-  },
-  {
-    id: 3,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93453",
-    petSitter: "Eleanor Pena",
-    petOwner: "Jane Cooper",
-    amount: "$500",
-    received: "$475",
-  },
-  {
-    id: 4,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93454",
-    petSitter: "Robert Fox",
-    petOwner: "Wade Warren",
-    amount: "$1200",
-    received: "$1140",
-  },
-  {
-    id: 1,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93451",
-    petSitter: "Guy Hawkins",
-    petOwner: "Kristin Watson",
-    amount: "$900",
-    received: "$855",
-  },
-  {
-    id: 2,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93452",
-    petSitter: "Savannah Nguyen",
-    petOwner: "Cody Fisher",
-    amount: "$700",
-    received: "$665",
-  },
-  {
-    id: 3,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93453",
-    petSitter: "Eleanor Pena",
-    petOwner: "Jane Cooper",
-    amount: "$500",
-    received: "$475",
-  },
-  {
-    id: 4,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93454",
-    petSitter: "Robert Fox",
-    petOwner: "Wade Warren",
-    amount: "$1200",
-    received: "$1140",
-  },
-  {
-    id: 1,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93451",
-    petSitter: "Guy Hawkins",
-    petOwner: "Kristin Watson",
-    amount: "$900",
-    received: "$855",
-  },
-  {
-    id: 2,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93452",
-    petSitter: "Savannah Nguyen",
-    petOwner: "Cody Fisher",
-    amount: "$700",
-    received: "$665",
-  },
-  {
-    id: 3,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93453",
-    petSitter: "Eleanor Pena",
-    petOwner: "Jane Cooper",
-    amount: "$500",
-    received: "$475",
-  },
-  {
-    id: 4,
-    date: "14:15:20 21/03/2025",
-    transactionId: "93454",
-    petSitter: "Robert Fox",
-    petOwner: "Wade Warren",
-    amount: "$1200",
-    received: "$1140",
-  },
+import React, { useState, useMemo } from 'react';
+import { ChevronDown, Search, Download } from 'lucide-react';
+
+const paymentData = [
+  { id: 'BK-1018', date: 'Jan 23, 2026', owner: 'Carol White', sitter: 'Sarah Wilson', service: 'Daycare', totalPay: 49.02, sitterGross: 46.69, taxRet: 0, sitterNet: 35.02, ownerFee: 2.33, ownerFeePct: '5.0%', sitterFee: 7.00, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 9.33, booked: 25, rebooked: 22 },
+  { id: 'BK-1002', date: 'Jan 17, 2026', owner: '-', sitter: 'Tom Anderson', service: 'Daycare', totalPay: 99.99, sitterGross: 0, taxRet: 0, sitterNet: 0, ownerFee: 0, ownerFeePct: '', sitterFee: 0, sitterFeePct: '', bgCheck: 99.99, wuffooNet: 99.99, booked: 0, rebooked: 0 },
+  { id: 'BK-1003', date: 'Jan 17, 2026', owner: 'David Brown', sitter: 'Sarah Wilson', service: 'Boarding', totalPay: 140.16, sitterGross: 133.49, taxRet: -13.35, sitterNet: 100.12, ownerFee: 6.67, ownerFeePct: '5.0%', sitterFee: 20.02, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 26.69, booked: 8, rebooked: 5 },
+  { id: 'BK-1019', date: 'Jan 14, 2026', owner: 'Bob Smith', sitter: 'Mike Miller', service: 'Boarding', totalPay: 83.77, sitterGross: 79.78, taxRet: -7.98, sitterNet: 59.83, ownerFee: 3.99, ownerFeePct: '5.0%', sitterFee: 11.97, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 15.96, booked: 3, rebooked: 0 },
+  { id: 'BK-1000', date: 'Jan 7, 2026', owner: 'Bob Smith', sitter: 'Tom Anderson', service: 'Daycare', totalPay: 67.20, sitterGross: 64.00, taxRet: -6.40, sitterNet: 48.00, ownerFee: 3.20, ownerFeePct: '5.0%', sitterFee: 9.60, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 12.80, booked: 3, rebooked: 0 },
+  { id: 'BK-1014', date: 'Jan 6, 2026', owner: 'Bob Smith', sitter: 'Jessica Taylor', service: 'Boarding', totalPay: 155.19, sitterGross: 147.60, taxRet: -14.78, sitterNet: 110.85, ownerFee: 7.39, ownerFeePct: '5.0%', sitterFee: 22.17, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 29.56, booked: 3, rebooked: 0 },
+  { id: 'BK-1015', date: 'Jan 2, 2026', owner: 'Eve Davis', sitter: 'Mike Miller', service: 'Boarding', totalPay: 134.47, sitterGross: 128.07, taxRet: -12.81, sitterNet: 96.05, ownerFee: 6.40, ownerFeePct: '5.0%', sitterFee: 19.21, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 25.61, booked: 1, rebooked: 0 },
+  { id: 'BK-1004', date: 'Dec 28, 2025', owner: 'David Brown', sitter: 'Tom Anderson', service: 'Boarding', totalPay: 144.17, sitterGross: 137.30, taxRet: -13.73, sitterNet: 102.97, ownerFee: 6.87, ownerFeePct: '5.0%', sitterFee: 20.60, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 29.97, booked: 8, rebooked: 5 },
+  { id: 'BK-1007', date: 'Dec 26, 2025', owner: 'Bob Smith', sitter: 'Jessica Taylor', service: 'Walking', totalPay: 37.71, sitterGross: 35.91, taxRet: -3.59, sitterNet: 26.93, ownerFee: 1.80, ownerFeePct: '5.0%', sitterFee: 5.39, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 7.19, booked: 3, rebooked: 0 },
+  { id: 'BK-1009', date: 'Dec 25, 2025', owner: 'Eve Davis', sitter: 'Jessica Taylor', service: 'Walking', totalPay: 21.82, sitterGross: 20.78, taxRet: -2.08, sitterNet: 15.58, ownerFee: 1.04, ownerFeePct: '5.0%', sitterFee: 3.12, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 4.16, booked: 1, rebooked: 0 },
+  { id: 'BK-1009', date: 'Dec 25, 2025', owner: 'Eve Davis', sitter: 'Jessica Taylor', service: 'Walking', totalPay: 21.82, sitterGross: 20.78, taxRet: -2.08, sitterNet: 15.58, ownerFee: 1.04, ownerFeePct: '5.0%', sitterFee: 3.12, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 4.16, booked: 1, rebooked: 0 },
+  { id: 'BK-1009', date: 'Dec 25, 2025', owner: 'Eve Davis', sitter: 'Jessica Taylor', service: 'Walking', totalPay: 21.82, sitterGross: 20.78, taxRet: -2.08, sitterNet: 15.58, ownerFee: 1.04, ownerFeePct: '5.0%', sitterFee: 3.12, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 4.16, booked: 1, rebooked: 0 },
+  { id: 'BK-1009', date: 'Dec 25, 2025', owner: 'Eve Davis', sitter: 'Jessica Taylor', service: 'Walking', totalPay: 21.82, sitterGross: 20.78, taxRet: -2.08, sitterNet: 15.58, ownerFee: 1.04, ownerFeePct: '5.0%', sitterFee: 3.12, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 4.16, booked: 1, rebooked: 0 },
+  { id: 'BK-1009', date: 'Dec 25, 2025', owner: 'Eve Davis', sitter: 'Jessica Taylor', service: 'Walking', totalPay: 21.82, sitterGross: 20.78, taxRet: -2.08, sitterNet: 15.58, ownerFee: 1.04, ownerFeePct: '5.0%', sitterFee: 3.12, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 4.16, booked: 1, rebooked: 0 },
+  { id: 'BK-1009', date: 'Dec 25, 2025', owner: 'Eve Davis', sitter: 'Jessica Taylor', service: 'Walking', totalPay: 21.82, sitterGross: 20.78, taxRet: -2.08, sitterNet: 15.58, ownerFee: 1.04, ownerFeePct: '5.0%', sitterFee: 3.12, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 4.16, booked: 1, rebooked: 0 },
+  { id: 'BK-1009', date: 'Dec 25, 2025', owner: 'Eve Davis', sitter: 'Jessica Taylor', service: 'Walking', totalPay: 21.82, sitterGross: 20.78, taxRet: -2.08, sitterNet: 15.58, ownerFee: 1.04, ownerFeePct: '5.0%', sitterFee: 3.12, sitterFeePct: '15.0%', bgCheck: 0, wuffooNet: 4.16, booked: 1, rebooked: 0 },
 ];
-const ROWS_OPTIONS = [10, 15, 20];
-export default function Payment() {
+
+const Payment = () => {
   const [search, setSearch] = useState("");
-  const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [selectedRow, setSelectedRow] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const filteredData = paymentHistoryData.filter(
-    (item) =>
-      item.transactionId.includes(search) ||
-      item.petSitter.toLowerCase().includes(search.toLowerCase()) ||
-      item.petOwner.toLowerCase().includes(search.toLowerCase()),
-  );
-  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
-  const startIndex = (currentPage - 1) * rowsPerPage;
-  const currentRows = filteredData.slice(startIndex, startIndex + rowsPerPage);
+  const [dateRange, setDateRange] = useState('Today');
+  const [serviceType, setServiceType] = useState('All Service');
+  const [showDateDropdown, setShowDateDropdown] = useState(false);
+  const [showServiceDropdown, setShowServiceDropdown] = useState(false);
+
+  const filteredData = useMemo(() => {
+    return paymentData.filter((item) => {
+      const matchesSearch =
+        item.id.toLowerCase().includes(search.toLowerCase()) ||
+        item.owner.toLowerCase().includes(search.toLowerCase()) ||
+        item.sitter.toLowerCase().includes(search.toLowerCase());
+
+      const matchesService = serviceType === "All Service" || item.service === serviceType;
+
+      return matchesSearch && matchesService;
+    });
+  }, [search, serviceType]);
+
+  const totals = useMemo(() => {
+    return filteredData.reduce(
+      (acc, curr) => ({
+        totalPay: acc.totalPay + (curr.totalPay || 0),
+        sitterGross: acc.sitterGross + (curr.sitterGross || 0),
+        taxRet: acc.taxRet + (curr.taxRet || 0),
+        sitterNet: acc.sitterNet + (curr.sitterNet || 0),
+        ownerFee: acc.ownerFee + (curr.ownerFee || 0),
+        sitterFee: acc.sitterFee + (curr.sitterFee || 0),
+        bgCheck: acc.bgCheck + (curr.bgCheck || 0),
+        wuffooNet: acc.wuffooNet + (curr.wuffooNet || 0),
+      }),
+      { totalPay: 0, sitterGross: 0, taxRet: 0, sitterNet: 0, ownerFee: 0, sitterFee: 0, bgCheck: 0, wuffooNet: 0 }
+    );
+  }, [filteredData]);
+
+  const formatCurrency = (val, isTax = false) => {
+    if (val === 0) return "-";
+    const formatted = Math.abs(val).toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    const sign = val < 0 ? "-" : (isTax && val > 0 ? "" : "");
+    return `${sign}$${formatted}`;
+  };
+
+  const getServiceBadge = (service) => {
+    return (
+      <span className="px-3 py-1 rounded-full text-[10px] font-medium  text-gray-500 border border-gray-100">
+        {service}
+      </span>
+    );
+  };
+
   return (
     <>
-      <div className="p-4">
-        <div className="bg-white p-6 rounded-xl shadow-sm">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-[#11293A] font-semibold text-lg">
-              All Payment History
-            </h2>
-            <div className="flex items-center bg-[#035F750F] border border-[#024B5E] px-5 py-2 rounded-full">
-              <Search size={18} className="text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="ml-2 outline-none bg-transparent text-sm"
-              />
+      <style>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          height: 10px;
+          width: 8px;
+          background-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background-color: rgba(0, 0, 0, 0.1);
+          border-radius: 20px;
+          border: 2px solid transparent;
+          background-clip: content-box;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+        .custom-scrollbar::-webkit-scrollbar:horizontal {
+          display: none;
+        }
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+          -ms-overflow-style: none; /* IE and Edge */
+        }
+      `}</style>
+      <div className="p-3">
+      <div className="flex flex-col w-full h-screen overflow-hidden bg-[#F9FAFB] rounded-2xl">
+        <div className="p-4 md:p-6 w-full flex flex-col flex-1 min-h-0">
+
+          {/* Header Area */}
+          <div className="max-w-full mx-auto w-full mb-6 flex-shrink-0">
+            <h1 className="text-2xl font-bold text-gray-900 mb-6">All Payment History</h1>
+
+            <div className="flex flex-col md:flex-row items-stretch md:items-end gap-3">
+              <div className="relative w-full md:w-[340px]">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                  <Search size={18} />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full pl-11 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm outline-none focus:border-teal-500 transition-colors shadow-sm"
+                />
+              </div>
+
+              <div className="flex items-center gap-3 flex-1">
+                <div className="relative">
+                  <label className="block text-[12px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Date Range</label>
+                  <button
+                    onClick={() => { setShowDateDropdown(!showDateDropdown); setShowServiceDropdown(false); }}
+                    className="w-44 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 flex items-center justify-between hover:border-teal-500 transition-colors shadow-sm"
+                  >
+                    {dateRange}
+                    <ChevronDown size={14} className={`text-gray-400 transition-transform ${showDateDropdown ? 'rotate-180' : ''}`} />
+                  </button>
+                  {showDateDropdown && (
+                    <div className="absolute top-full mt-1.5 w-44 bg-white border border-gray-100 rounded-lg shadow-xl z-50 py-1 overflow-hidden">
+                      {['Today', 'This Week', 'This Month', 'All Date'].map(opt => (
+                        <button key={opt} onClick={() => { setDateRange(opt); setShowDateDropdown(false); }} className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors">{opt}</button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="relative">
+                  <label className="block text-[12px] font-bold text-gray-500 mb-1 uppercase tracking-wider">SERVICE TYPE</label>
+                  <button
+                    onClick={() => { setShowServiceDropdown(!showServiceDropdown); setShowDateDropdown(false); }}
+                    className="w-44 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 flex items-center justify-between hover:border-teal-500 transition-colors shadow-sm"
+                  >
+                    {serviceType}
+                    <ChevronDown size={14} className={`text-gray-400 transition-transform ${showServiceDropdown ? 'rotate-180' : ''}`} />
+                  </button>
+                  {showServiceDropdown && (
+                    <div className="absolute top-full mt-1.5 w-44 bg-white border border-gray-100 rounded-lg shadow-xl z-50 py-1 overflow-hidden">
+                      {['All Service', 'Boarding', 'Daycare', 'Walking'].map(opt => (
+                        <button key={opt} onClick={() => { setServiceType(opt); setShowServiceDropdown(false); }} className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors">{opt}</button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <button className="ml-auto flex items-center gap-2 px-6 py-2.5 bg-[#024B5E] text-white rounded-lg text-sm font-semibold hover:bg-[#035F75] transition-all shadow-md active:scale-95 self-end">
+                  <Download size={18} />
+                  Export
+                </button>
+              </div>
             </div>
           </div>
-          <div className="overflow-hidden rounded overflow-y-auto max-h-[400px]">
-            <table className="w-full text-md  text-center border-collapse">
-              {/* Table Header */}
-              <thead className="sticky top-0 z-20">
-                <tr className="bg-gray-100 text-[#333333]">
-                  <th className="px-2 py-1 font-medium w-1/6">Date</th>
-                  <th className="px-2 py-1 font-medium w-1/6">
-                    Transaction ID
-                  </th>
-                  <th className="px-2 py-1 font-medium w-1/6">Pet Sitter</th>
-                  <th className="px-2 py-1 font-medium w-1/6">Pet Owners</th>
-                  <th className="px-2 py-1 font-medium w-1/6">Amount</th>
-                  <th className="px-2 py-1 font-medium w-1/6">Received</th>
+
+          {/* Integrated Table Card */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 flex-1 overflow-auto custom-scrollbar min-w-0 relative">
+            <table className="w-full text-[13px] text-left">
+              <thead className="sticky top-0 z-40 bg-white">
+                <tr className="border-b border-gray-100">
+                  <th className="px-4 py-5 font-bold text-gray-600 bg-white first:rounded-tl-2xl">ID</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 bg-white">Date</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 bg-white">Owner</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 bg-white">Sitter</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 text-center bg-white">Service</th>
+                  <th className="px-4 py-5 font-bold text-[#059669] bg-white">Total Pay</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 bg-white">Sitter Gross</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 bg-white">Tax Ret.</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 bg-white">Sitter Net</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 bg-white">Owner Fee</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 bg-white">Sitter Fee</th>
+                  <th className="px-4 py-5 font-bold text-gray-600 text-center bg-white">BG Check</th>
+                  <th className="px-4 py-5 font-bold text-[#2563EB] bg-white">Wuffoos Net</th>
+                  <th className="px-2 py-5 font-bold text-gray-600 text-center bg-white">Booked</th>
+                  <th className="px-2 py-5 font-bold text-gray-600 text-center bg-white last:rounded-tr-2xl">Rebooked</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr className="h-2"></tr>
-                {currentRows.map((row) => (
-                  <tr key={row.id} className="bg-transparent">
-                    <td colSpan={6}>
-                      <div
-                        onClick={() => {
-                          setSelectedRow(row);
-                          setIsModalOpen(true);
-                        }}
-                        className={`
-          flex justify-between items-center rounded cursor-pointer border-b border-[#EBEBEB] p-1 transition
-          ${selectedRow?.id === row.id ? "bg-[#EAF2F4]" : "bg-white hover:bg-[#035F750F]"}
-        `}
-                      >
-                        <span className="w-1/6 px-1 py-0.5">{row.date}</span>
-                        <span className="w-1/6 px-1 py-0.5">
-                          {row.transactionId}
-                        </span>
-                        <span className="w-1/6 px-1 py-0.5">
-                          {row.petSitter}
-                        </span>
-                        <span className="w-1/6 px-1 py-0.5">
-                          {row.petOwner}
-                        </span>
-                        <span className="w-1/6 px-1 py-0.5">{row.amount}</span>
-                        <span className="w-1/6 px-1 py-0.5">
-                          {row.received}
-                        </span>
-                      </div>
+              <tbody className="divide-y divide-gray-50 bg-white">
+                {filteredData.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-gray-50 transition-colors group">
+                    <td className="px-4 py-6 font-bold text-[#2563EB] cursor-pointer hover:underline whitespace-nowrap">
+                      {row.id} <span className="text-[10px] ml-1 opacity-70">›</span>
                     </td>
+                    <td className="px-4 py-6 text-gray-500 whitespace-nowrap">{row.date}</td>
+                    <td className="px-4 py-6 font-semibold text-gray-800 whitespace-nowrap">{row.owner}</td>
+                    <td className="px-4 py-6 font-semibold text-gray-800 whitespace-nowrap">{row.sitter}</td>
+                    <td className="px-4 py-6 text-center whitespace-nowrap">{getServiceBadge(row.service)}</td>
+                    <td className="px-4 py-6 font-bold text-[#059669] whitespace-nowrap">{formatCurrency(row.totalPay)}</td>
+                    <td className="px-4 py-6 text-gray-600 whitespace-nowrap">{formatCurrency(row.sitterGross)}</td>
+                    <td className="px-4 py-6 text-[#DD4B39] font-medium whitespace-nowrap">
+                      {row.taxRet === 0 ? <span className="text-gray-300">-</span> : formatCurrency(row.taxRet, true)}
+                    </td>
+                    <td className="px-4 py-6 font-bold text-gray-900 whitespace-nowrap">{formatCurrency(row.sitterNet)}</td>
+                    <td className="px-4 py-6 text-gray-400 text-[11px] whitespace-nowrap">
+                      {row.ownerFee === 0 ? "-" : `${formatCurrency(row.ownerFee)} (${row.ownerFeePct})`}
+                    </td>
+                    <td className="px-4 py-6 text-gray-400 text-[11px] whitespace-nowrap">
+                      {row.sitterFee === 0 ? "-" : `${formatCurrency(row.sitterFee)} (${row.sitterFeePct})`}
+                    </td>
+                    <td className="px-4 py-6 text-gray-400 text-center whitespace-nowrap">{formatCurrency(row.bgCheck)}</td>
+                    <td className="px-4 py-6 font-bold text-[#2563EB] whitespace-nowrap text-sm">{formatCurrency(row.wuffooNet)}</td>
+                    <td className="px-2 py-6 text-center text-gray-600 whitespace-nowrap font-medium">{String(row.booked).padStart(2, '0')}</td>
+                    <td className="px-2 py-6 text-center text-gray-600 whitespace-nowrap font-medium">{String(row.rebooked).padStart(2, '0')}</td>
                   </tr>
                 ))}
               </tbody>
+              <tfoot className="sticky bottom-0 z-40 bg-white shadow-[0_-4px_10px_rgba(0,0,0,0.03)] selection:bg-none">
+                <tr className="bg-white font-bold border-t border-gray-200">
+                  <td className="px-4 py-5 text-gray-500 text-[10px] uppercase tracking-widest text-right bg-white first:rounded-bl-2xl" colSpan={5}>Totals</td>
+                  <td className="px-4 py-5 text-[#059669] text-base bg-white">{formatCurrency(totals.totalPay)}</td>
+                  <td className="px-4 py-5 text-gray-800 font-bold bg-white">{formatCurrency(totals.sitterGross)}</td>
+                  <td className="px-4 py-5 text-[#DD4B39] font-bold bg-white">{formatCurrency(totals.taxRet)}</td>
+                  <td className="px-4 py-5 text-gray-900 text-base font-black bg-white">{formatCurrency(totals.sitterNet)}</td>
+                  <td className="px-4 py-5 text-gray-400 font-normal bg-white">{formatCurrency(totals.ownerFee)}</td>
+                  <td className="px-4 py-5 text-gray-400 font-normal bg-white">{formatCurrency(totals.sitterFee)}</td>
+                  <td className="px-4 py-5 text-gray-600 font-bold text-center bg-white">{formatCurrency(totals.bgCheck)}</td>
+                  <td className="px-4 py-5 bg-blue-50 text-[#2563EB] text-lg font-black">{formatCurrency(totals.wuffooNet)}</td>
+                  <td className="px-2 py-5 bg-white last:rounded-br-2xl" colSpan={2}></td>
+                </tr>
+              </tfoot>
             </table>
-          </div>
-          {/* Pagination */}
-          <div className="flex justify-end gap-10 items-center mt-4">
-            <div className="flex items-center gap-2">
-              <span className="text-[#333333]">Rows Per Page:</span>
-              <select
-                value={rowsPerPage}
-                onChange={(e) => {
-                  setRowsPerPage(Number(e.target.value));
-                  setCurrentPage(1);
-                }}
-                className="border border-gray-300 rounded px-2 py-1 text-sm"
-              >
-                {ROWS_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="flex items-center gap-2 text-sm">
-              <span className="text-[#333333]">
-                Page {currentPage} of {totalPages}
-              </span>
-              <button
-                onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-                disabled={currentPage === 1}
-                className="px-2 py-1 border rounded disabled:opacity-50 text-[#333333]"
-              >
-                &lt;
-              </button>
-              <button
-                onClick={() =>
-                  setCurrentPage((p) => Math.min(p + 1, totalPages))
-                }
-                disabled={currentPage === totalPages}
-                className="px-2 py-1 text-[#333333] border rounded disabled:opacity-50"
-              >
-                &gt;
-              </button>
-            </div>
           </div>
         </div>
       </div>
-      {/* Modal */}
-      {isModalOpen && selectedRow && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl w-[420px] p-6 relative shadow-lg">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
-            >
-              ✕
-            </button>
-            <div className="flex justify-between items-center mb-4">
-              <div>
-                <h2 className="text-[20px] text-[#000] font-semibold">
-                  Receipt
-                </h2>
-                <p className="text-sm text-[#666666]">
-                  Transaction ID: #{selectedRow.transactionId}
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-2 text-sm bg-[#689FAC] text-white px-3 py-1 rounded-full">
-                <span className="w-2 h-2 bg-white rounded-full"></span>
-                Paid
-              </span>
-            </div>
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div>
-                <h4 className="font-semibold text-[16px] text-black mb-2">
-                  Pet Owners Information
-                </h4>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  <li className="flex items-center gap-2">
-                    <User size={20} className="" />
-                    <span>{selectedRow.petOwner}</span>
-                  </li>
-
-                  <li className="flex items-center gap-2">
-                    <Mail size={20} className="" />
-                    <span className="text-[#2563EB]">alice@gmail.com</span>
-                  </li>
-
-                  <li className="flex items-center gap-2">
-                    <MapPin size={20} className="" />
-                    <span>75021, New York</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-[16px] mb-2">
-                  Pet Sitter Information
-                </h4>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  <li className="flex items-center gap-2">
-                    <User size={20} className="" />
-                    <span>{selectedRow.petSitter}</span>
-                  </li>
-
-                  <li className="flex items-center gap-2">
-                    <Mail size={20} className="" />
-                    <span className="text-[#2563EB]">alice@gmail.com</span>
-                  </li>
-
-                  <li className="flex items-center gap-2">
-                    <MapPin size={20} className="" />
-                    <span>75021, New York</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="mb-4">
-              <h4 className="font-semibold text-[16px] text-black mb-2">
-                Pet Owners Information
-              </h4>
-              <div className="text-sm text-gray-600 space-y-1">
-                <div className="flex justify-between border-b border-[#EBEBEB] mb-2">
-                  <span className="text-[#4B5563] text-[16px] mb-1">
-                    Service:
-                  </span>
-                  <span className="text-[#024B5E] text-[16px]">Daycare</span>
-                </div>
-                <div className="flex justify-between border-b border-[#EBEBEB] mb-2">
-                  <span className="text-[#4B5563] text-[16px] mb-1">Date:</span>
-                  <span className="text-[14px]">21/09/2025</span>
-                </div>
-                <div className="flex justify-between border-b border-[#EBEBEB] mb-2">
-                  <span className="text-[#4B5563] text-[16px] mb-1">Time:</span>
-                  <span className="text-[14px]">14:15</span>
-                </div>
-                <div className="flex justify-between border-b border-[#EBEBEB] mb-2">
-                  <span className="text-[#4B5563] text-[16px] mb-1">
-                    Status:
-                  </span>
-                  <span className="text-green-600 text-[14px]">Completed</span>
-                </div>
-              </div>
-            </div>
-            <div className=" pt-3 text-sm text-gray-700 space-y-1">
-              <div className="flex items-center gap-2 text-sm text-gray-700">
-                <CreditCard size={18} />
-                <span className="text-[#666666] text-[16px]">
-                  Payment Method:
-                </span>
-                <span className="text-black font-medium text-[16px]">
-                  Credit Card
-                </span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[16px]">Base Amount:</span>
-                <span className="text-[14px] font-medium text-black">
-                  $1000
-                </span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[16px]">Pet Owners 10%:</span>
-                <span className="text-[14px] font-medium text-black">$45</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[16px]">Pet Sitter 20%:</span>
-                <span className="text-[14px] font-medium text-black">$55</span>
-              </div>
-              <div className="flex justify-between font-semibold">
-                <span>Sitter Received:</span>
-                <span className="text-[14px] font-medium text-black">
-                  {selectedRow.received}
-                </span>
-              </div>
-            </div>
-            <div className="flex gap-3 mt-5">
-              <button className="flex-1 border border-teal-700 text-[#024B5E] rounded-lg py-2 text-[16px] flex items-center justify-center gap-2">
-                <Download /> Download PDF
-              </button>
-              <button className="flex-1 bg-[#024B5E] text-white rounded-lg py-2 text-[16px] flex items-center justify-center gap-2">
-                <PrinterCheck /> Print Receipt
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      </div>
     </>
   );
 }
+
+export default Payment;

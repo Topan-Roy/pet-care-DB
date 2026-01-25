@@ -123,7 +123,7 @@ export default function Dashboard() {
                     </NavLink>
                     <button
                         onClick={() => setIsLogoutOpen(true)}
-                        className="flex items-center gap-3 w-full px-4 py-2 text-[#F34F4F] hover:bg-red-50 transition mt-15 border-t border-[#EBEBEB]"
+                        className="flex items-center gap-3 w-full px-4 py-2 text-[#F34F4F] hover:bg-red-50 transition mt-60 border-t border-[#EBEBEB]"
                     >
                         <LogOut size={18} />
                         <span>Log Out</span>
@@ -177,6 +177,7 @@ export default function Dashboard() {
                            <RecentPayment></RecentPayment>
                         </>
                     )}
+                    
                     {!isDashboardHome && (
                         <div className="">
                             <Outlet />
