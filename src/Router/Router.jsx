@@ -28,6 +28,7 @@ import ResetPassword from "../Authentication/ResetPassword";
 import ChangePassword from "../Authentication/ChangePassword";
 import NotificationPagee from "../Pages/NotificationPagee";
 import NotificationTabs from "../Pages/NotificationTabs";
+import PricingTaxes from "../Pages/PricingTaxes";
 
 
 
@@ -36,19 +37,19 @@ export const router = createBrowserRouter([
 
   {
     path: "/",
-    Component:SignUp
+    Component: SignUp
   },
   {
     path: "forgetpassword",
-    Component:ForgetPassword
+    Component: ForgetPassword
   },
   {
     path: "verifyotp",
-    Component:VerifyOTP
+    Component: VerifyOTP
   },
   {
     path: "resetpassword",
-    Component:ResetPassword
+    Component: ResetPassword
   },
   {
     path: "/dashboard",
@@ -136,21 +137,25 @@ export const router = createBrowserRouter([
       },
       {
         path: "privacypolicy",
-        Component:PrivacyPolicy
+        Component: PrivacyPolicy
       },
       {
         path: "editprivacypolicy",
-        Component:EditPrivacyPolicy
+        Component: EditPrivacyPolicy
       },
       {
         path: "faqtable",
-        Component:FAQTable
+        Component: FAQTable
+      },
+      {
+        path: "PricingTaxes",
+        Component: PricingTaxes
       },
       {
         path: "changepassword",
-        Component:ChangePassword
+        Component: ChangePassword
       },
-     
+
     ]
   }
 ]);
