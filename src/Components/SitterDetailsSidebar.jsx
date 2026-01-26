@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   Mail as MailIcon,
   Image as ImageIcon,
+  ShieldAlert,
 } from "lucide-react";
 
 export default function SitterDetailsSidebar({ isOpen, onClose, sitter }) {
@@ -141,7 +142,7 @@ export default function SitterDetailsSidebar({ isOpen, onClose, sitter }) {
               <div className="border border-gray-100 rounded-xl p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="bg-green-50 p-2 rounded-full">
-                    <ShieldCheck className="text-green-600" size={20} />
+                    <ShieldAlert className="text-green-600" size={20} />
                   </div>
                   <div>
                     <p className="font-medium text-sm text-gray-900">

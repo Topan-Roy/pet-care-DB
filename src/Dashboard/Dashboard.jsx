@@ -90,6 +90,11 @@ const LogoutIcon = () => (
     </svg>
 
 );
+const LocationsIcon = () => (
+   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+
+
+);
 
 import { useState } from 'react';
 import RecentPayment from '../Components/RecentPayment';
@@ -124,6 +129,7 @@ export default function Dashboard() {
         "/dashboard/faqtable",
         "/dashboard/changepassword",
         "/dashboard/PricingTaxes",
+        "/dashboard/locations",
     ];
     const showSummary = !NO_SUMMARY_PAGES.includes(pathname);
     const menus = [
@@ -197,6 +203,17 @@ export default function Dashboard() {
                 </ul>
                 <div className="mt-10 px-5">
                     <p className='font-semibold text-sm text-[#666666]  mb-3'>Other</p>
+
+                    <NavLink
+                        to="/dashboard/locations"
+                        className={({ isActive }) =>
+                            `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
+                                ? 'bg-[#024B5E] text-white'
+                                : 'text-gray-600 hover:bg-gray-100'
+                            }`}>
+                        <LocationsIcon />
+                        <span>Locations</span>
+                    </NavLink>
                     <NavLink
                         to="/dashboard/report"
                         className={({ isActive }) =>
@@ -207,6 +224,7 @@ export default function Dashboard() {
                         <ReportIcon />
                         <span>Report</span>
                     </NavLink>
+
                     <NavLink
                         to="/dashboard/settingsmenu"
                         className={({ isActive }) =>
