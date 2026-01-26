@@ -29,6 +29,7 @@ import ChangePassword from "../Authentication/ChangePassword";
 import NotificationPagee from "../Pages/NotificationPagee";
 import NotificationTabs from "../Pages/NotificationTabs";
 import PricingTaxes from "../Pages/PricingTaxes";
+import Locations from "../Pages/Locations";
 
 
 
@@ -154,6 +155,10 @@ export const router = createBrowserRouter([
       {
         path: "changepassword",
         Component: ChangePassword
+      },
+      {
+        path: "locations",
+        Component: Locations
       },
 
     ]

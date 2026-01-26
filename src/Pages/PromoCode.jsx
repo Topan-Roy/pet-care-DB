@@ -173,7 +173,7 @@ export default function PromoCode() {
     const [search, setSearch] = useState("");
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [page, setPage] = useState(1);
-    const ROW_OPTIONS = [5, 10, 15, 20];
+    const ROW_OPTIONS = [10, 15, 20];
 
     const filtered = useMemo(() => {
         return DATA.filter(
@@ -205,7 +205,7 @@ export default function PromoCode() {
     };
 
     return (
-        <div className="p-6 bg-white min-h-screen font-sans">
+        <div className="p-6  min-h-screen font-sans">
             <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900">Promo Codes</h1>
@@ -249,7 +249,7 @@ export default function PromoCode() {
                     </div>
                 </div>
 
-                <div className="overflow-x-auto overflow-y-auto max-h-[650px] relative">
+                <div className="overflow-x-auto overflow-y-auto max-h-[650px]">
                     <table className="w-full text-sm text-left">
                         <thead className="text-[14px] text-[#024B5E] uppercase bg-white border-b border-gray-100 sticky top-0 z-20">
                             <tr>
