@@ -137,13 +137,11 @@ export default function Locations() {
 
   return (
     <div className="p-6  min-h-screen font-sans space-y-6">
-      {/* Add Location Rule Card */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
         <h2 className="text-lg font-bold text-gray-900 mb-4">
           Add Location Rule
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {/* State Dropdown */}
           <div className="space-y-1">
             <label className="text-xs text-gray-500 font-medium">State</label>
             <div className="relative">
@@ -154,8 +152,8 @@ export default function Locations() {
                 }
                 className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-gray-700"
               >
-                <option value="10">10</option>
-                <option value="20">20</option>
+                <option value="Texas">Texas</option>
+                <option value="Texas2">Texas2</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
                 <svg
@@ -174,8 +172,6 @@ export default function Locations() {
               </div>
             </div>
           </div>
-
-          {/* City Dropdown */}
           <div className="space-y-1">
             <label className="text-xs text-gray-500 font-medium">
               City (Optional)
@@ -188,8 +184,8 @@ export default function Locations() {
                 }
                 className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-gray-700"
               >
-                <option value="10">10</option>
-                <option value="20">20</option>
+                <option value="Austin">Austin</option>
+                <option value="Austin2">Austin2</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
                 <svg
@@ -208,8 +204,6 @@ export default function Locations() {
               </div>
             </div>
           </div>
-
-          {/* Neighborhood Input */}
           <div className="space-y-1">
             <label className="text-xs text-gray-500 font-medium">
               Neighborhood (Optional)
@@ -223,8 +217,6 @@ export default function Locations() {
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm"
             />
           </div>
-
-          {/* Status Dropdown */}
           <div className="space-y-1">
             <label className="text-xs text-gray-500 font-medium">Status</label>
             <div className="relative">
@@ -256,16 +248,12 @@ export default function Locations() {
             </div>
           </div>
         </div>
-
-        {/* Add Rule Button */}
         <div className="mt-4 flex justify-end">
           <button className="px-6 py-2.5 bg-[#4F39F6] text-[#FFFFFF] rounded-lg font-medium hover:bg-[#5558E3] transition-colors shadow-sm">
             Add Rule
           </button>
         </div>
       </div>
-
-      {/* Location Rule List Card */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm">
         <div className="p-4 border-b border-gray-100 flex justify-between items-center">
           <h2 className="text-lg font-bold text-gray-900">Location Rule</h2>
