@@ -253,7 +253,7 @@ export default function Petowner() {
           <div className="relative">
             <button
               onClick={() => setIsMonthDropdownOpen(!isMonthDropdownOpen)}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50 min-w-[140px] justify-between"
+              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50 min-w-[140px] justify-between cursor-pointer"
             >
               <span>{selectedMonth}</span>
               <ChevronDown
@@ -267,12 +267,12 @@ export default function Petowner() {
                   className="fixed inset-0 z-40"
                   onClick={() => setIsMonthDropdownOpen(false)}
                 />
-                <div className="absolute right-0 mt-2 w-48 bg-white border border-[#E0E0E0] rounded-lg shadow-lg z-50 py-1">
+                <div className="absolute right-0 mt-2 w-48 bg-white border border-[#E0E0E0] rounded-lg shadow-lg z-50 py-1 ">
                   {monthOptions.map((option) => (
                     <button
                       key={option}
                       onClick={() => handleMonthSelect(option)}
-                      className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${selectedMonth === option ? "text-teal-600 font-medium bg-teal-50" : "text-gray-700"}`}
+                      className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors cursor-pointer ${selectedMonth === option ? "text-teal-600 font-medium bg-teal-50" : "text-gray-700"}`}
                     >
                       {option}
                     </button>
@@ -284,7 +284,7 @@ export default function Petowner() {
           <div className="relative">
             <button
               onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50 min-w-[150px] justify-between"
+              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50 min-w-[150px] justify-between cursor-pointer"
             >
               <span>{selectedService}</span>
               <ChevronDown
@@ -304,7 +304,7 @@ export default function Petowner() {
                     <button
                       key={option}
                       onClick={() => handleServiceSelect(option)}
-                      className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${selectedService === option ? "text-teal-600 font-medium bg-teal-50" : "text-gray-700"}`}
+                      className={`w-full text-left px-4 py-2 text-sm cursor-pointer hover:bg-gray-50 transition-colors ${selectedService === option ? "text-teal-600 font-medium bg-teal-50" : "text-gray-700"}`}
                     >
                       {option}
                     </button>

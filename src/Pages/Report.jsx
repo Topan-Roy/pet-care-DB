@@ -316,12 +316,12 @@ export default function Report() {
                                 <td className="px-5 py-2 w-[16%] text-right">
                                     <div className="flex justify-end gap-2">
                                         <button
-                                            className="p-1 rounded-full hover:bg-gray-200"
+                                            className="p-1 rounded-full hover:bg-gray-200 cursor-pointer"
                                             onClick={() => setSelectedItem(item)}
                                         >
                                             <Eye size={16} />
                                         </button>
-                                        <button className="p-1 rounded-full hover:bg-red-100 text-red-600">
+                                        <button className="p-1 rounded-full hover:bg-red-100 text-red-600 cursor-pointer">
                                             <Trash2 size={16} />
                                         </button>
                                     </div>

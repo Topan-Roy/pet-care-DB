@@ -216,7 +216,7 @@ export default function PromoCode() {
                 <div className="mt-4 sm:mt-0">
                     <button
                         onClick={openModal}
-                        className="flex items-center gap-2 px-5 py-2.5 bg-[#0F5A6D] text-white rounded-lg hover:bg-[#0c4b5b] transition-colors shadow-sm font-medium"
+                        className="flex items-center gap-2 px-5 py-2.5 bg-[#0F5A6D] text-white rounded-lg hover:bg-[#0c4b5b] transition-colors shadow-sm font-medium cursor-pointer"
                     >
                         <Plus size={18} />
                         Create Promo
@@ -251,7 +251,7 @@ export default function PromoCode() {
 
                 <div className="overflow-x-auto overflow-y-auto max-h-[650px]">
                     <table className="w-full text-sm text-left">
-                        <thead className="text-[14px] text-[#024B5E] uppercase bg-white border-b border-gray-100 sticky top-0 z-20">
+                        <thead className="text-[14px] text-[#024B5E]  bg-white border-b border-gray-100 sticky top-0 z-20">
                             <tr>
                                 <th className="px-6 py-4  font-semibold text-[#024B5E]">Code</th>
                                 <th className="px-6 py-4 font-semibold text-[#024B5E]">Type</th>
@@ -311,7 +311,7 @@ export default function PromoCode() {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 text-center">
-                                        <button className="text-gray-400 hover:text-red-500 transition-colors">
+                                        <button className="text-gray-400 hover:text-red-500 transition-colors cursor-pointer">
                                             <Trash2 size={18} />
                                         </button>
                                     </td>

@@ -14,7 +14,7 @@ export default function PersonalInformation() {
                     <span className="text-[#111111]">Personal Information</span>
                 </div>
                 <Link to="/dashboard/personalinfon">
-                    <button className="flex items-center gap-2 bg-[#024B5E] text-white px-4 py-2 rounded-lg text-sm">
+                    <button className="flex items-center gap-2 bg-[#024B5E] text-white px-4 py-2 rounded-lg text-sm cursor-pointer">
                         <SquarePen />
                         Edit Profile
                     </button>

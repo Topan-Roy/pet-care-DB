@@ -59,7 +59,7 @@ const EditPrivacyPolicy = () => {
                            Privacy Policy
                         </span>
                     </div>
-                    <button className="bg-[#004D61] text-white px-6 py-2 rounded-lg text-sm">
+                    <button className="bg-[#004D61] text-white px-6 py-2 rounded-lg text-sm cursor-pointer">
                         Update
                     </button>
                 </div>

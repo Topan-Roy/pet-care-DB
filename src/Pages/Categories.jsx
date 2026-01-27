@@ -58,7 +58,7 @@ const Categories = () => {
                             </div>
                             <button
                                 onClick={() => handleEdit(item, index)}
-                                className="text-gray-400 hover:text-gray-600"
+                                className="text-gray-400 hover:text-gray-600 cursor-pointer"
                             >
                                 <SquarePen />
                             </button>
@@ -97,7 +97,7 @@ const Categories = () => {
                             </h2>
                             <button
                                 onClick={() => setOpen(false)}
-                                className="text-gray-400 hover:text-gray-600"
+                                className="text-gray-400 hover:text-gray-600 cursor-pointer"
                             >
                                 <X size={18} />
                             </button>
@@ -142,13 +142,13 @@ const Categories = () => {
                         <div className="mt-6 flex justify-end gap-4">
                             <button
                                 onClick={() => setOpen(false)}
-                                className="px-6 py-2 rounded-full border border-[#024B5E] text-[#024B5E] text-sm font-medium"
+                                className="px-6 py-2 rounded-full border border-[#024B5E] text-[#024B5E] text-sm font-medium cursor-pointer"
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={handleSave}
-                                className="px-6 py-2 rounded-full bg-[#024B5E] text-white text-sm font-medium"
+                                className="px-6 py-2 rounded-full bg-[#024B5E] text-white text-sm font-medium cursor-pointer"
                             >
                                 Save Changes
                             </button>

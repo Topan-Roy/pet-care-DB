@@ -147,7 +147,7 @@ const Payment = () => {
                     <label className="block text-[12px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Date Range</label>
                     <button
                       onClick={() => { setShowDateDropdown(!showDateDropdown); setShowServiceDropdown(false); }}
-                      className="w-44 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 flex items-center justify-between hover:border-teal-500 transition-colors shadow-sm"
+                      className="w-44 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 flex items-center justify-between hover:border-teal-500 transition-colors shadow-sm cursor-pointer"
                     >
                       {dateRange}
                       <ChevronDown size={14} className={`text-gray-400 transition-transform ${showDateDropdown ? 'rotate-180' : ''}`} />
@@ -165,7 +165,7 @@ const Payment = () => {
                     <label className="block text-[12px] font-bold text-gray-500 mb-1 uppercase tracking-wider">SERVICE TYPE</label>
                     <button
                       onClick={() => { setShowServiceDropdown(!showServiceDropdown); setShowDateDropdown(false); }}
-                      className="w-44 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 flex items-center justify-between hover:border-teal-500 transition-colors shadow-sm"
+                      className="w-44 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 flex items-center justify-between hover:border-teal-500 transition-colors shadow-sm cursor-pointer"
                     >
                       {serviceType}
                       <ChevronDown size={14} className={`text-gray-400 transition-transform ${showServiceDropdown ? 'rotate-180' : ''}`} />

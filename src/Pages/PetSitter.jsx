@@ -259,7 +259,7 @@ export default function PetSitter() {
           <div className="relative">
             <button
               onClick={() => setIsMonthDropdownOpen(!isMonthDropdownOpen)}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50 min-w-[140px] justify-between"
+              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50 min-w-[140px] justify-between cursor-pointer"
             >
               <span>{selectedMonth}</span>
               <ChevronDown
@@ -288,7 +288,7 @@ export default function PetSitter() {
               </>
             )}
           </div>
-          <button className="flex items-center gap-2 px-4 py-2 bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50">
+          <button className="flex items-center gap-2 px-4 py-2 cursor-pointer bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50">
             <Download size={16} />
             <span>Export Report</span>
           </button>

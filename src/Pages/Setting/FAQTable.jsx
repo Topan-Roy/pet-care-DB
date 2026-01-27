@@ -46,7 +46,7 @@ const FAQTable = () => {
 
                     <button
                         onClick={() => setShowModal(true)}
-                        className="flex items-center gap-2 bg-[#004D61] text-white px-4 py-2 rounded-lg hover:bg-[#003a4a]"
+                        className="flex items-center gap-2 bg-[#004D61] text-white px-4 py-2 rounded-lg hover:bg-[#003a4a] cursor-pointer"
                     >
                         <Plus size={16} />
                         Add FAQ
@@ -72,10 +72,10 @@ const FAQTable = () => {
                                     <td className="py-3 px-4">{faq.question}</td>
                                     <td className="py-3 px-4">{faq.answer}</td>
                                     <td className="py-3 px-4 flex gap-2 justify-center">
-                                        <button className="text-blue-600 hover:text-blue-800">
+                                        <button className="text-blue-600 hover:text-blue-800 cursor-pointer">
                                             <SquarePen size={20} />
                                         </button>
-                                        <button className="text-red-500 hover:text-red-700">
+                                        <button className="text-red-500 hover:text-red-700 cursor-pointer">
                                             <Trash2 size={20} />
                                         </button>
                                     </td>
@@ -122,13 +122,13 @@ const FAQTable = () => {
                             <div className="flex gap-3 w-full mt-2">
                                 <button
                                     onClick={() => setShowModal(false)}
-                                    className="w-1/2 px-4 py-2 border border-gray-300 rounded hover:bg-gray-100"
+                                    className="w-1/2 px-4 py-2 border border-gray-300 rounded hover:bg-gray-100 cursor-pointer"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     onClick={handleAddFAQ}
-                                    className="w-1/2 px-4 py-2 bg-[#004D61] text-white rounded hover:bg-[#003a4a]"
+                                    className="w-1/2 px-4 py-2 bg-[#004D61] text-white rounded hover:bg-[#003a4a] cursor-pointer"
                                 >
                                     Submit
                                 </button>

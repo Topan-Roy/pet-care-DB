@@ -21,7 +21,7 @@ const PrivacyPolicy = () => {
                     </div>
             <Link to="/dashboard/editprivacypolicy">
              <button
-            className="flex items-center bg-[#004D61] text-white px-4 py-2 rounded-lg hover:bg-[#003a4a] transition-colors shadow-sm"
+            className="flex items-center bg-[#004D61] text-white px-4 py-2 rounded-lg hover:bg-[#003a4a] cursor-pointer transition-colors shadow-sm"
             aria-label="Edit terms and conditions"
           >
             <SquarePen className="w-4 h-4 mr-2" />

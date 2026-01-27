@@ -150,7 +150,7 @@ export default function Locations() {
                                 onChange={(e) =>
                                     setFormData({ ...formData, state: e.target.value })
                                 }
-                                className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-gray-700"
+                                className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-gray-700 cursor-pointer"
                             >
                                 <option value="Texas">Texas</option>
                                 <option value="Texas2">Texas2</option>
@@ -182,7 +182,7 @@ export default function Locations() {
                                 onChange={(e) =>
                                     setFormData({ ...formData, city: e.target.value })
                                 }
-                                className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-gray-700"
+                                className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-gray-700 cursor-pointer"
                             >
                                 <option value="Austin">Austin</option>
                                 <option value="Austin2">Austin2</option>
@@ -214,13 +214,13 @@ export default function Locations() {
                                 onChange={(e) =>
                                     setFormData({ ...formData, neighborhood: e.target.value })
                                 }
-                                className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-gray-700"
+                                className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-gray-700 cursor-pointer"
                             >
                                 <option value="">Select Neighborhood</option>
                                 <option value="Downtown">Downtown</option>
                                 <option value="Uptown">Uptown</option>
                             </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 cursor-pointer">
                                 <svg
                                     className="h-4 w-4"
                                     fill="none"
@@ -245,7 +245,7 @@ export default function Locations() {
                                 onChange={(e) =>
                                     setFormData({ ...formData, status: e.target.value })
                                 }
-                                className="w-full appearance-none bg-[#E7F4F6] border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-[#008236]"
+                                className="w-full appearance-none bg-[#E7F4F6] border border-gray-300 rounded-lg px-4 py-2 pr-8 outline-none text-sm text-[#008236] cursor-pointer"
                             >
                                 <option value="Active">Active</option>
                                 <option value="Inactive">Inactive</option>
@@ -269,7 +269,7 @@ export default function Locations() {
                     </div>
                 </div>
                 <div className="mt-4 flex justify-end">
-                    <button className="px-6 py-2.5 bg-[#4F39F6] text-[#FFFFFF] rounded-lg font-medium hover:bg-[#5558E3] transition-colors shadow-sm">
+                    <button className="px-6 py-2.5 bg-[#4F39F6] text-[#FFFFFF] rounded-lg font-medium hover:bg-[#5558E3] transition-colors shadow-sm cursor-pointer">
                         Add Rule
                     </button>
                 </div>
@@ -345,7 +345,7 @@ export default function Locations() {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 text-center">
-                                        <button className="text-gray-400 hover:text-red-500 transition-colors">
+                                        <button className="text-gray-400 hover:text-red-500 transition-colors cursor-pointer">
                                             <Trash2 size={18} />
                                         </button>
                                     </td>

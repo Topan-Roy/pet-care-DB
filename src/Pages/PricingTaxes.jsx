@@ -71,7 +71,7 @@ const PricingTaxes = () => {
                             <span className="font-bold text-[#689FAC]">January 1, 2024</span>
                         </p>
                     </div>
-                    <div className="bg-[#D9FCDC] text-[#0A5E02] px-6 py-2 rounded-full text-[14px] font-bold border border-[#BBF7D0] shadow-sm">
+                    <div className="bg-[#D9FCDC] text-[#0A5E02] px-6 py-2 rounded-full text-[14px] font-bold border border-[#BBF7D0] shadow-sm cursor-pointer">
                         Active Now
                     </div>
                 </div>
