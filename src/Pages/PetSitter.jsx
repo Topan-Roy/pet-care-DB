@@ -302,7 +302,7 @@ export default function PetSitter() {
                 <th className="px-6 py-4">Owner</th>
                 <th className="px-6 py-4 text-center">Pets</th>
                 <th className="px-6 py-4 text-center">Completed</th>
-                <th className="px-6 py-4 text-center">Recooked</th>
+                <th className="px-6 py-4 text-center"> Rebooked</th>
                 <th className="px-6 py-4 text-center">Cancel</th>
                 <th className="px-6 py-4 text-center">Upcoming</th>
                 <th className="px-6 py-4 text-center">gross</th>

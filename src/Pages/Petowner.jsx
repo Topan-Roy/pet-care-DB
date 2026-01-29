@@ -20,19 +20,8 @@ export default function Petowner() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedOwner, setSelectedOwner] = useState(null);
 
-  const monthOptions = [
-    "This Month",
-    "This Week",
-    "Today",
-   
-  ];
-  const serviceOptions = [
-    "All Services",
-    "Boarding",
-    "Daycare",
-    "Walking",
-   
-  ];
+  const monthOptions = ["This Month", "This Week", "Today"];
+  const serviceOptions = ["All Services", "Boarding", "Daycare", "Walking"];
   const handleMonthSelect = (option) => {
     setSelectedMonth(option);
     setIsMonthDropdownOpen(false);
@@ -323,7 +312,7 @@ export default function Petowner() {
                 <th className="px-6 py-4">Owner</th>
                 <th className="px-6 py-4 text-center">Pets</th>
                 <th className="px-6 py-4 text-center">Completed</th>
-                <th className="px-6 py-4 text-center">Recooked</th>
+                <th className="px-6 py-4 text-center"> Rebooked</th>
                 <th className="px-6 py-4 text-center">Cancel</th>
                 <th className="px-6 py-4 text-center">Upcoming</th>
                 <th className="px-6 py-4 text-center">Payment</th>
