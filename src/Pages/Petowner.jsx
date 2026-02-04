@@ -5,6 +5,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
+  Download,
 } from "lucide-react";
 import { Link } from "react-router";
 import PetOwnerDetailsModal from "../Components/PetOwnerDetailsModal";
@@ -302,6 +303,10 @@ export default function Petowner() {
               </>
             )}
           </div>
+          <button className="ml-auto flex items-center gap-2 px-6 py-2.5 bg-[#2E7C83] text-white rounded-lg text-sm font-semibold hover:bg-[#035F75] transition-all shadow-md active:scale-95 self-end cursor-pointer">
+            <Download size={18} />
+            Export
+          </button>
         </div>
       </div>
       <div className="bg-white rounded-xl shadow-sm border border-[#EBEBEB] overflow-hidden">
@@ -315,8 +320,88 @@ export default function Petowner() {
                 <th className="px-6 py-4 text-center"> Rebooked</th>
                 <th className="px-6 py-4 text-center">Cancel</th>
                 <th className="px-6 py-4 text-center">Upcoming</th>
-                <th className="px-6 py-4 text-center">Payment</th>
-                <th className="px-6 py-4 text-center">Booked Day</th>
+                <th className="px-6 py-4">
+                  <div className="flex items-center justify-center gap-1">
+                    Payment
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7 4V20"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M17 19L17 4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M10 6.99998C10 6.99998 7.79053 4.00001 6.99998 4C6.20942 3.99999 4 7 4 7"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M20 17C20 17 17.7905 20 17 20C16.2094 20 14 17 14 17"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </th>
+                <th className="px-6 py-4">
+                  <div className="flex items-center justify-center gap-1">
+                    Booked Day
+                    <svg
+                       width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7 4V20"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M17 19L17 4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M10 6.99998C10 6.99998 7.79053 4.00001 6.99998 4C6.20942 3.99999 4 7 4 7"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M20 17C20 17 17.7905 20 17 20C16.2094 20 14 17 14 17"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </th>
                 <th className="px-6 py-4 text-center">Action</th>
               </tr>
             </thead>

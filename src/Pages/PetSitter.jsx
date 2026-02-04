@@ -46,6 +46,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -60,6 +61,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -74,6 +76,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -88,6 +91,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -102,6 +106,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -116,6 +121,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -130,6 +136,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -144,6 +151,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -158,6 +166,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -172,6 +181,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -186,6 +196,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -200,6 +211,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -214,6 +226,7 @@ export default function PetSitter() {
       upcoming: 2,
       gross: 12,
       tax: 12,
+      ISR: 12,
       fees: 12,
       netIncome: 12345,
     },
@@ -288,9 +301,9 @@ export default function PetSitter() {
               </>
             )}
           </div>
-          <button className="flex items-center gap-2 px-4 py-2 cursor-pointer bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50">
-            <Download size={16} />
-            <span>Export Report</span>
+          <button className="ml-auto flex items-center gap-2 px-6 py-2.5 bg-[#2E7C83] text-white rounded-lg text-sm font-semibold hover:bg-[#035F75] transition-all shadow-md active:scale-95 self-end cursor-pointer">
+            <Download size={18} />
+            Export
           </button>
         </div>
       </div>
@@ -306,9 +319,50 @@ export default function PetSitter() {
                 <th className="px-6 py-4 text-center">Cancel</th>
                 <th className="px-6 py-4 text-center">Upcoming</th>
                 <th className="px-6 py-4 text-center">gross</th>
-                <th className="px-6 py-4 text-center">Tax</th>
+                <th className="px-6 py-4 text-center">IVA</th>
+                <th className="px-6 py-4 text-center">ISR</th>
                 <th className="px-6 py-4 text-center">Fees</th>
-                <th className="px-6 py-4 text-center">Net Income</th>
+                <th className="px-6 py-4">
+                  <div className="flex items-center justify-center gap-1">
+                    Net Income
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7 4V20"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M17 19L17 4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M10 6.99998C10 6.99998 7.79053 4.00001 6.99998 4C6.20942 3.99999 4 7 4 7"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M20 17C20 17 17.7905 20 17 20C16.2094 20 14 17 14 17"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </th>
                 <th className="px-6 py-4 text-center">Action</th>
               </tr>
             </thead>
@@ -351,6 +405,9 @@ export default function PetSitter() {
                   </td>
                   <td className="px-6 py-4 text-center text-gray-600">
                     ${row.tax}
+                  </td>
+                  <td className="px-6 py-4 text-center text-gray-600">
+                    ${row.ISR}
                   </td>
                   <td className="px-6 py-4 text-center text-gray-600">
                     ${row.fees}

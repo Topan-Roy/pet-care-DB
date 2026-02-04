@@ -8,8 +8,8 @@ import {
   Bar,
   Legend,
 } from "recharts";
-import { CalendarDays, ShieldCheck, ChevronDown } from "lucide-react";
-import { AlertCircle } from "lucide-react";
+import {  ChevronDown } from "lucide-react";
+
 const EarningSummary = () => {
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
@@ -131,10 +131,11 @@ const EarningSummary = () => {
                       <button
                         key={period}
                         onClick={() => handlePeriodSelect(period)}
-                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${selectedPeriod === period
-                          ? "bg-teal-50 text-teal-700 font-medium"
-                          : "text-gray-700"
-                          }`}
+                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
+                          selectedPeriod === period
+                            ? "bg-teal-50 text-teal-700 font-medium"
+                            : "text-gray-700"
+                        }`}
                       >
                         {period}
                       </button>
@@ -187,7 +188,6 @@ const EarningSummary = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };

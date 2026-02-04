@@ -8,8 +8,8 @@ const PricingTaxes = () => {
     const configs = [
         { title: "Owner Service Fee", value: "10" },
         { title: "Sitter Service Fee", value: "10" },
-        { title: "Tax Retention", value: "10" },
-        { title: "Social Security", value: "10" },
+        { title: "IVA %", value: "8" },
+        { title: "ISR %", value: "1" },
     ];
     return (
         <div className="p-5 font-Inter">

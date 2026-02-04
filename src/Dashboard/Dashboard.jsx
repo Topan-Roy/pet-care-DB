@@ -299,10 +299,11 @@ const LocationsIcon = () => (
 );
 
 import { useState } from "react";
-import RecentPayment from "../Components/RecentPayment";
+
 import EarningSummary from "../Components/EarningSummary";
 import DashBoardCard from "../Components/DashBoardCard";
 import DashBoardTopBar from "../Components/DashBoardTopBar";
+import Earningnew from "../Components/Earningnew";
 export default function Dashboard() {
   const [isLogoutOpen, setIsLogoutOpen] = useState(false);
   const { pathname } = useLocation();
@@ -499,8 +500,9 @@ export default function Dashboard() {
           {/* -------- ONLY DASHBOARD HOME -------- */}
           {isDashboardHome && (
             <>
+            <Earningnew></Earningnew>
               <EarningSummary></EarningSummary>
-              <RecentPayment></RecentPayment>
+              {/* <RecentPayment></RecentPayment> */}
             </>
           )}
 
