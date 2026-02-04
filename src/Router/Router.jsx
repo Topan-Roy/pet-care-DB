@@ -31,26 +31,22 @@ import NotificationTabs from "../Pages/NotificationTabs";
 import PricingTaxes from "../Pages/PricingTaxes";
 import Locations from "../Pages/Locations";
 
-
-
-
 export const router = createBrowserRouter([
-
   {
     path: "/",
-    Component: SignUp
+    Component: SignUp,
   },
   {
     path: "forgetpassword",
-    Component: ForgetPassword
+    Component: ForgetPassword,
   },
   {
     path: "verifyotp",
-    Component: VerifyOTP
+    Component: VerifyOTP,
   },
   {
     path: "resetpassword",
-    Component: ResetPassword
+    Component: ResetPassword,
   },
   {
     path: "/dashboard",
@@ -62,105 +58,104 @@ export const router = createBrowserRouter([
       },
       {
         path: "payment",
-        Component: Payment
+        Component: Payment,
       },
       {
         path: "notificationpage",
-        Component: NotificationPage
+        Component: NotificationPage,
       },
       {
         path: "notificationpagee",
-        Component: NotificationPagee
+        Component: NotificationPagee,
       },
       {
         path: "notificationtabs",
-        Component: NotificationTabs
+        Component: NotificationTabs,
       },
       {
         path: "petowner",
-        Component: Petowner
+        Component: Petowner,
       },
       {
         path: "petownerdelails",
-        Component: PetownerDelails
+        Component: PetownerDelails,
       },
       {
         path: "petsitter",
-        Component: PetSitter
+        Component: PetSitter,
       },
       {
         path: "petsitterdeleils",
-        Component: PetSitterDeleils
+        Component: PetSitterDeleils,
       },
       {
         path: "promocode",
-        Component: PromoCode
+        Component: PromoCode,
       },
       {
         path: "basicsettings",
-        Component: BasicSettings
+        Component: BasicSettings,
       },
       {
         path: "audiencetargeting",
-        Component: AudienceTargeting
+        Component: AudienceTargeting,
       },
       {
         path: "reviewdeploy",
-        Component: ReviewDeploy
+        Component: ReviewDeploy,
       },
       {
         path: "categories",
-        Component: Categories
+        Component: Categories,
       },
       {
         path: "report",
-        Component: Report
+        Component: Report,
       },
       {
         path: "settingsmenu",
-        Component: SettingsMenu
+        Component: SettingsMenu,
       },
       {
         path: "personalinformation",
-        Component: PersonalInformation
+        Component: PersonalInformation,
       },
       {
         path: "personalinfon",
-        Component: PersonalInfo
+        Component: PersonalInfo,
       },
       {
         path: "termscondition",
-        Component: TermsCondition
+        Component: TermsCondition,
       },
       {
         path: "editTermsandconditions",
-        Component: EditTermsAndConditions
+        Component: EditTermsAndConditions,
       },
       {
         path: "privacypolicy",
-        Component: PrivacyPolicy
+        Component: PrivacyPolicy,
       },
       {
         path: "editprivacypolicy",
-        Component: EditPrivacyPolicy
+        Component: EditPrivacyPolicy,
       },
       {
         path: "faqtable",
-        Component: FAQTable
+        Component: FAQTable,
       },
       {
         path: "PricingTaxes",
-        Component: PricingTaxes
+        Component: PricingTaxes,
       },
       {
         path: "changepassword",
-        Component: ChangePassword
+        Component: ChangePassword,
       },
       {
         path: "locations",
-        Component: Locations
+        Component: Locations,
       },
-
-    ]
-  }
+    ],
+  },
 ]);

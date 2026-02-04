@@ -37,6 +37,7 @@ export default function PetSitter() {
   const DATA = [
     {
       id: 1,
+      ID: 43178,
       name: "Adriana torres",
       img: "https://i.pravatar.cc/150?u=20",
       rating: 4.6,
@@ -52,6 +53,7 @@ export default function PetSitter() {
     },
     {
       id: 2,
+      ID: 43178,
       name: "Doctor Jamie",
       img: "https://i.pravatar.cc/150?u=21",
       rating: 4.6,
@@ -67,6 +69,7 @@ export default function PetSitter() {
     },
     {
       id: 3,
+      ID: 43178,
       name: "Adriana torres",
       img: "https://i.pravatar.cc/150?u=22",
       rating: 4.6,
@@ -82,6 +85,7 @@ export default function PetSitter() {
     },
     {
       id: 4,
+      ID: 43178,
       name: "Doctor Jamie",
       img: "https://i.pravatar.cc/150?u=23",
       rating: 4.6,
@@ -97,6 +101,7 @@ export default function PetSitter() {
     },
     {
       id: 5,
+      ID: 43178,
       name: "Doctor Jamie",
       img: "https://i.pravatar.cc/150?u=24",
       rating: 4.6,
@@ -112,6 +117,7 @@ export default function PetSitter() {
     },
     {
       id: 6,
+      ID: 43178,
       name: "Adriana Jamie",
       img: "https://i.pravatar.cc/150?u=25",
       rating: 4.6,
@@ -127,6 +133,7 @@ export default function PetSitter() {
     },
     {
       id: 7,
+      ID: 43178,
       name: "Doctor Jamie",
       img: "https://i.pravatar.cc/150?u=26",
       rating: 4.6,
@@ -157,6 +164,7 @@ export default function PetSitter() {
     },
     {
       id: 9,
+      ID: 43178,
       name: "Doctor Jamie",
       img: "https://i.pravatar.cc/150?u=28",
       rating: 4.6,
@@ -172,6 +180,7 @@ export default function PetSitter() {
     },
     {
       id: 10,
+      ID: 43178,
       name: "Doctor Jamie",
       img: "https://i.pravatar.cc/150?u=29",
       rating: 4.6,
@@ -187,6 +196,7 @@ export default function PetSitter() {
     },
     {
       id: 11,
+      ID: 43178,
       name: "Adriana Jamie",
       img: "https://i.pravatar.cc/150?u=29",
       rating: 4.6,
@@ -202,6 +212,7 @@ export default function PetSitter() {
     },
     {
       id: 12,
+      ID: 43178,
       name: "Doctor Jamie",
       img: "https://i.pravatar.cc/150?u=29",
       rating: 4.6,
@@ -217,6 +228,7 @@ export default function PetSitter() {
     },
     {
       id: 13,
+      ID: 43178,
       name: "Adriana Jamie",
       img: "https://i.pravatar.cc/150?u=29",
       rating: 4.6,
@@ -232,6 +244,7 @@ export default function PetSitter() {
     },
     {
       id: 14,
+      ID: 43178,
       name: "Doctor Jamie",
       img: "https://i.pravatar.cc/150?u=29",
       rating: 4.6,
@@ -376,7 +389,10 @@ export default function PetSitter() {
                         alt=""
                         className="w-10 h-10 rounded-full object-cover border border-gray-100"
                       />
-                      <p className="font-medium text-gray-900">{row.name}</p>
+                      <div className="flex flex-col">
+                        <p className="font-medium text-gray-900">{row.name}</p>
+                        <p className="text-sm text-gray-500">ID: {row.ID}</p>
+                      </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 text-center">

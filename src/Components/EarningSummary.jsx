@@ -61,7 +61,7 @@ const EarningSummary = () => {
           : 0;
       const isPositive = percentageChange >= 0;
       return (
-        <div className="bg-white border border-gray-200 p-4 rounded-lg shadow-lg min-w-[200px]">
+        <div className="bg-white border border-gray-200 px-4 rounded-lg shadow-lg min-w-[200px]">
           <h4 className="font-semibold text-gray-800 mb-2">{label}</h4>
           <div className="space-y-2">
             <div className="flex justify-between items-center text-sm">
@@ -95,7 +95,7 @@ const EarningSummary = () => {
     return null;
   };
   return (
-    <div className="p-4">
+    <div className="px-4">
       <div className="w-full h-1/2 bg-[#FFFFFF] p-5 rounded-xl shadow-sm">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
           <div>

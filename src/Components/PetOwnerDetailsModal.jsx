@@ -88,7 +88,7 @@ export default function PetOwnerDetailsModal({ isOpen, onClose, owner }) {
               </div>
               <div className="space-y-1">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  {owner.name}
+                  {owner.name} <span className="text-[#4B5563] font-bold text-lg">ID: 43178</span>
                 </h3>
                 <div className="flex flex-wrap gap-4 text-gray-500">
                   <div className="flex items-center gap-2">

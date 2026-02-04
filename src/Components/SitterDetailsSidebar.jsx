@@ -71,7 +71,8 @@ export default function SitterDetailsSidebar({ isOpen, onClose, sitter }) {
             />
             <div>
               <h3 className="text-xl font-bold text-gray-900">
-                {details.name}
+                {details.name} <span className="text-[#4B5563] font-bold text-lg">ID: 43178</span>
+                
               </h3>
               <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
                 <MapPin size={14} />
