@@ -14,12 +14,12 @@ const LocationFilterModal = ({ isOpen, onClose, onApply, initialValues }) => {
     };
 
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <>
             <div
-                className="absolute inset-0 bg-black/20 backdrop-blur-sm transition-opacity"
+                className="fixed inset-0 z-[90] bg-transparent"
                 onClick={onClose}
             />
-            <div className="relative bg-white w-[350px] rounded-[32px] p-8 shadow-2xl flex flex-col gap-6">
+            <div className="absolute top-full left-0 mt-4 z-[100] bg-white w-[350px] rounded-[32px] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col gap-6 border border-gray-100">
                 {/* State Section */}
                 <div className="flex flex-col gap-2">
                     <label className="text-[#344054] text-sm font-medium">State</label>
@@ -82,7 +82,7 @@ const LocationFilterModal = ({ isOpen, onClose, onApply, initialValues }) => {
                     Apply
                 </button>
             </div>
-        </div>
+        </>
     );
 };
 
