@@ -2,13 +2,22 @@ import React, { useEffect, useState } from "react";
 import { RefreshCcw, CalendarDays } from "lucide-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import LocationFilterModal from "./LocationFilterModal";
+
 
 const DashboardFilter = () => {
     const [isSpinning, setIsSpinning] = useState(false);
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
     const [location, setLocation] = useState("All Locations");
+    const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+    const [locationFilters, setLocationFilters] = useState({
+        state: "Texas",
+        city: "Austin",
+        neighborhood: "Downtown"
+    });
     const [service, setService] = useState("All Services");
+
 
     useEffect(() => {
         const now = new Date();
@@ -34,20 +43,29 @@ const DashboardFilter = () => {
                         />
                     </div>
 
-                    {/* Location Dropdown */}
-                    <div className="flex items-center gap-2 p-3 shadow bg-white text-gray-600 text-sm rounded-2xl border border-gray-100">
-                        <select
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
-                            className="outline-none focus:ring-0 bg-transparent cursor-pointer text-[#333333] font-medium min-w-[120px]"
+                    {/* Filter Button */}
+                    <div className="relative">
+                        <button
+                            onClick={() => setIsLocationModalOpen(true)}
+                            className="flex items-center gap-2 p-3 shadow bg-white text-gray-600 text-sm rounded-2xl border border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer min-w-[100px]"
                         >
-                            <option value="All Locations">Locations</option>
-                            <option value="California">California</option>
-                            <option value="Texas">Texas</option>
-                            <option value="New York">New York</option>
-                            <option value="Florida">Florida</option>
-                        </select>
+                            <span className="text-[#333333] font-medium grow text-center">
+                                Filter
+                            </span>
+                        </button>
+
+                        <LocationFilterModal
+                            isOpen={isLocationModalOpen}
+                            onClose={() => setIsLocationModalOpen(false)}
+                            initialValues={locationFilters}
+                            onApply={(filters) => {
+                                setLocationFilters(filters);
+                                // You can optionally update the location label or state here
+                                console.log("Applied Filters:", filters);
+                            }}
+                        />
                     </div>
+
 
                     {/* Service Dropdown */}
                     <div className="flex items-center gap-2 p-3 shadow bg-white text-gray-600 text-sm rounded-2xl border border-gray-100">
@@ -57,10 +75,10 @@ const DashboardFilter = () => {
                             className="outline-none focus:ring-0 bg-transparent cursor-pointer text-[#333333] font-medium min-w-[120px]"
                         >
                             <option value="All Services">Services</option>
-                            <option value="Pet Sitting">Pet Sitting</option>
                             <option value="Dog Walking">Dog Walking</option>
-                            <option value="Grooming">Grooming</option>
-                            <option value="Training">Training</option>
+                            <option value="Doggy Day Care">Doggy Day Care</option>
+                            <option value="Boarding">Boarding</option>
+
                         </select>
                     </div>
                 </div>

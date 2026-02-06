@@ -326,7 +326,7 @@ export default function PetSitter() {
             <thead className="bg-[#F9FAFB] text-gray-700 font-semibold border-b border-[#EBEBEB] sticky top-0 z-20">
               <tr>
                 <th className="px-6 py-4">Owner</th>
-                <th className="px-6 py-4 text-center">Pets</th>
+                <th className="px-6 py-4 text-center">Reviews </th>
                 <th className="px-6 py-4 text-center">Completed</th>
                 <th className="px-6 py-4 text-center"> Rebooked</th>
                 <th className="px-6 py-4 text-center">Cancel</th>
@@ -376,7 +376,7 @@ export default function PetSitter() {
                     </svg>
                   </div>
                 </th>
-                <th className="px-6 py-4 text-center">Action</th>
+                <th className="px-6 py-4 text-center">Details</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[#EBEBEB]">

@@ -387,10 +387,9 @@ export default function Dashboard() {
                   to={item.path}
                   end
                   className={({ isActive }) =>
-                    `flex items-center gap-3 px-4 py-2 rounded-lg transition ${
-                      isActive
-                        ? "bg-[#024B5E] text-white"
-                        : "text-gray-600 hover:bg-gray-100"
+                    `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
+                      ? "bg-[#024B5E] text-white"
+                      : "text-gray-600 hover:bg-gray-100"
                     }`
                   }
                 >
@@ -407,10 +406,9 @@ export default function Dashboard() {
           <NavLink
             to="/dashboard/locations"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-2 rounded-lg transition ${
-                isActive
-                  ? "bg-[#024B5E] text-white"
-                  : "text-gray-600 hover:bg-gray-100"
+              `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
+                ? "bg-[#024B5E] text-white"
+                : "text-gray-600 hover:bg-gray-100"
               }`
             }
           >
@@ -420,10 +418,9 @@ export default function Dashboard() {
           <NavLink
             to="/dashboard/report"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-2 rounded-lg transition ${
-                isActive
-                  ? "bg-[#024B5E] text-white"
-                  : "text-gray-600 hover:bg-gray-100"
+              `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
+                ? "bg-[#024B5E] text-white"
+                : "text-gray-600 hover:bg-gray-100"
               }`
             }
           >
@@ -434,10 +431,9 @@ export default function Dashboard() {
           <NavLink
             to="/dashboard/settingsmenu"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-2 rounded-lg transition ${
-                isActive
-                  ? "bg-[#024B5E] text-white"
-                  : "text-gray-600 hover:bg-gray-100"
+              `flex items-center gap-3 px-4 py-2 rounded-lg transition ${isActive
+                ? "bg-[#024B5E] text-white"
+                : "text-gray-600 hover:bg-gray-100"
               }`
             }
           >
