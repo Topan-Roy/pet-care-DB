@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from "react";
-import { ChevronDown, Search, Download } from "lucide-react";
+import React, { useState, useMemo, useEffect } from "react";
+import { ChevronDown, Search, Download, CalendarDays } from "lucide-react";
 import BookingDetailsModal from "../Components/BookingDetailsModal";
+import DatePicker from "react-datepicker";
 
 const paymentData = [
   {
@@ -207,7 +208,7 @@ const paymentData = [
 
 const Payment = () => {
   const [search, setSearch] = useState("");
-  const [dateRange, setDateRange] = useState("Today");
+
   const [serviceType, setServiceType] = useState("All Service");
   const [showDateDropdown, setShowDateDropdown] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
@@ -215,10 +216,18 @@ const Payment = () => {
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
   const handleRowClick = (booking) => {
     setSelectedBooking(booking);
     setIsModalOpen(true);
   };
+  useEffect(() => {
+    // Setting default to January 2026 as most sample data is from this period
+    const start = new Date(2026, 0, 1);
+    const end = new Date(2026, 0, 31);
+    setDateRange([start, end]);
+  }, []);
 
   const filteredData = useMemo(() => {
     const today = new Date(2026, 0, 25);
@@ -232,24 +241,20 @@ const Payment = () => {
         serviceType === "All Service" || item.service === serviceType;
 
       let matchesDate = true;
-      if (dateRange !== "All Date") {
+      if (startDate && endDate) {
         const itemDate = new Date(item.date);
-        if (dateRange === "Today") {
-          matchesDate = itemDate.toDateString() === today.toDateString();
-        } else if (dateRange === "This Week") {
-          const sevenDaysAgo = new Date(today);
-          sevenDaysAgo.setDate(today.getDate() - 7);
-          matchesDate = itemDate >= sevenDaysAgo && itemDate <= today;
-        } else if (dateRange === "This Month") {
-          matchesDate =
-            itemDate.getMonth() === today.getMonth() &&
-            itemDate.getFullYear() === today.getFullYear();
-        }
+        const start = new Date(startDate);
+        start.setHours(0, 0, 0, 0);
+        const end = new Date(endDate);
+        end.setHours(23, 59, 59, 999);
+        matchesDate = itemDate >= start && itemDate <= end;
       }
+
 
       return matchesSearch && matchesService && matchesDate;
     });
-  }, [search, serviceType, dateRange]);
+  }, [search, serviceType, startDate, endDate]);
+
 
   const totals = useMemo(() => {
     return filteredData.reduce(
@@ -344,42 +349,23 @@ const Payment = () => {
                   />
                 </div>
 
-                <div className="flex items-center gap-3 flex-1">
-                  <div className="relative">
+                <div className="flex items-center gap-3 flex-1 relative z-[60]">
+                  <div className="flex flex-col">
                     <label className="block text-[12px] font-bold text-gray-500 mb-1 uppercase tracking-wider">
-                      Date Range
+                      DATE RANGE
                     </label>
-                    <button
-                      onClick={() => {
-                        setShowDateDropdown(!showDateDropdown);
-                        setShowServiceDropdown(false);
-                      }}
-                      className="w-44 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 flex items-center justify-between hover:border-teal-500 transition-colors shadow-sm cursor-pointer"
-                    >
-                      {dateRange}
-                      <ChevronDown
-                        size={14}
-                        className={`text-gray-400 transition-transform ${showDateDropdown ? "rotate-180" : ""}`}
+                    <div className="flex items-center gap-2 p-2 shadow bg-white text-gray-600 text-sm rounded-xl border border-gray-50 h-[46px]">
+                      <CalendarDays size={18} className="text-teal-600 cursor-pointer" />
+                      <DatePicker
+                        selectsRange
+                        startDate={startDate}
+                        endDate={endDate}
+                        onChange={(update) => setDateRange(update)}
+                        placeholderText="Select date"
+                        className="outline-none text-[#333333] bg-transparent cursor-pointer w-[180px]"
+                        popperClassName="z-[9999]"
                       />
-                    </button>
-                    {showDateDropdown && (
-                      <div className="absolute top-full mt-1.5 w-44 bg-white border border-gray-100 rounded-lg shadow-xl z-50 py-1 overflow-hidden">
-                        {["Today", "This Week", "This Month", "All Date"].map(
-                          (opt) => (
-                            <button
-                              key={opt}
-                              onClick={() => {
-                                setDateRange(opt);
-                                setShowDateDropdown(false);
-                              }}
-                              className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors"
-                            >
-                              {opt}
-                            </button>
-                          ),
-                        )}
-                      </div>
-                    )}
+                    </div>
                   </div>
 
                   <div className="relative">

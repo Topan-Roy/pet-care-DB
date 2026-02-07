@@ -10,6 +10,10 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 import SitterDetailsSidebar from "../Components/SitterDetailsSidebar";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { CalendarDays } from "lucide-react";
+
 
 export default function PetSitter() {
   const [search, setSearch] = useState("");
@@ -17,21 +21,17 @@ export default function PetSitter() {
   const [page, setPage] = useState(1);
   const [selectedSitter, setSelectedSitter] = useState(null);
 
-  // Filter States
-  const [isMonthDropdownOpen, setIsMonthDropdownOpen] = useState(false);
-  const [selectedMonth, setSelectedMonth] = useState("This Month");
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
 
-  const monthOptions = [
-    "This Month",
-    "Last Month",
-    "Last 3 Months",
-    "This Year",
-  ];
+  React.useEffect(() => {
+    const now = new Date();
+    const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
+    const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    setDateRange([firstDay, lastDay]);
+  }, []);
 
-  const handleMonthSelect = (option) => {
-    setSelectedMonth(option);
-    setIsMonthDropdownOpen(false);
-  };
+
 
   // Sample data matching the screenshot
   const DATA = [
@@ -282,38 +282,21 @@ export default function PetSitter() {
           />
         </div>
         <div className="flex items-center gap-3">
-          <div className="relative">
-            <button
-              onClick={() => setIsMonthDropdownOpen(!isMonthDropdownOpen)}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50 min-w-[140px] justify-between cursor-pointer"
-            >
-              <span>{selectedMonth}</span>
-              <ChevronDown
-                size={14}
-                className={`transition-transform duration-200 ${isMonthDropdownOpen ? "rotate-180" : ""}`}
+          <div className="flex flex-col relative z-[60]">
+            <div className="flex items-center gap-2 p-2 shadow bg-white text-gray-600 text-sm rounded-xl border border-gray-50 h-[40px]">
+              <CalendarDays size={18} className="text-teal-600 cursor-pointer" />
+              <DatePicker
+                selectsRange
+                startDate={startDate}
+                endDate={endDate}
+                onChange={(update) => setDateRange(update)}
+                placeholderText="Select date"
+                className="outline-none text-[#333333] bg-transparent cursor-pointer w-[180px]"
+                popperClassName="z-[9999]"
               />
-            </button>
-
-            {isMonthDropdownOpen && (
-              <>
-                <div
-                  className="fixed inset-0 z-40"
-                  onClick={() => setIsMonthDropdownOpen(false)}
-                />
-                <div className="absolute right-0 mt-2 w-48 bg-white border border-[#E0E0E0] rounded-lg shadow-lg z-50 py-1">
-                  {monthOptions.map((option) => (
-                    <button
-                      key={option}
-                      onClick={() => handleMonthSelect(option)}
-                      className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${selectedMonth === option ? "text-teal-600 font-medium bg-teal-50" : "text-gray-700"}`}
-                    >
-                      {option}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
+            </div>
           </div>
+
           <button className="ml-auto flex items-center gap-2 px-6 py-2.5 bg-[#2E7C83] text-white rounded-lg text-sm font-semibold hover:bg-[#035F75] transition-all shadow-md active:scale-95 self-end cursor-pointer">
             <Download size={18} />
             Export

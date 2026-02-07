@@ -9,25 +9,34 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 import PetOwnerDetailsModal from "../Components/PetOwnerDetailsModal";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { CalendarDays } from "lucide-react";
+
 export default function Petowner() {
   const [search, setSearch] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(1);
-  const [isMonthDropdownOpen, setIsMonthDropdownOpen] = useState(false);
-  const [selectedMonth, setSelectedMonth] = useState("This Month");
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
+
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("Service Type");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedOwner, setSelectedOwner] = useState(null);
 
-  const monthOptions = ["This Month", "This Week", "Today"];
   const serviceOptions = ["All Services", "Boarding", "Daycare", "Walking"];
-  const handleMonthSelect = (option) => {
-    setSelectedMonth(option);
-    setIsMonthDropdownOpen(false);
-  };
+
+  React.useEffect(() => {
+    const now = new Date();
+    const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
+    const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    setDateRange([firstDay, lastDay]);
+  }, []);
+
   const handleServiceSelect = (option) => {
+
     setSelectedService(option);
     setIsServiceDropdownOpen(false);
   };
@@ -77,7 +86,7 @@ export default function Petowner() {
       name: "Jerome Bell",
       ID: 43178,
       img: "https://i.pravatar.cc/150?u=4",
-       pets: "2",
+      pets: "2",
       completed: 8,
       recooked: 3,
       cancel: 2,
@@ -90,7 +99,7 @@ export default function Petowner() {
       name: "Cameron Williamson",
       ID: 43178,
       img: "https://i.pravatar.cc/150?u=5",
-    pets: "3",
+      pets: "3",
       completed: 2,
       recooked: 1,
       cancel: 0,
@@ -116,7 +125,7 @@ export default function Petowner() {
       name: "Jenny Wilson",
       ID: 43178,
       img: "https://i.pravatar.cc/150?u=7",
-        pets: "3",
+      pets: "3",
       completed: 1,
       recooked: 0,
       cancel: 0,
@@ -129,7 +138,7 @@ export default function Petowner() {
       name: "Robert Fox",
       ID: 43178,
       img: "https://i.pravatar.cc/150?u=8",
-        pets: "3",
+      pets: "3",
       completed: 6,
       recooked: 1,
       cancel: 3,
@@ -142,7 +151,7 @@ export default function Petowner() {
       name: "Guy Hawkins",
       ID: 43178,
       img: "https://i.pravatar.cc/150?u=9",
-        pets: "3",
+      pets: "3",
       completed: 2,
       recooked: 2,
       cancel: 2,
@@ -155,7 +164,7 @@ export default function Petowner() {
       name: "Floyd Miles",
       ID: 43178,
       img: "https://i.pravatar.cc/150?u=10",
-       pets: "3",
+      pets: "3",
       completed: 3,
       recooked: 0,
       cancel: 1,
@@ -168,7 +177,7 @@ export default function Petowner() {
       name: "Floyd Miles",
       ID: 43178,
       img: "https://i.pravatar.cc/150?u=10",
-        pets: "3",
+      pets: "3",
       completed: 3,
       recooked: 0,
       cancel: 1,
@@ -181,7 +190,7 @@ export default function Petowner() {
       name: "Floyd Miles",
       ID: 43178,
       img: "https://i.pravatar.cc/150?u=10",
-        pets: "3",
+      pets: "3",
       completed: 3,
       recooked: 0,
       cancel: 1,
@@ -194,7 +203,7 @@ export default function Petowner() {
       name: "Floyd Miles",
       ID: 43178,
       img: "https://i.pravatar.cc/150?u=10",
-        pets: "1",
+      pets: "1",
       completed: 3,
       recooked: 0,
       cancel: 1,
@@ -240,37 +249,22 @@ export default function Petowner() {
           />
         </div>
         <div className="flex items-center gap-3">
-          <div className="relative">
-            <button
-              onClick={() => setIsMonthDropdownOpen(!isMonthDropdownOpen)}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#E0E0E0] rounded-lg text-sm text-gray-600 hover:bg-gray-50 min-w-[140px] justify-between cursor-pointer"
-            >
-              <span>{selectedMonth}</span>
-              <ChevronDown
-                size={14}
-                className={`transition-transform duration-200 ${isMonthDropdownOpen ? "rotate-180" : ""}`}
+          <div className="flex flex-col relative z-[60]">
+
+            <div className="flex items-center gap-2 p-2 shadow bg-white text-gray-600 text-sm rounded-xl border border-gray-50 h-[40px]">
+              <CalendarDays size={18} className="text-teal-600 cursor-pointer" />
+              <DatePicker
+                selectsRange
+                startDate={startDate}
+                endDate={endDate}
+                onChange={(update) => setDateRange(update)}
+                placeholderText="Select date"
+                className="outline-none text-[#333333] bg-transparent cursor-pointer w-[180px]"
+                popperClassName="z-[9999]"
               />
-            </button>
-            {isMonthDropdownOpen && (
-              <>
-                <div
-                  className="fixed inset-0 z-40"
-                  onClick={() => setIsMonthDropdownOpen(false)}
-                />
-                <div className="absolute right-0 mt-2 w-48 bg-white border border-[#E0E0E0] rounded-lg shadow-lg z-50 py-1 ">
-                  {monthOptions.map((option) => (
-                    <button
-                      key={option}
-                      onClick={() => handleMonthSelect(option)}
-                      className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors cursor-pointer ${selectedMonth === option ? "text-teal-600 font-medium bg-teal-50" : "text-gray-700"}`}
-                    >
-                      {option}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
+            </div>
           </div>
+
           <div className="relative">
             <button
               onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
